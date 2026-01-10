@@ -27,12 +27,15 @@
 }
 
 body {
+    background-color: #000000;
     background-color: var(--bg-color);
+    color: #ffffff;
     color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
+    -webkit-transition: background-color 0.3s, color 0.3s;
 }
 
 a {
@@ -48,13 +51,18 @@ a {
 
 /* Navbar */
 nav {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 100;
+    background: #000;
     background: var(--nav-bg);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid var(--border-color);
     transition: background 0.3s, border-color 0.3s;
+    -webkit-transition: background 0.3s, border-color 0.3s;
 }
 
 .nav-content {
@@ -71,14 +79,31 @@ nav {
 }
 
 .nav-right {
+    display: -webkit-flex;
     display: flex;
+    -webkit-align-items: center;
     align-items: center;
-    gap: 30px;
+}
+
+.nav-right > * {
+    margin-left: 30px;
+}
+
+.nav-right > *:first-child {
+    margin-left: 0;
 }
 
 .nav-links {
+    display: -webkit-flex;
     display: flex;
-    gap: 30px;
+}
+
+.nav-link {
+    margin-left: 30px;
+}
+
+.nav-link:first-child {
+    margin-left: 0;
 }
 
 .nav-link {
@@ -135,13 +160,20 @@ nav {
 .hero {
     padding: 100px 0;
     text-align: center;
-    background: var(--hero-bg);
+    background-color: #0b1120;
+    background: 
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px),
+        var(--hero-bg);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
     transition: background 0.3s;
+    -webkit-transition: background 0.3s;
 }
 
 .badge {
     display: inline-block;
     padding: 5px 15px;
+    border: 1px solid rgba(255,255,255,0.05);
     border: 1px solid var(--border-color);
     background: rgba(255,255,255,0.05);
     border-radius: 20px;
@@ -150,6 +182,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
+    color: #ffffff;
     color: var(--text-primary);
 }
 
@@ -168,6 +201,8 @@ h1 {
 
 /* Grid Layout */
 .grid {
+    display: flex;
+    flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
@@ -175,11 +210,17 @@ h1 {
 }
 
 .card {
+    flex: 1 1 300px;
+    background: rgba(255, 255, 255, 0.02);
     background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 30px;
     transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
+    -webkit-transition: -webkit-transform 0.3s, border-color 0.3s, background-color 0.3s;
+    -moz-transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
+    -o-transition: transform 0.3s, border-color 0.3s, background-color 0.3s;
 }
 
 .card:hover {
@@ -240,6 +281,7 @@ h1 {
     object-fit: cover;
     opacity: 0.6;
     transition: opacity 0.5s, transform 0.5s;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
 }
 
 .app-card:hover .app-image img {
@@ -276,7 +318,9 @@ h1 {
     font-weight: 700;
     font-size: 0.9rem;
     transition: transform 0.2s, background 0.3s;
+    -webkit-transition: -webkit-transform 0.2s, background 0.3s;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-primary {
@@ -300,9 +344,23 @@ footer {
 }
 
 .footer-grid {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 50px;
+}
+
+.footer-grid > * {
+    margin-bottom: 30px;
+}
+
+@supports (display: grid) {
+    .footer-grid > * {
+        margin-bottom: 0;
+    }
 }
 
 .footer-title {
