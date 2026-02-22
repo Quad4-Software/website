@@ -9,31 +9,23 @@
 
 	let { children, data } = $props();
 
-	const baseOrigin = $derived(data.baseOrigin ?? $page.url.origin);
-	const canonical = $derived(baseOrigin + $page.url.pathname);
-	const jsonLd = $derived(
-		JSON.stringify({
-			'@context': 'https://schema.org',
-			'@graph': [
-				{
-					'@type': 'Organization',
-					name: 'Quad4',
-					url: baseOrigin
-				},
-				{
-					'@type': 'WebSite',
-					name: 'Quad4',
-					url: baseOrigin,
-					description: $tStore('home.metaDescription')
-				}
-			]
-		})
-	);
+	const baseOrigin = $derived(data?.baseOrigin ?? $page.url.origin);
+	const canonical = $derived(String(baseOrigin) + $page.url.pathname);
+	const jsonLd = $derived(data?.jsonLd ?? '{}');
 
 	onMount(() => {
 		initTheme();
 		registerServiceWorker();
+		injectJsonLd(jsonLd);
 	});
+
+	function injectJsonLd(content: string) {
+		if (typeof document === 'undefined' || !content || content === '{}') return;
+		const script = document.createElement('script');
+		script.type = 'application/ld+json';
+		script.textContent = content;
+		document.head.appendChild(script);
+	}
 
 	async function registerServiceWorker() {
 		if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
@@ -49,7 +41,6 @@
 <svelte:head>
 	<link rel="icon" href="/logo.png" />
 	<link rel="canonical" href={canonical} />
-	<script type="application/ld+json">{jsonLd}</script>
 </svelte:head>
 
 {#if $navigating}
