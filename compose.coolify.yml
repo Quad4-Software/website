@@ -21,24 +21,9 @@ services:
       - NODE_ENV=production
       - PORT=8080
       - HOST=0.0.0.0
-
-  shield:
-    image: git.quad4.io/quad4-software/shield:latest
-    security_opt:
-      - no-new-privileges:true
+      - DOMAIN=${DOMAIN:-quad4.io}
     labels:
       - traefik.enable=true
-      - "traefik.http.routers.quad4-shield.rule=Host(`${DOMAIN:-quad4.io}`) && PathPrefix(`/`)"
-      - traefik.http.routers.quad4-shield.entrypoints=web
-      - traefik.http.services.quad4-shield.loadbalancer.server.port=8000
-    environment:
-      - QUAD4_LISTEN=${QUAD4_LISTEN:-:8000}
-      - QUAD4_UPSTREAM_URL=${QUAD4_UPSTREAM_URL:-http://web:8080}
-      - QUAD4_POW_ENABLED=${QUAD4_POW_ENABLED:-true}
-      - QUAD4_POW_SECRET=${QUAD4_POW_SECRET}
-      - QUAD4_METRICS_ENABLED=${QUAD4_METRICS_ENABLED:-false}
-      - QUAD4_METRICS_KEY=${QUAD4_METRICS_KEY}
-      - QUAD4_PERSISTENCE_ENABLED=${QUAD4_PERSISTENCE_ENABLED:-false}
-      - QUAD4_PERSISTENCE_DB_PATH=${QUAD4_PERSISTENCE_DB_PATH:-/app/data/quad4.db}
-      - QUAD4_UPSTREAM_TLS_SKIP_VERIFY=${QUAD4_UPSTREAM_TLS_SKIP_VERIFY:-false}
-    restart: unless-stopped
+      - "traefik.http.routers.quad4-web.rule=Host(`${DOMAIN:-quad4.io}`) && PathPrefix(`/`)"
+      - traefik.http.routers.quad4-web.entrypoints=web
+      - traefik.http.services.quad4-web.loadbalancer.server.port=8080
