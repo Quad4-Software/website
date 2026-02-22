@@ -25,7 +25,7 @@ services:
   shield:
     image: git.quad4.io/quad4-software/shield:latest
     security_opt:
-      - no_new_privileges:true
+      - no-new-privileges:true
     labels:
       - traefik.enable=true
       - "traefik.http.routers.quad4-shield.rule=Host(`${DOMAIN:-quad4.io}`) && PathPrefix(`/`)"
