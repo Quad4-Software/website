@@ -79,8 +79,11 @@ export const en = {
 		directMethods: 'Direct Methods',
 		email: 'Email',
 		emailAddress: 'team@quad4.io',
-		lxmf: 'LXMF (Reticulum)',
-		address: '7cc8d66b4f6a0e0e49d34af7f6077b5a'
+		lxmf: 'LXMF (Reticulum) (Preferred)',
+		address: '7cc8d66b4f6a0e0e49d34af7f6077b5a',
+		reticulumClients: 'Reticulum clients and software',
+		xmpp: 'XMPP',
+		xmppAddress: 'team@chat.quad4.io'
 	},
 	footer: {
 		brand: 'Quad4',
@@ -90,12 +93,30 @@ export const en = {
 		legal: 'Legal',
 		privacy: 'Privacy Policy',
 		terms: 'Terms of Use',
+		generativeAi: 'Generative AI',
 		copyright: '© 2026 Quad4.'
+	},
+	generativeAi: {
+		metaDescription: 'How Quad4 uses generative AI and LLMs: stylometry, self-hosted open weights models, and code usage rules.',
+		title: 'Generative AI',
+		intro: 'We may use generative AI (LLMs) to hide our stylometric footprint in text and code.',
+		stylometryLink: 'https://www.whonix.org/wiki/Stylometry',
+		stylometryLinkText: 'Stylometry (Whonix)',
+		hosting:
+			'We use a few different open-weights models, hosted on our own hardware, in VMs with GPU passthrough, and offline.',
+		rulesTitle: 'Our LLM usage rules for code:',
+		rules: [
+			'Does not decide architecture decisions.',
+			'Does not touch math-related code or cryptography functions.',
+			'SAST, linting, tests (including property-based testing).',
+			'No hardcoding dependency versions.'
+		]
 	},
 	legal: {
 		metaDescription: 'Legal documents for Quad4.',
 		backToHome: 'Back to home',
 		privacy: {
+			metaDescription: 'Quad4 Privacy Policy: no tracking, analytics, or advertising. How we handle data and Shield.',
 			title: 'Privacy Policy',
 			lastUpdated: 'Last updated',
 			lastUpdatedDate: 'February 2026',
@@ -119,6 +140,7 @@ export const en = {
 			]
 		},
 		terms: {
+			metaDescription: 'Quad4 Terms of Use: use of this site, software and links, and changes to terms.',
 			title: 'Terms of Use',
 			lastUpdated: 'Last updated',
 			lastUpdatedDate: 'February 2026',

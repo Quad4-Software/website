@@ -39,6 +39,14 @@
 							{$tStore('nav.contact')}
 						</a>
 					</li>
+					<li class="mb-3">
+						<a
+							href="/generative-ai"
+							class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+						>
+							{$tStore('footer.generativeAi')}
+						</a>
+					</li>
 				</ul>
 			</div>
 			<div>

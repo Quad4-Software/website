@@ -37,6 +37,25 @@
 				>
 					{$tStore('contact.address')}
 				</div>
+				<a
+					href="https://markqvist.github.io/Reticulum/manual/software.html"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-2 inline-block text-sm text-blue-600 dark:text-blue-400 hover:underline"
+				>
+					{$tStore('contact.reticulumClients')}
+				</a>
+			</div>
+			<div class="mt-6">
+				<h3 class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-2">
+					{$tStore('contact.xmpp')}
+				</h3>
+				<a
+					href={'xmpp:' + $tStore('contact.xmppAddress')}
+					class="block bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-gray-800 dark:text-gray-200 text-sm hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors font-mono"
+				>
+					{$tStore('contact.xmppAddress')}
+				</a>
 			</div>
 		</Card>
 	</div>

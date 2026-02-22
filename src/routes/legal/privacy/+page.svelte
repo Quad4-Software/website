@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<title>{doc.title} | Quad4</title>
-	<meta name="description" content={$tStore('legal.metaDescription')} />
+	<meta name="description" content={doc.metaDescription} />
 </svelte:head>
 
 <h1>{doc.title}</h1>
