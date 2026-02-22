@@ -47,11 +47,13 @@ describe('blog', () => {
 });
 
 describe('blog list route load', () => {
-	it('returns posts', async () => {
+	it('returns posts and total', async () => {
 		const { load } = await import('../routes/blog/+page.server');
-		const result = await load();
+		const result = await load({ url: new URL('http://localhost/blog'), params: {}, route: { id: null } } as never);
 		expect(result).toHaveProperty('posts');
+		expect(result).toHaveProperty('total');
 		expect(Array.isArray(result.posts)).toBe(true);
+		expect(typeof result.total).toBe('number');
 	});
 });
 

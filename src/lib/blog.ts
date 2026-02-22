@@ -61,6 +61,32 @@ export async function getPosts(): Promise<PostMeta[]> {
 	return entries.sort((a, b) => (b.date < a.date ? -1 : 1));
 }
 
+export interface PostsPage {
+	posts: PostMeta[];
+	total: number;
+}
+
+export async function getPostsFiltered(opts: {
+	q?: string;
+	page?: number;
+	limit?: number;
+}): Promise<PostsPage> {
+	const { q = '', page = 1, limit = 10 } = opts;
+	const all = await getPosts();
+	const norm = q.trim().toLowerCase();
+	const filtered = norm
+		? all.filter(
+				(p) =>
+					(p.title ?? '').toLowerCase().includes(norm) ||
+					(p.description ?? '').toLowerCase().includes(norm)
+			)
+		: all;
+	const total = filtered.length;
+	const start = (page - 1) * limit;
+	const posts = filtered.slice(start, start + limit);
+	return { posts, total };
+}
+
 export async function getPost(slug: string): Promise<Post | null> {
 	const normalized = slug.replace(/^\/+|\/+$/g, '');
 	const pathKey = Object.keys(postModules).find(

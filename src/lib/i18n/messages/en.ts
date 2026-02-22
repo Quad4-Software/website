@@ -79,7 +79,12 @@ export const en = {
 		metaDescription: 'Quad4 blog: updates, how-tos, and notes on sovereign software and deployment.',
 		intro: 'Updates, how-tos, and notes from the Quad4 collective.',
 		empty: 'No posts yet',
-		emptyDescription: 'Posts will appear here when they are published.'
+		emptyDescription: 'Posts will appear here when they are published.',
+		searchPlaceholder: 'Search posts…',
+		searchLabel: 'Search',
+		prev: 'Previous',
+		next: 'Next',
+		pageOf: 'Page {page} of {total}'
 	},
 	contact: {
 		metaDescription: 'Get in touch with Quad4 via email or secure LXMF messaging.',
