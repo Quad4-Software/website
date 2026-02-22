@@ -25,6 +25,14 @@
 				<ul class="list-none">
 					<li class="mb-3">
 						<a
+							href="/about"
+							class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+						>
+							{$tStore('nav.about')}
+						</a>
+					</li>
+					<li class="mb-3">
+						<a
 							href="/contact"
 							class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
 						>

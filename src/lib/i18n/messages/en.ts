@@ -1,6 +1,7 @@
 export const en = {
 	nav: {
 		home: 'Home',
+		about: 'About',
 		contact: 'Contact',
 		git: 'Git'
 	},
@@ -63,6 +64,14 @@ export const en = {
 		},
 		linkGit: 'Git',
 		linkWebsite: 'Website'
+	},
+	about: {
+		metaDescription: 'Who is Quad4: an entity of privacy-focused individuals building, funding (donating), and promoting sovereign, decentralized software.',
+		title: 'About Quad4',
+		lead: 'Quad4 is an entity of privacy-focused individuals dedicated to building, funding (donating), and promoting sovereign, decentralized software for everyone.',
+		skills:
+			'Our collective experience spans software development, privacy and security, ethical hacking, OSINT (open-source intelligence), GEOINT (geospatial intelligence), SIGINT (signals intelligence), counter-intel, anti-censorship tech, psychology, other intelligence and tradecraft, 3D printing, firearms, drones, radio, and related disciplines.',
+		structure: 'There is no business, company, or the like. There is no formal membership, no hierarchy, and no leadership, only people contributing to the same goals.'
 	},
 	contact: {
 		metaDescription: 'Get in touch with Quad4 via email or secure LXMF messaging.',

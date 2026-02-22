@@ -31,6 +31,7 @@
 			<div class="hidden md:flex items-center gap-6">
 				<div class="flex gap-6">
 					<a href="/" class={linkClass('/')}>{$tStore('nav.home')}</a>
+					<a href="/about" class={linkClass('/about')}>{$tStore('nav.about')}</a>
 					<a href="/contact" class={linkClass('/contact')}>{$tStore('nav.contact')}</a>
 					<a
 						href="https://git.quad4.io"
@@ -70,6 +71,7 @@
 			>
 				<div class="flex flex-col gap-1">
 					<a href="/" class={linkClass('/')} onclick={() => (mobileOpen = false)}>{$tStore('nav.home')}</a>
+					<a href="/about" class={linkClass('/about')} onclick={() => (mobileOpen = false)}>{$tStore('nav.about')}</a>
 					<a href="/contact" class={linkClass('/contact')} onclick={() => (mobileOpen = false)}
 						>{$tStore('nav.contact')}</a
 					>
