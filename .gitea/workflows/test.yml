@@ -19,7 +19,9 @@ jobs:
         uses: https://git.quad4.io/actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
           node-version: 24
-          cache: pnpm
+
+      - name: Setup pnpm
+        uses: https://git.quad4.io/actions/setup-pnpm@1e1c8eafbd745f64b1ef30a7d7ed7965034c486c
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -40,7 +42,9 @@ jobs:
         uses: https://git.quad4.io/actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
           node-version: 24
-          cache: pnpm
+
+      - name: Setup pnpm
+        uses: https://git.quad4.io/actions/setup-pnpm@1e1c8eafbd745f64b1ef30a7d7ed7965034c486c
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
