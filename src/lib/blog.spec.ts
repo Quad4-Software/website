@@ -1,0 +1,80 @@
+import { describe, it, expect } from 'vitest';
+import { getPosts, getPost, getPostSlugs } from './blog';
+
+describe('blog', () => {
+	describe('getPosts', () => {
+		it('returns posts sorted by date descending', async () => {
+			const posts = await getPosts();
+			expect(Array.isArray(posts)).toBe(true);
+			expect(posts.length).toBeGreaterThanOrEqual(2);
+			for (const p of posts) {
+				expect(p).toHaveProperty('slug');
+				expect(p).toHaveProperty('title');
+				expect(p).toHaveProperty('date');
+				expect(p).toHaveProperty('description');
+			}
+			for (let i = 1; i < posts.length; i++) {
+				expect(posts[i].date <= posts[i - 1].date).toBe(true);
+			}
+		});
+	});
+
+	describe('getPost', () => {
+		it('returns post when slug exists', async () => {
+			const post = await getPost('hello-world');
+			expect(post).not.toBeNull();
+			if (post) {
+				expect(post.slug).toBe('hello-world');
+				expect(post.title).toBeDefined();
+				expect(post.html).toBeDefined();
+				expect(post.html.length).toBeGreaterThan(0);
+			}
+		});
+
+		it('returns null for unknown slug', async () => {
+			const post = await getPost('no-such-post-xyz');
+			expect(post).toBeNull();
+		});
+	});
+
+	describe('getPostSlugs', () => {
+		it('returns all slugs', async () => {
+			const slugs = await getPostSlugs();
+			expect(Array.isArray(slugs)).toBe(true);
+			expect(slugs).toContain('hello-world');
+			expect(slugs).toContain('coolify-preview');
+		});
+	});
+});
+
+describe('blog list route load', () => {
+	it('returns posts', async () => {
+		const { load } = await import('../routes/blog/+page.server');
+		const result = await load();
+		expect(result).toHaveProperty('posts');
+		expect(Array.isArray(result.posts)).toBe(true);
+	});
+});
+
+describe('blog post route load', () => {
+	it('returns post for valid slug', async () => {
+		const { load } = await import('../routes/blog/[slug]/+page.server');
+		const result = await load({
+			params: { slug: 'hello-world' },
+			route: { id: null }
+		} as never);
+		expect(result).toHaveProperty('post');
+		expect(result.post.slug).toBe('hello-world');
+		expect(result.post.html).toBeDefined();
+	});
+
+	it('throws 404 for invalid slug', async () => {
+		const { load } = await import('../routes/blog/[slug]/+page.server');
+		await expect(
+			load({
+				params: { slug: 'nonexistent-post-xyz' },
+				route: { id: null }
+			} as never)
+		).rejects.toThrow();
+	});
+});

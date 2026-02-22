@@ -2,6 +2,7 @@ export const en = {
 	nav: {
 		home: 'Home',
 		about: 'About',
+		blog: 'Blog',
 		contact: 'Contact',
 		git: 'Git'
 	},
@@ -72,6 +73,11 @@ export const en = {
 		skills:
 			'Our collective experience spans software development, privacy and security, ethical hacking, OSINT (open-source intelligence), GEOINT (geospatial intelligence), SIGINT (signals intelligence), counter-intel, anti-censorship tech, psychology, other intelligence and tradecraft, 3D printing, firearms, drones, radio, and related disciplines.',
 		structure: 'There is no business, company, or the like. There is no formal membership, no hierarchy, and no leadership, only people contributing to the same goals.'
+	},
+	blog: {
+		title: 'Blog',
+		metaDescription: 'Quad4 blog: updates, how-tos, and notes on sovereign software and deployment.',
+		intro: 'Updates, how-tos, and notes from the Quad4 collective.'
 	},
 	contact: {
 		metaDescription: 'Get in touch with Quad4 via email or secure LXMF messaging.',

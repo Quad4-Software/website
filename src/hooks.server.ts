@@ -1,6 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 
-const securityHeaders: [string, string][] = [
+export const securityHeaders: [string, string][] = [
 	['Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload'],
 	['X-Content-Type-Options', 'nosniff'],
 	['X-Frame-Options', 'DENY'],
