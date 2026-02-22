@@ -3,9 +3,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			(function() {
+				var theme = localStorage.getItem('theme');
+				if (theme === 'light' || theme === 'dark') document.documentElement.classList.add(theme);
+				else document.documentElement.classList.add(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
+		<noscript>
+			<div style="padding:0.75rem 1rem;text-align:center;background:#e5e7eb;color:#374151;font-size:0.875rem">
+				This site works without JavaScript. Links and content are available. Some features (theme toggle, client navigation) need JavaScript.
+			</div>
+		</noscript>
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

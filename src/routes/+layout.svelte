@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { page, navigating } from '$app/stores';
+	import { env } from '$env/dynamic/public';
 	import { initTheme } from '$lib/theme';
 	import { tStore } from '$lib/i18n';
 	import Nav from '$lib/components/Nav.svelte';
@@ -9,7 +10,8 @@
 
 	let { children } = $props();
 
-	const canonical = $derived($page.url.origin + $page.url.pathname);
+	const baseOrigin = $derived(env.PUBLIC_ORIGIN ?? $page.url.origin);
+	const canonical = $derived(baseOrigin + $page.url.pathname);
 	const jsonLd = $derived(
 		JSON.stringify({
 			'@context': 'https://schema.org',
@@ -17,12 +19,12 @@
 				{
 					'@type': 'Organization',
 					name: 'Quad4',
-					url: $page.url.origin
+					url: baseOrigin
 				},
 				{
 					'@type': 'WebSite',
 					name: 'Quad4',
-					url: $page.url.origin,
+					url: baseOrigin,
 					description: $tStore('home.metaDescription')
 				}
 			]
@@ -31,11 +33,23 @@
 
 	onMount(() => {
 		initTheme();
+		registerServiceWorker();
 	});
+
+	async function registerServiceWorker() {
+		if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+			try {
+				await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+			} catch {
+				// ignore
+			}
+		}
+	}
 </script>
 
 <svelte:head>
 	<link rel="icon" href="/logo.png" />
+	<link rel="preload" href="/logo.png" as="image" />
 	<link rel="canonical" href={canonical} />
 	<script type="application/ld+json">{jsonLd}</script>
 </svelte:head>
