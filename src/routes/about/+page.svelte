@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tStore } from '$lib/i18n';
 	import Container from '$lib/components/Container.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 </svelte:head>
 
 <Container>
+	<Breadcrumbs items={[{ label: $tStore('nav.home'), href: '/' }, { label: $tStore('nav.about') }]} />
 	<header class="py-20">
 		<h1 class="text-3xl font-extrabold tracking-tight">{$tStore('about.title')}</h1>
 	</header>

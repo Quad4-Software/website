@@ -174,6 +174,9 @@ export const en = {
 		serverErrorMessage: 'An error occurred. Please try again later.',
 		backHome: 'Back to home'
 	},
+	breadcrumbs: {
+		legal: 'Legal'
+	},
 	a11y: {
 		toggleTheme: 'Toggle theme'
 	}

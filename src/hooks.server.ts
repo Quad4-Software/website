@@ -16,8 +16,22 @@ const securityHeaders: [string, string][] = [
 			"connect-src 'self'",
 			"frame-ancestors 'none'",
 			"base-uri 'self'",
-			"form-action 'self'"
+			"form-action 'self'",
+			"report-uri /csp-report"
 		].join('; ')
+	],
+	[
+		'Permissions-Policy',
+		[
+			'camera=()',
+			'microphone=()',
+			'geolocation=()',
+			'payment=()',
+			'usb=()',
+			'magnetometer=()',
+			'gyroscope=()',
+			'accelerometer=()'
+		].join(', ')
 	]
 ];
 

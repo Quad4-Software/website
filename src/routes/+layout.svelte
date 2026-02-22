@@ -2,15 +2,14 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { page, navigating } from '$app/stores';
-	import { env } from '$env/dynamic/public';
 	import { initTheme } from '$lib/theme';
 	import { tStore } from '$lib/i18n';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
-	const baseOrigin = $derived(env.PUBLIC_ORIGIN ?? $page.url.origin);
+	const baseOrigin = $derived(data.baseOrigin ?? $page.url.origin);
 	const canonical = $derived(baseOrigin + $page.url.pathname);
 	const jsonLd = $derived(
 		JSON.stringify({
@@ -49,7 +48,6 @@
 
 <svelte:head>
 	<link rel="icon" href="/logo.png" />
-	<link rel="preload" href="/logo.png" as="image" />
 	<link rel="canonical" href={canonical} />
 	<script type="application/ld+json">{jsonLd}</script>
 </svelte:head>
@@ -64,7 +62,7 @@
 
 <div class="min-h-screen flex flex-col">
 	<Nav />
-	<main class="flex-1">
+	<main id="main" class="flex-1">
 		{@render children()}
 	</main>
 	<Footer />

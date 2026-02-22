@@ -20,3 +20,23 @@ h1, h2, h3, h4 {
 	font-family: ui-sans-serif, system-ui, sans-serif;
 	letter-spacing: -0.02em;
 }
+
+@media print {
+	nav,
+	footer,
+	[role="progressbar"],
+	button[aria-label*="theme"] {
+		display: none !important;
+	}
+	body {
+		background: #fff;
+		color: #111;
+	}
+	main {
+		print-color-adjust: exact;
+		-webkit-print-color-adjust: exact;
+	}
+	a[href]::after {
+		content: none;
+	}
+}

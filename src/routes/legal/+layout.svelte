@@ -1,20 +1,26 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { en } from '$lib/i18n/messages/en';
 	import { tStore } from '$lib/i18n';
 	import Container from '$lib/components/Container.svelte';
-	import { ArrowLeft } from 'lucide-svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	let { children } = $props();
+
+	const pathname = $derived($page.url.pathname);
+	const docTitle = $derived(
+		pathname.includes('privacy') ? en.legal.privacy.title : en.legal.terms.title
+	);
+	const breadcrumbItems = $derived([
+		{ label: $tStore('nav.home'), href: '/' },
+		{ label: $tStore('breadcrumbs.legal') },
+		{ label: docTitle }
+	]);
 </script>
 
 <div class="py-12 sm:py-16">
 	<Container class="max-w-3xl">
-		<a
-			href="/"
-			class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors mb-10"
-		>
-			<ArrowLeft class="w-4 h-4" />
-			{$tStore('legal.backToHome')}
-		</a>
+		<Breadcrumbs items={breadcrumbItems} />
 		<div class="legal-doc">
 			{@render children()}
 		</div>

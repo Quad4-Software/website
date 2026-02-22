@@ -2,6 +2,7 @@
 	import { en } from '$lib/i18n/messages/en';
 	import { tStore } from '$lib/i18n';
 	import Container from '$lib/components/Container.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 
 	const rules = en.generativeAi.rules;
 </script>
@@ -12,6 +13,7 @@
 </svelte:head>
 
 <Container>
+	<Breadcrumbs items={[{ label: $tStore('nav.home'), href: '/' }, { label: $tStore('generativeAi.title') }]} />
 	<header class="py-20">
 		<h1 class="text-3xl font-extrabold tracking-tight">{$tStore('generativeAi.title')}</h1>
 	</header>

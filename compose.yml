@@ -2,6 +2,8 @@ services:
   web:
     build: .
     image: quad4-website:latest
+    ports:
+      - "8080:8080"
     security_opt:
       - no-new-privileges:true
     read_only: true
