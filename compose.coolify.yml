@@ -2,6 +2,8 @@ services:
   web:
     build: .
     image: quad4-website:latest
+    user: "65532:65532"
+    restart: unless-stopped
     security_opt:
       - no-new-privileges:true
     read_only: true

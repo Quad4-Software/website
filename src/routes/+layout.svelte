@@ -6,8 +6,14 @@
 	import { tStore } from '$lib/i18n';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import BlogSkeleton from '$lib/components/BlogSkeleton.svelte';
 
 	let { children, data } = $props();
+
+	const showBlogSkeleton = $derived(
+		$navigating !== null &&
+			$navigating?.to?.url?.pathname === '/blog'
+	);
 
 	const baseOrigin = $derived(data?.baseOrigin ?? $page.url.origin);
 	const canonical = $derived(String(baseOrigin) + $page.url.pathname);
@@ -54,7 +60,11 @@
 <div class="min-h-screen flex flex-col">
 	<Nav />
 	<main id="main" class="flex-1">
-		{@render children()}
+		{#if showBlogSkeleton}
+			<BlogSkeleton />
+		{:else}
+			{@render children()}
+		{/if}
 	</main>
 	<Footer />
 	<div class="sr-only">
