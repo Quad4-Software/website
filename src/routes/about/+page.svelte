@@ -9,9 +9,9 @@
 	<meta name="description" content={$tStore('about.metaDescription')} />
 </svelte:head>
 
-<Container>
+<Container class="pt-6 sm:pt-8">
 	<Breadcrumbs items={[{ label: $tStore('nav.home'), href: '/' }, { label: $tStore('nav.about') }]} />
-	<header class="py-20">
+	<header class="pt-0 pb-6">
 		<h1 class="text-3xl font-extrabold tracking-tight">{$tStore('about.title')}</h1>
 	</header>
 

@@ -7,7 +7,7 @@
 	let { items }: { items: Item[] } = $props();
 </script>
 
-<nav aria-label="Breadcrumb" class="mb-6">
+<nav aria-label="Breadcrumb" class="mb-3">
 	<ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
 		{#each items as item, i}
 			<li class="flex items-center gap-1.5">

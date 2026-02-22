@@ -22,7 +22,7 @@
 </script>
 
 <nav
-	class="sticky top-0 z-50 bg-white/90 dark:bg-[#0a0a0a]/95 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/60 transition-colors"
+	class="sticky top-0 z-50 bg-white/90 dark:bg-[#0a0a0a]/95 backdrop-blur-md border-b border-gray-200/80 dark:border-gray-800/60"
 >
 	<Container>
 		<div class="flex justify-between items-center h-16">

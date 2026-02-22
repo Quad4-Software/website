@@ -1,5 +1,4 @@
 import type { RequestHandler } from './$types';
+import { cspReportResponse } from '$lib/cspReport';
 
-export const POST: RequestHandler = async () => {
-	return new Response(null, { status: 204 });
-};
+export const POST: RequestHandler = async () => cspReportResponse();
