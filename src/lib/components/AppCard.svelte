@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLink, Globe } from 'lucide-svelte';
+	import { Globe } from 'lucide-svelte';
 
 	interface Props {
 		title: string;
@@ -68,10 +68,10 @@
 					href={gitHref}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+					class="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors inline-flex"
 					title={linkGitLabel}
 				>
-					<ExternalLink class="w-5 h-5" />
+					<img src="/icons/gitea.svg" alt="" class="w-5 h-5" width="20" height="20" />
 				</a>
 			{/if}
 			{#if siteHref}

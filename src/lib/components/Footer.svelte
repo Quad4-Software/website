@@ -9,6 +9,16 @@
 			<div>
 				<h4 class="text-sm font-bold uppercase tracking-wide mb-6">{$tStore('footer.brand')}</h4>
 				<p class="text-gray-500 dark:text-gray-400 max-w-md mb-5">{$tStore('footer.tagline')}</p>
+				<a
+					href="https://git.quad4.io/websites/quad4"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+					title={$tStore('footer.source')}
+				>
+					<img src="/icons/gitea.svg" alt="" class="w-5 h-5" width="20" height="20" />
+					<span>{$tStore('footer.source')}</span>
+				</a>
 			</div>
 			<div>
 				<h4 class="text-sm font-bold uppercase tracking-wide mb-6">{$tStore('footer.entity')}</h4>

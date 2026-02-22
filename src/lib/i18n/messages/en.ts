@@ -76,6 +76,7 @@ export const en = {
 	footer: {
 		brand: 'Quad4',
 		tagline: 'Software you can own and control.',
+		source: 'Website source',
 		entity: 'Entity',
 		legal: 'Legal',
 		privacy: 'Privacy Policy',
@@ -97,6 +98,10 @@ export const en = {
 				{
 					heading: 'Data we do not collect',
 					body: 'We do not log visits, use cookies for tracking, or integrate third-party analytics. Server logs may contain IP and request metadata for operational and security purposes; we do not use them to profile users.'
+				},
+				{
+					heading: 'Shield (reverse proxy)',
+					body: 'This site is fronted by Quad4 Shield, a reverse-proxy security layer. Shield may process request metadata (e.g. IP, path, headers) for proof-of-work, flood and abuse limits, blocklists, and bans. Shield does not perform TLS termination or certificate issuance; that is handled by a proxy in front of it. We do not use Shield data for tracking or profiling.'
 				},
 				{
 					heading: 'Contact',
