@@ -167,6 +167,13 @@ export const en = {
 			'Target customers: researchers, organizations needing self-hosted or custom software, and users who want to own and control their tools and data.',
 		contactEmail: 'Contact: team@quad4.io'
 	},
+	error: {
+		notFound: 'Page not found',
+		notFoundMessage: 'The page you requested could not be found.',
+		serverError: 'Something went wrong',
+		serverErrorMessage: 'An error occurred. Please try again later.',
+		backHome: 'Back to home'
+	},
 	a11y: {
 		toggleTheme: 'Toggle theme'
 	}
