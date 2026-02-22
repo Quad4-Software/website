@@ -77,7 +77,9 @@ export const en = {
 	blog: {
 		title: 'Blog',
 		metaDescription: 'Quad4 blog: updates, how-tos, and notes on sovereign software and deployment.',
-		intro: 'Updates, how-tos, and notes from the Quad4 collective.'
+		intro: 'Updates, how-tos, and notes from the Quad4 collective.',
+		empty: 'No posts yet',
+		emptyDescription: 'Posts will appear here when they are published.'
 	},
 	contact: {
 		metaDescription: 'Get in touch with Quad4 via email or secure LXMF messaging.',
