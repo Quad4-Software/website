@@ -21,17 +21,16 @@ services:
       - NODE_ENV=production
       - PORT=8080
       - HOST=0.0.0.0
-      - DOMAIN=${DOMAIN:-quad4.io}
-    labels:
-      - traefik.enable=true
-      - "traefik.http.routers.quad4-web.rule=Host(`${DOMAIN:-quad4.io}`) && PathPrefix(`/`)"
-      - traefik.http.routers.quad4-web.entrypoints=web
-      - traefik.http.services.quad4-web.loadbalancer.server.port=8080
 
   shield:
     image: git.quad4.io/quad4-software/shield:latest
     security_opt:
       - no_new_privileges:true
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.quad4-shield.rule=Host(`${DOMAIN:-quad4.io}`) && PathPrefix(`/`)"
+      - traefik.http.routers.quad4-shield.entrypoints=web
+      - traefik.http.services.quad4-shield.loadbalancer.server.port=8000
     environment:
       - QUAD4_LISTEN=${QUAD4_LISTEN:-:8000}
       - QUAD4_UPSTREAM_URL=${QUAD4_UPSTREAM_URL:-http://web:8080}
