@@ -106,24 +106,7 @@ export const en = {
 		legal: 'Legal',
 		privacy: 'Privacy Policy',
 		terms: 'Terms of Use',
-		generativeAi: 'Generative AI',
 		copyright: '© 2026 Quad4.'
-	},
-	generativeAi: {
-		metaDescription: 'How Quad4 uses generative AI and LLMs: stylometry, self-hosted open weights models, and code usage rules.',
-		title: 'Generative AI',
-		intro: 'We may use generative AI (LLMs) to hide our stylometric footprint in text and code.',
-		stylometryLink: 'https://www.whonix.org/wiki/Stylometry',
-		stylometryLinkText: 'Stylometry (Whonix)',
-		hosting:
-			'We use a few different open-weights models, hosted on our own hardware, in VMs with GPU passthrough, and offline.',
-		rulesTitle: 'Our LLM usage rules for code:',
-		rules: [
-			'Does not decide architecture decisions.',
-			'Does not touch math-related code or cryptography functions.',
-			'SAST, linting, tests (including property-based testing).',
-			'No hardcoding dependency versions.'
-		]
 	},
 	legal: {
 		metaDescription: 'Legal documents for Quad4.',
