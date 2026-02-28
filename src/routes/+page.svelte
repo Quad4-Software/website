@@ -59,7 +59,7 @@
 				title={$tStore('home.apps.reticulumGo.title')}
 				description={$tStore('home.apps.reticulumGo.desc')}
 				imageAlt={$tStore('home.apps.reticulumGo.title')}
-				gitHref="https://git.quad4.io/Quad4-Software/Reticulum-Go"
+				gitHref="https://git.quad4.io/Networks/Reticulum-Go"
 				siteHref="https://reticulum-go.quad4.io/"
 				linkGitLabel={$tStore('home.linkGit')}
 				linkWebsiteLabel={$tStore('home.linkWebsite')}
