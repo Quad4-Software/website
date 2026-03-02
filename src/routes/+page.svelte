@@ -114,14 +114,14 @@
 				title={$tStore('home.apps.lxmfCliChat.title')}
 				description={$tStore('home.apps.lxmfCliChat.desc')}
 				imageAlt={$tStore('home.apps.lxmfCliChat.title')}
-				gitHref="https://git.quad4.io/Quad4-Software/LXMF-CLI-Chat"
+				gitHref="https://git.quad4.io/RNS-Things/LXMF-CLI-Chat"
 				linkGitLabel={$tStore('home.linkGit')}
 			/>
 			<AppCard
 				title={$tStore('home.apps.rnsPageNode.title')}
 				description={$tStore('home.apps.rnsPageNode.desc')}
 				imageAlt={$tStore('home.apps.rnsPageNode.title')}
-				gitHref="https://git.quad4.io/Quad4-Software/RNS-Page-Node"
+				gitHref="https://git.quad4.io/RNS-Things/rns-page-node"
 				linkGitLabel={$tStore('home.linkGit')}
 			/>
 		</div>
