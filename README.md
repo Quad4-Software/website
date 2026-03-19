@@ -1,5 +1,3 @@
-# Quad4 website. 
+# Quad4 website
 
-Built with SvelteKit, Node. `docker compose up -d` or `pnpm install && pnpm build && pnpm preview`.
-
-Supports PWA, i18n and No-JS
+A minimal, efficient, sovereign website built with plain HTML and CSS.

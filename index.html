@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quad4 | Sovereign & Decentralized Software</title>
+    <meta name="description" content="Sovereign, decentralized, and privacy-first software tools.">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --dim: #888;
+            --accent: #fff;
+            --border: #333;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #fff;
+                --text: #1a1a1a;
+                --dim: #666;
+                --accent: #000;
+                --border: #eee;
+            }
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header { margin-bottom: 2rem; }
+        h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; }
+        h2 { font-size: 1.1rem; font-weight: 600; margin: 3rem 0 1rem 0; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); }
+        h3 { font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; }
+        
+        p { margin: 0 0 1rem 0; color: var(--text); }
+        .dim { color: var(--dim); }
+
+        section { margin-bottom: 2rem; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            margin-bottom: 0;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project p { flex-grow: 1; }
+
+        a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+        a:hover { color: var(--accent); }
+
+        .links { margin-top: 0.5rem; font-size: 0.9rem; }
+        .links a { margin-right: 1rem; text-decoration: none; border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; }
+        .links a:hover { border-color: var(--accent); }
+
+        footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--dim);
+        }
+
+        .values {
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 0.5rem; }
+
+        code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: var(--border); padding: 2px 4px; border-radius: 3px; font-size: 0.9em; }
+
+        @media (max-width: 600px) {
+            body { padding: 1.5rem; }
+            header { margin-bottom: 3rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Quad4</h1>
+        <p class="dim">Sovereign & Decentralized Software</p>
+    </header>
+
+    <section>
+        <p>Software for a sovereign decentralized future. We build tools that you own and control, without analytics, telemetry, or ads.</p>
+    </section>
+
+    <section>
+        <h2>Values</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Privacy-built</h3>
+                <p class="dim">Local software, your data stays yours. No tracking or profiling.</p>
+            </div>
+            <div class="card">
+                <h3>Secure</h3>
+                <p class="dim">Focused on hardened development and resilient deployment.</p>
+            </div>
+            <div class="card">
+                <h3>Efficient</h3>
+                <p class="dim">Low resource usage. Designed to run on both old and new hardware.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project">
+                <h3>MeshChatX</h3>
+                <p class="dim">A Reticulum MeshChat fork from the future.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/RNS-Things/MeshChatX">Git</a>
+                    <a href="https://meshchatx.com/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Reticulum-Go</h3>
+                <p class="dim">Full Reticulum stack implementation in the Go programming language.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/Networks/Reticulum-Go">Git</a>
+                    <a href="https://reticulum-go.quad4.io/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>WebNews</h3>
+                <p class="dim">Cross-platform news aggregator with full-text extraction.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/Quad4-Software/webnews">Git</a>
+                    <a href="https://webnews.quad4.io/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Software Station</h3>
+                <p class="dim">High-performance software distribution system.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/Quad4-Software/software-station">Git</a>
+                    <a href="https://software.quad4.io/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Linking Tool</h3>
+                <p class="dim">Client-side mapping of relationships between entities.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/Quad4-Software/Linking-Tool">Git</a>
+                    <a href="https://linking.quad4.io/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>LXMFy</h3>
+                <p class="dim">Framework for building autonomous entities on Reticulum.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/LXMFy/LXMFy">Git</a>
+                    <a href="https://lxmfy.quad4.io/">Docs</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>Surveilled</h3>
+                <p class="dim">A map of cameras in the world using OpenStreetMap data.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/Quad4-Software/Surveilled">Git</a>
+                    <a href="https://surveilled.quad4.io/">Website</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>LXMF-CLI-Chat</h3>
+                <p class="dim">Basic LXMF TUI and CLI Chat Client.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/RNS-Things/LXMF-CLI-Chat">Git</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>RNS-Page-Node</h3>
+                <p class="dim">Serve pages and files over the Reticulum network easily.</p>
+                <div class="links">
+                    <a href="https://git.quad4.io/RNS-Things/rns-page-node">Git</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p><strong>LXMF:</strong> <code>7cc8d66b4f6a0e0e49d34af7f6077b5a</code></p>
+    </section>
+
+    <footer>
+        <p>© 2026 Quad4. <a href="index.html" download="index.html">Download this site</a></p>
+    </footer>
+</body>
+</html>
