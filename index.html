@@ -35,6 +35,14 @@
         .dim { color: var(--dim); }
 
         section { margin-bottom: 2rem; }
+
+        .intro {
+            text-align: center;
+        }
+
+        .intro p {
+            margin-bottom: 0;
+        }
         
         .grid {
             display: grid;
@@ -78,9 +86,55 @@
             color: var(--dim);
         }
 
+        footer .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem 1.5rem;
+            margin: 0;
+        }
+
+        footer .footer-size {
+            margin-left: auto;
+        }
+
         .values {
             font-weight: 500;
             margin-bottom: 2rem;
+        }
+
+        .values-section {
+            text-align: center;
+        }
+
+        .values-section h2 {
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .values-grid .card {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .values-grid .card h3,
+        .values-grid .card p {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         ul { list-style: none; padding: 0; }
@@ -101,13 +155,13 @@
         <p class="dim">Sovereign & Decentralized Software</p>
     </header>
 
-    <section>
+    <section class="intro">
         <p>Supporting and building software for a sovereign decentralized future.</p>
     </section>
 
-    <section>
+    <section class="values-section">
         <h2>Values</h2>
-        <div class="grid">
+        <div class="values-grid">
             <div class="card">
                 <h3>Privacy-built</h3>
                 <p class="dim">Local software, your data stays yours. No tracking or profiling.</p>
@@ -210,10 +264,14 @@
     <section id="contact">
         <h2>Contact</h2>
         <p><strong>LXMF:</strong> <code>7cc8d66b4f6a0e0e49d34af7f6077b5a</code></p>
+        <p><strong>Email:</strong> <a href="mailto:team@quad4.io">team@quad4.io</a></p>
     </section>
 
     <footer>
-        <p>© 2026 Quad4. <a href="index.html" download="index.html">Download this site</a></p>
+        <p class="footer-row">
+            <span>© 2026 Quad4. <a href="index.html" download="index.html">Download this site</a></span>
+            <span class="footer-size">index.html · 8.9 KB (9157 B)</span>
+        </p>
     </footer>
 </body>
 </html>
