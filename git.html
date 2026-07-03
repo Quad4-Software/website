@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Quad4 Git | RNGit over Reticulum</title>
+    <meta name="description" content="Quad4 source code is hosted on RNGit over the Reticulum network. Gitea has been retired; clone and browse repositories via rns:// URLs or Nomad Network.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://quad4.io/git.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Quad4">
+    <meta property="og:url" content="https://quad4.io/git.html">
+    <meta property="og:title" content="Quad4 Git | RNGit over Reticulum">
+    <meta property="og:description" content="Quad4 repositories are served over Reticulum via RNGit. Browse with Nomad Network or clone with standard Git and git-remote-rns.">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --dim: #888;
+            --accent: #fff;
+            --border: #333;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0 auto;
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        header { margin-bottom: 2rem; }
+        h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; }
+        h2 { font-size: 1.1rem; font-weight: 600; margin: 3rem 0 1rem 0; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); }
+        h3 { font-size: 1rem; font-weight: 600; margin: 0 0 0.25rem 0; }
+
+        p { margin: 0 0 1rem 0; color: var(--text); }
+        .dim { color: var(--dim); }
+
+        section { margin-bottom: 2rem; }
+
+        a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+        a:hover { color: var(--accent); }
+
+        code, pre {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+
+        code {
+            background: var(--border);
+            padding: 2px 4px;
+            border-radius: 3px;
+            word-break: break-all;
+        }
+
+        pre {
+            margin: 0 0 1rem 0;
+            padding: 0.75rem 1rem;
+            background: var(--border);
+            border-radius: 4px;
+            overflow-x: auto;
+            line-height: 1.45;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            word-break: normal;
+        }
+
+        .notice {
+            border-left: 3px solid var(--border);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .destination {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .repos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .repo {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .repo-url {
+            display: block;
+            margin-top: 0.35rem;
+            font-size: 0.85rem;
+            line-height: 1.45;
+        }
+
+        footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--dim);
+        }
+
+        footer .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem 1.5rem;
+            margin: 0;
+        }
+
+        footer .footer-size {
+            margin-left: auto;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Quad4</a> Git</h1>
+        <p class="dim">Repositories over Reticulum</p>
+    </header>
+
+    <section class="notice">
+        <p>The <code>git.quad4.io</code> Gitea instance has been shut down. Source code is now hosted on <strong>RNGit</strong> over the Reticulum network.</p>
+        <p class="dim">You need Reticulum (RNS) installed with <code>git-remote-rns</code> to clone and push. See the <a href="https://reticulum.network/manual/git.html" rel="noopener noreferrer">Git Over Reticulum</a> documentation for setup and usage.</p>
+    </section>
+
+    <section id="access">
+        <h2>Access</h2>
+        <div class="destinations">
+            <div class="destination">
+                <h3>RNGit</h3>
+                <p class="dim">Git remotes and <code>rngit</code> commands</p>
+                <p><code>06a54b505bb67b25ef3f8097e8001edc</code></p>
+            </div>
+            <div class="destination">
+                <h3>Nomad Network</h3>
+                <p class="dim">Browse repos, commits, and releases in a NomadNet client</p>
+                <p><code>132f67e79d9b24aad014e93015fb858f</code></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage">
+        <h2>Usage</h2>
+        <p class="dim">Repository URLs use the <code>rns://</code> scheme:</p>
+        <pre><code>rns://06a54b505bb67b25ef3f8097e8001edc/public/&lt;repo&gt;</code></pre>
+        <p class="dim">Clone example:</p>
+        <pre><code>git clone rns://06a54b505bb67b25ef3f8097e8001edc/public/MeshChatX</code></pre>
+        <p class="dim">Add a remote to an existing checkout:</p>
+        <pre><code>git remote add origin rns://06a54b505bb67b25ef3f8097e8001edc/public/MeshChatX
+git push -u origin main</code></pre>
+    </section>
+
+    <section id="repositories">
+        <h2>Repositories</h2>
+        <div class="repos">
+            <div class="repo" id="lxmfy">
+                <h3>LXMFy</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/LXMFy</code>
+            </div>
+
+            <div class="repo" id="meshchatx">
+                <h3>MeshChatX</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/MeshChatX</code>
+            </div>
+
+            <div class="repo" id="rns-over-http">
+                <h3>RNS-over-HTTP</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/RNS-over-HTTP</code>
+            </div>
+
+            <div class="repo" id="reticulum-go">
+                <h3>Reticulum-Go</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/Reticulum-Go</code>
+            </div>
+
+            <div class="repo" id="docker-rns">
+                <h3>docker-rns</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/docker-rns</code>
+            </div>
+
+            <div class="repo" id="electron-updater-rns">
+                <h3>electron-updater-rns</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/electron-updater-rns</code>
+            </div>
+
+            <div class="repo" id="lxmf-terminal-chat">
+                <h3>lxmf-terminal-chat</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/lxmf-terminal-chat</code>
+            </div>
+
+            <div class="repo" id="pip-rns">
+                <h3>pip-rns</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/pip-rns</code>
+            </div>
+
+            <div class="repo" id="reticulum-windows-installer">
+                <h3>reticulum-windows-installer</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/reticulum-windows-installer</code>
+            </div>
+
+            <div class="repo" id="rns-page-node">
+                <h3>rns-page-node</h3>
+                <code class="repo-url">rns://06a54b505bb67b25ef3f8097e8001edc/public/rns-page-node</code>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-row">
+            <span><a href="index.html">Quad4 home</a> · <a href="https://reticulum.network/manual/git.html" rel="noopener noreferrer">RNGit documentation</a></span>
+            <span class="footer-size">git.html</span>
+        </p>
+    </footer>
+</body>
+</html>
