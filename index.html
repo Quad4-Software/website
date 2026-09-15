@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quad4 - Software for the far edge</title>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Quad4" />
+    <meta property="og:image" content="https://quad4.io/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="https://quad4.io/og.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://quad4.io/#org",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://quad4.io/og.png",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": ["https://github.com/Quad4-Software", "https://git.quad4.io"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://quad4.io/#site",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "publisher": { "@id": "https://quad4.io/#org" }
+          }
+        ]
+      }
+    </script>
+    <script>
+      ;(function () {
+        var t = null
+        try {
+          t = localStorage.getItem('quad4-theme')
+        } catch {}
+        if (t !== 'light' && t !== 'dark') {
+          t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.dataset.theme = t
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

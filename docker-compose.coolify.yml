@@ -1,0 +1,36 @@
+# Coolify deployment for quad4.io.
+#
+# In Coolify: add this repo as a resource, set Build Pack to
+# "Docker Compose", Docker Compose Location to /docker-compose.coolify.yml.
+# Set the domain on the web service to https://quad4.io:8080 so the proxy
+# routes to the container port. Coolify injects its management and proxy
+# labels itself, so none are defined here.
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - '8080'
+    user: '101:101'
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '/dev/null', 'http://127.0.0.1:8080/']
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 64M

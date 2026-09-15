@@ -1,0 +1,7 @@
+dist
+styled-system
+node_modules
+.lighthouseci
+pnpm-lock.yaml
+public
+index.html

@@ -1,0 +1,11 @@
+node_modules
+dist
+.lighthouseci
+.git
+.github
+.agents
+tests
+Dockerfile
+docker-compose.yml
+*.md
+.editorconfig
