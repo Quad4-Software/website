@@ -14,11 +14,13 @@ const stack = css({
   px: { base: '5', md: '8' },
   pb: { base: '10', md: '14' },
   display: 'grid',
+  gridTemplateColumns: 'minmax(0, 1fr)',
   gap: '5',
 })
 
 const cardHead = css({
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
   gap: '3',
   mb: '3',

@@ -38,6 +38,7 @@ export default function AssetCard(props: { asset: BrandAsset }) {
       <div
         class={css({
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '3',

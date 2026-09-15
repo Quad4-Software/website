@@ -80,11 +80,17 @@ const burger = css({
 })
 
 const panel = css({
+  position: 'absolute',
+  top: '100%',
+  left: '0',
+  right: '0',
   display: { md: 'none' },
   bg: 'canvasAlpha',
   backdropFilter: 'blur(14px)',
   px: '5',
   py: '3',
+  borderBottom: '1px solid',
+  borderColor: 'line',
 })
 
 const panelLink = css({

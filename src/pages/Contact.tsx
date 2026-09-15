@@ -8,19 +8,20 @@ import { css } from '../../styled-system/css'
 
 const stack = css({
   position: 'relative',
+  overflowX: 'clip',
   maxW: '72rem',
   mx: 'auto',
   px: { base: '5', md: '8' },
   pb: { base: '10', md: '14' },
   display: 'grid',
   gap: '5',
-  gridTemplateColumns: { base: '1fr', md: 'repeat(2, 1fr)' },
+  gridTemplateColumns: { base: 'minmax(0, 1fr)', md: 'repeat(2, minmax(0, 1fr))' },
 })
 
 const sat = css({
   position: 'absolute',
   top: '-3rem',
-  right: '-1rem',
+  right: { base: '0', md: '-1rem' },
   color: 'faint',
   opacity: 0.12,
   transform: 'rotate(-12deg)',
@@ -30,6 +31,7 @@ const sat = css({
 
 const cardHead = css({
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
   gap: '3',
   mb: '3',

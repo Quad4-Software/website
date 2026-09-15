@@ -31,7 +31,9 @@ export default function Snippet(props: Props) {
     <div>
       <span class={label}>{props.label}</span>
       <div class={row}>
-        <code class={cx(codeBlock, css({ flex: '1' }))}>{props.children ?? props.value}</code>
+        <code class={cx(codeBlock, css({ display: 'block', flex: '1', minW: '0' }))}>
+          {props.children ?? props.value}
+        </code>
         <CopyButton value={props.value} label={`Copy ${props.label}`} />
       </div>
     </div>
