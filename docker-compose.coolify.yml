@@ -2,15 +2,18 @@
 #
 # In Coolify: add this repo as a resource, set Build Pack to
 # "Docker Compose", Docker Compose Location to /docker-compose.coolify.yml.
-# Set the domain on the web service to https://quad4.io:8080 so the proxy
-# routes to the container port. Coolify injects its management and proxy
-# labels itself, so none are defined here.
+# SERVICE_FQDN_WEB_8080 below exposes the Domains field for the web
+# service; set it to quad4.io (the 8080 suffix routes the proxy to the
+# container port). Coolify injects its management and proxy labels
+# itself, so none are defined here.
 
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - SERVICE_FQDN_WEB_8080
     expose:
       - '8080'
     user: '101:101'
