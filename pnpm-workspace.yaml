@@ -1,0 +1,27 @@
+# pnpm 11 supply-chain hardening
+# Packages must be at least 7 days old before they can be resolved.
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
+# Reject non-registry transitive deps (git URLs, tarballs, etc).
+blockExoticSubdeps: true
+# Fail the install when a dependency wants to run a build script we have
+# not explicitly approved below.
+strictDepBuilds: true
+# Refuse to install a version published by a different maintainer set than
+# earlier releases.
+trustPolicy: no-downgrade
+# Known false positives: legacy backport releases published without
+# provenance after newer lines had it. Excluded as narrowly as possible.
+trustPolicyExclude:
+  - chokidar@4.0.3 # pinned exactly by @pandacss/node
+  - semver@5.7.2 # legacy backport inside lighthouse deps
+  - semver@6.3.1 # legacy backport inside babel deps
+  - undici-types@6.21.0 # via chrome-launcher > @types/node
+# Make sure installed deps match the lockfile before running scripts.
+verifyDepsBeforeRun: install
+# Always pin exact versions in package.json.
+saveExact: true
+
+# Build-script allowlist. Everything else is denied.
+allowBuilds:
+  esbuild: true
