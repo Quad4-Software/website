@@ -8,4 +8,4 @@ pnpm dev
 pnpm build
 ```
 
-Image: `ghcr.io/quad4-software/quad4-website`
+Image: `ghcr.io/quad4-software/website`

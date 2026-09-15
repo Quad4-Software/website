@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE: ghcr.io/quad4-software/quad4-website
+  IMAGE: ghcr.io/quad4-software/website
 
 permissions: {}
 
@@ -53,6 +53,7 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}
             type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push
         id: build
@@ -72,8 +73,8 @@ jobs:
 
       # Keyless signing via Fulcio + Rekor using the workflow OIDC identity.
       # Verify with:
-      #   cosign verify ghcr.io/quad4-software/quad4-website@<digest> \
+      #   cosign verify ghcr.io/quad4-software/website@<digest> \
       #     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-      #     --certificate-identity-regexp https://github.com/Quad4-Software/quad4-website
+      #     --certificate-identity-regexp https://github.com/Quad4-Software/website
       - name: Sign image
         run: cosign sign --yes "${{ env.IMAGE }}@${{ steps.build.outputs.digest }}"
