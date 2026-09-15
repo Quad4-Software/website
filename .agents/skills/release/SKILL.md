@@ -24,7 +24,7 @@ for nginx runtime dirs, healthcheck, resource limits. Keep them.
 
 ## Publishing
 
-`.github/workflows/docker.yml` pushes to `ghcr.io/quad4-software/quad4-website`
+`.github/workflows/docker.yml` pushes to `ghcr.io/quad4-software/website`
 on `master` (tag `master`, `sha-...`) and on `v*.*.*` tags (semver tags). Builds
 carry buildkit SLSA provenance and an SBOM. Signing is cosign keyless via the
 workflow OIDC identity (Fulcio + Rekor), no keys stored anywhere.
@@ -38,9 +38,9 @@ git tag v1.0.0 && git push --tags   # workflow builds, pushes, signs
 ## Verify an image
 
 ```sh
-cosign verify ghcr.io/quad4-software/quad4-website@<digest> \
+cosign verify ghcr.io/quad4-software/website@<digest> \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
-  --certificate-identity-regexp https://github.com/Quad4-Software/quad4-website
+  --certificate-identity-regexp https://github.com/Quad4-Software/website
 ```
 
 ## When touching the Dockerfile
