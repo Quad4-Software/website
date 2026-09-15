@@ -100,6 +100,7 @@ export default defineConfig({
       scrollBehavior: 'smooth',
     },
     body: {
+      overflowX: 'clip',
       bg: 'canvas',
       color: 'fg',
       fontFamily: 'body',

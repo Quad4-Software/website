@@ -11,14 +11,18 @@ const assetGrid = css({
   mt: '6',
   display: 'grid',
   gap: '4',
-  gridTemplateColumns: { base: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+  gridTemplateColumns: { base: 'repeat(2, minmax(0, 1fr))', md: 'repeat(3, minmax(0, 1fr))' },
 })
 
 const swatchGrid = css({
   mt: '6',
   display: 'grid',
   gap: '4',
-  gridTemplateColumns: { base: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(5, 1fr)' },
+  gridTemplateColumns: {
+    base: 'repeat(2, minmax(0, 1fr))',
+    sm: 'repeat(3, minmax(0, 1fr))',
+    md: 'repeat(5, minmax(0, 1fr))',
+  },
 })
 
 const swatch = css({
@@ -30,6 +34,7 @@ const swatch = css({
 
 const swatchMeta = css({
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: '2',
