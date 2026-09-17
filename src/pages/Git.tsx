@@ -5,8 +5,8 @@ import PageHeader from '../components/PageHeader'
 import PageMeta from '../lib/seo'
 import Snippet from '../components/Snippet'
 import { SITE } from '../config/site'
-import { badge, button, card } from '../lib/styles'
-import { css } from '../../styled-system/css'
+import { badge, button } from '../lib/styles'
+import { css, cx } from '../../styled-system/css'
 
 const stack = css({
   maxW: '72rem',
@@ -16,6 +16,21 @@ const stack = css({
   display: 'grid',
   gridTemplateColumns: 'minmax(0, 1fr)',
   gap: '5',
+})
+
+const fused = css({
+  bg: 'surfaceAlpha',
+  border: '1px solid',
+  borderColor: 'line',
+  rounded: 'xl',
+  overflow: 'hidden',
+})
+
+const cell = css({ p: '5' })
+
+const cellSep = css({
+  borderTop: '1px solid',
+  borderColor: 'line',
 })
 
 const cardHead = css({
@@ -40,37 +55,6 @@ const cardDesc = css({
   mb: '4',
 })
 
-const topo = css({
-  mt: '2',
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'center',
-  gap: '3',
-  fontFamily: 'mono',
-  fontSize: 'xs',
-  color: 'muted',
-})
-
-const topoNode = css({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '1.5',
-  border: '1px solid',
-  borderColor: 'line',
-  rounded: 'full',
-  px: '3',
-  py: '1.5',
-})
-
-const topoRole = css({ color: 'faint' })
-
-const topoDot = css({
-  w: '1',
-  h: '1',
-  rounded: 'full',
-  bg: 'faint',
-})
-
 export default function Git() {
   return (
     <>
@@ -86,71 +70,54 @@ export default function Git() {
       />
 
       <div class={stack}>
-        <div class={card}>
-          <div class={cardHead}>
-            <Orbit size={18} aria-hidden="true" />
-            <span class={cardName}>rngit</span>
-            <span class={badge({ tone: 'solid' })}>Canonical</span>
+        <div class={fused}>
+          <div class={cell}>
+            <div class={cardHead}>
+              <Orbit size={18} aria-hidden="true" />
+              <span class={cardName}>rngit</span>
+              <span class={badge({ tone: 'solid' })}>Canonical</span>
+            </div>
+            <p class={cardDesc}>
+              Git over Reticulum. Clone straight from our node on the network, or browse the repos
+              on NomadNet. No accounts, no CI minutes.
+            </p>
+            <Snippet label="Clone over Reticulum" value={SITE.rngit.cloneTemplate} />
+            <Snippet label="Browse on NomadNet" value={SITE.rngit.nomadnet} />
           </div>
-          <p class={cardDesc}>
-            Git over Reticulum. Clone straight from our node on the network, or browse the repos on
-            NomadNet. No accounts, no CI minutes.
-          </p>
-          <Snippet label="Clone over Reticulum" value={SITE.rngit.cloneTemplate} />
-          <Snippet label="Browse on NomadNet" value={SITE.rngit.nomadnet} />
-        </div>
 
-        <div class={card}>
-          <div class={cardHead}>
-            <Mark size={18} decorative />
-            <span class={cardName}>git.quad4.io</span>
-            <span class={badge()}>Returning soon</span>
+          <div class={cx(cell, cellSep)}>
+            <div class={cardHead}>
+              <Mark size={18} decorative />
+              <span class={cardName}>git.quad4.io</span>
+              <span class={badge()}>Returning soon</span>
+            </div>
+            <p class={cardDesc}>
+              Our own forge. Runs Quad4-Software/forge, a hardened Forgejo fork served under the
+              Quad4 mark. Coming back online soon.
+            </p>
+            <Snippet
+              label="Clone over HTTPS"
+              value={`git clone ${SITE.links.forge}/quad4/<repo>.git`}
+            />
+            <a href={SITE.links.forge} target="_blank" rel="noopener noreferrer" class={button()}>
+              Open forge <ExternalLink size={13} aria-hidden="true" />
+            </a>
           </div>
-          <p class={cardDesc}>
-            Our own forge. Runs Quad4-Software/forge, a hardened Forgejo fork served under the Quad4
-            mark. Coming back online soon.
-          </p>
-          <Snippet
-            label="Clone over HTTPS"
-            value={`git clone ${SITE.links.forge}/quad4/<repo>.git`}
-          />
-          <a href={SITE.links.forge} target="_blank" rel="noopener noreferrer" class={button()}>
-            Open forge <ExternalLink size={13} aria-hidden="true" />
-          </a>
-        </div>
 
-        <div class={card}>
-          <div class={cardHead}>
-            <GithubIcon size={18} decorative />
-            <span class={cardName}>GitHub</span>
-            <span class={badge({ tone: 'dim' })}>Mirror</span>
+          <div class={cx(cell, cellSep)}>
+            <div class={cardHead}>
+              <GithubIcon size={18} decorative />
+              <span class={cardName}>GitHub</span>
+              <span class={badge({ tone: 'dim' })}>Mirror</span>
+            </div>
+            <p class={cardDesc}>
+              Public mirror for issues, pull requests, CI and releases. Fine for most contributors.
+            </p>
+            <Snippet label="Clone over HTTPS" value={`git clone ${SITE.links.github}/<repo>`} />
+            <a href={SITE.links.github} target="_blank" rel="noopener noreferrer" class={button()}>
+              Open Quad4-Software <ExternalLink size={13} aria-hidden="true" />
+            </a>
           </div>
-          <p class={cardDesc}>
-            Public mirror for issues, pull requests, CI and releases. Fine for most contributors.
-          </p>
-          <Snippet label="Clone over HTTPS" value={`git clone ${SITE.links.github}/<repo>`} />
-          <a href={SITE.links.github} target="_blank" rel="noopener noreferrer" class={button()}>
-            Open Quad4-Software <ExternalLink size={13} aria-hidden="true" />
-          </a>
-        </div>
-
-        <div class={topo}>
-          <span class={css({ color: 'faint' })}>remotes</span>
-          <span class={topoNode}>
-            <Orbit size={12} aria-hidden="true" />
-            rngit <span class={topoRole}>canonical</span>
-          </span>
-          <span class={topoDot} />
-          <span class={topoNode}>
-            <Mark size={12} decorative />
-            git.quad4.io <span class={topoRole}>forge</span>
-          </span>
-          <span class={topoDot} />
-          <span class={topoNode}>
-            <GithubIcon size={12} decorative />
-            github <span class={topoRole}>mirror</span>
-          </span>
-          <span class={css({ color: 'faint' })}>same trees, three transports</span>
         </div>
       </div>
     </>

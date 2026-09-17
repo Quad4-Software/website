@@ -94,12 +94,25 @@ const flagshipLogo = css({
   flexShrink: 0,
 })
 
+const smallLogo = css({
+  w: '7',
+  h: '7',
+  objectFit: 'contain',
+  flexShrink: 0,
+})
+
 export default function ProjectCard(props: { project: Project }) {
   const p = () => props.project
 
   const icon = (size: number) =>
     p().logo ? (
-      <img src={p().logo} alt="" width={size} height={size} class={flagshipLogo} />
+      <img
+        src={p().logo}
+        alt=""
+        width={size}
+        height={size}
+        class={size > 24 ? flagshipLogo : smallLogo}
+      />
     ) : (
       <OrbitGlyph seed={p().name} size={size} />
     )

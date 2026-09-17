@@ -11,21 +11,23 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Git from './pages/Git'
 import Contact from './pages/Contact'
-import Infrastructure from './pages/Infrastructure'
+import Security from './pages/Security'
 import Branding from './pages/Branding'
 import NotFound from './pages/NotFound'
 
 render(
   () => (
     <MetaProvider>
-      <Router root={App}>
-        <Route path="/" component={Home} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/infrastructure" component={Infrastructure} />
-        <Route path="/git" component={Git} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/branding" component={Branding} />
-        <Route path="*404" component={NotFound} />
+      <Router>
+        <Route component={App}>
+          <Route path="/" component={Home} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/git" component={Git} />
+          <Route path="/security" component={Security} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/branding" component={Branding} />
+          <Route path="*404" component={NotFound} />
+        </Route>
       </Router>
     </MetaProvider>
   ),

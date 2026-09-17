@@ -7,8 +7,8 @@
         "http://localhost/",
         "http://localhost/projects",
         "http://localhost/git",
+        "http://localhost/security",
         "http://localhost/contact",
-        "http://localhost/infrastructure",
         "http://localhost/branding"
       ],
       "numberOfRuns": 2

@@ -3,8 +3,8 @@ import PageHeader from '../components/PageHeader'
 import PageMeta from '../lib/seo'
 import Snippet from '../components/Snippet'
 import { SITE } from '../config/site'
-import { button, card, textLink } from '../lib/styles'
-import { css } from '../../styled-system/css'
+import { button, textLink } from '../lib/styles'
+import { css, cx } from '../../styled-system/css'
 
 const stack = css({
   position: 'relative',
@@ -15,7 +15,25 @@ const stack = css({
   pb: { base: '10', md: '14' },
   display: 'grid',
   gap: '5',
+  gridTemplateColumns: 'minmax(0, 1fr)',
+})
+
+const fused = css({
+  bg: 'surfaceAlpha',
+  border: '1px solid',
+  borderColor: 'line',
+  rounded: 'xl',
+  overflow: 'hidden',
+  display: 'grid',
   gridTemplateColumns: { base: 'minmax(0, 1fr)', md: 'repeat(2, minmax(0, 1fr))' },
+})
+
+const cell = css({ p: '5' })
+
+const cellSep = css({
+  borderTop: '1px solid',
+  borderColor: 'line',
+  md: { borderTop: 'none', borderLeft: '1px solid' },
 })
 
 const sat = css({
@@ -67,53 +85,55 @@ export default function Contact() {
 
       <div class={stack}>
         <Satellite size={260} aria-hidden="true" class={sat} />
-        <div class={card}>
-          <div class={cardHead}>
-            <Mail size={18} aria-hidden="true" />
-            <span class={cardName}>Email</span>
+        <div class={fused}>
+          <div class={cell}>
+            <div class={cardHead}>
+              <Mail size={18} aria-hidden="true" />
+              <span class={cardName}>Email</span>
+            </div>
+            <p class={cardDesc}>The normal way. We read everything.</p>
+            <a href={`mailto:${SITE.contact.email}`} class={button()}>
+              {SITE.contact.email}
+            </a>
           </div>
-          <p class={cardDesc}>The normal way. We read everything.</p>
-          <a href={`mailto:${SITE.contact.email}`} class={button()}>
-            {SITE.contact.email}
-          </a>
-        </div>
 
-        <div class={card}>
-          <div class={cardHead}>
-            <MessageSquare size={18} aria-hidden="true" />
-            <span class={cardName}>LXMF</span>
+          <div class={cx(cell, cellSep)}>
+            <div class={cardHead}>
+              <MessageSquare size={18} aria-hidden="true" />
+              <span class={cardName}>LXMF</span>
+            </div>
+            <p class={cardDesc}>
+              Message us over the Reticulum network with any LXMF client, like{' '}
+              <a
+                href={SITE.links.meshchatx}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={textLink}
+              >
+                MeshChatX
+              </a>
+              ,{' '}
+              <a
+                href={SITE.links.nomadnet}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={textLink}
+              >
+                NomadNet
+              </a>{' '}
+              or{' '}
+              <a
+                href={SITE.links.sideband}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={textLink}
+              >
+                Sideband
+              </a>
+              .
+            </p>
+            <Snippet label="LXMF address" value={SITE.contact.lxmf} />
           </div>
-          <p class={cardDesc}>
-            Message us over the Reticulum network with any LXMF client, like{' '}
-            <a
-              href={SITE.links.meshchatx}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={textLink}
-            >
-              MeshChatX
-            </a>
-            ,{' '}
-            <a
-              href={SITE.links.nomadnet}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={textLink}
-            >
-              NomadNet
-            </a>{' '}
-            or{' '}
-            <a
-              href={SITE.links.sideband}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={textLink}
-            >
-              Sideband
-            </a>
-            .
-          </p>
-          <Snippet label="LXMF address" value={SITE.contact.lxmf} />
         </div>
       </div>
     </>

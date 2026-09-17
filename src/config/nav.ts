@@ -9,19 +9,12 @@ export interface NavLink {
 
 export const NAV_LINKS: readonly NavLink[] = [
   { href: '/projects', label: 'Projects' },
-  { href: '/infrastructure', label: 'Infrastructure' },
   { href: '/git', label: 'Git' },
+  { href: '/security', label: 'Security' },
   { href: '/contact', label: 'Contact' },
 ]
 
-export const ROUTES = [
-  '/',
-  '/projects',
-  '/infrastructure',
-  '/git',
-  '/contact',
-  '/branding',
-] as const
+export const ROUTES = ['/', '/projects', '/git', '/security', '/contact', '/branding'] as const
 
 export interface FooterSection {
   title: string

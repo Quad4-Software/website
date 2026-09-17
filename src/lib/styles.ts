@@ -111,6 +111,7 @@ export const badge = cva({
       solid: { bg: 'accent', color: 'onAccent', borderColor: 'accent' },
       outline: { color: 'muted', borderColor: 'line' },
       dim: { color: 'faint', borderColor: 'line' },
+      warn: { color: 'warn', borderColor: 'warn' },
     },
   },
   defaultVariants: { tone: 'outline' },

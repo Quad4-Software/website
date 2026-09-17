@@ -70,6 +70,7 @@ export default defineConfig({
             value: { _light: 'rgba(10,10,11,0.35)', _dark: 'rgba(255,255,255,0.45)' },
           },
           star: { value: { _light: 'rgba(10,10,11,0.26)', _dark: 'rgba(255,255,255,0.9)' } },
+          warn: { value: { _light: '#c2410c', _dark: '#fb923c' } },
         },
       },
       keyframes: {
