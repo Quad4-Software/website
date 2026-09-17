@@ -175,8 +175,9 @@ export const categories: Category[] = [
       },
       {
         name: 'ravenguard',
-        desc: 'Web application firewall.',
+        desc: 'Web application firewall. Blocks bots, scanners and AI scrapers.',
         lang: 'Go',
+        logo: '/ravenguard.webp',
       },
       {
         name: 'Athenaeum',
@@ -263,9 +264,10 @@ export const featuredNames = [
   'MeshChatX',
   'Reticulum-Go',
   'Ren-Browser',
-  'dictationasm',
+  'translatasm',
   'Wharfinger',
   'nullray',
+  'pip-rns',
 ]
 
 export const featured: Project[] = featuredNames

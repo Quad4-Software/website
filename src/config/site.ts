@@ -14,6 +14,7 @@ export const SITE = {
     github: 'https://github.com/Quad4-Software',
     forge: 'https://git.quad4.io',
     meshchatx: 'https://meshchatx.com',
+    ravenguard: 'https://ravenguard.quad4.io',
     nomadnet: 'https://github.com/markqvist/NomadNet',
     sideband: 'https://github.com/markqvist/Sideband',
   },
