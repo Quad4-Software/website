@@ -93,6 +93,10 @@ export const codeBlock = css({
   color: 'fg',
 })
 
+export const toneFresh = css({ color: { _light: '#15803d', _dark: '#4ade80' } })
+export const toneAging = css({ color: 'warn' })
+export const toneStale = css({ color: { _light: '#b91c1c', _dark: '#f87171' } })
+
 export const badge = cva({
   base: {
     display: 'inline-flex',

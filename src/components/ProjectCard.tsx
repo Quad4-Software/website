@@ -1,10 +1,11 @@
 import { For, Show } from 'solid-js'
-import { ArrowUpRight, Star } from 'lucide-solid'
+import { ArrowUpRight, Clock, Star } from 'lucide-solid'
 import OrbitGlyph from './OrbitGlyph'
 import { projectUrl } from '../config/site'
 import { langColor } from '../data/langs'
+import { ageTone, formatAge } from '../lib/time'
 import type { Project } from '../data/projects'
-import { card } from '../lib/styles'
+import { card, toneAging, toneFresh, toneStale } from '../lib/styles'
 import { css, cx } from '../../styled-system/css'
 
 const flagshipCard = css({ gridColumn: '1 / -1' })
@@ -64,6 +65,15 @@ const stars = css({
   alignItems: 'center',
   gap: '1',
 })
+
+const updated = css({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '1',
+})
+
+const updatedTone = (iso: string) =>
+  ageTone(iso) === 'fresh' ? toneFresh : ageTone(iso) === 'aging' ? toneAging : toneStale
 
 const topic = css({
   px: '2',
@@ -152,6 +162,15 @@ export default function ProjectCard(props: { project: Project }) {
             {p().stars}
           </span>
         ) : null}
+        {p().updated ? (
+          <span
+            class={cx(updated, updatedTone(p().updated!))}
+            title={`Last commit ${new Date(p().updated!).toDateString()}`}
+          >
+            <Clock size={12} aria-hidden="true" />
+            {formatAge(p().updated!)}
+          </span>
+        ) : null}
         <For each={p().topics?.slice(0, 3)}>{(t) => <span class={topic}>{t}</span>}</For>
       </div>
     </>
@@ -210,6 +229,15 @@ export default function ProjectCard(props: { project: Project }) {
                 <span class={stars}>
                   <Star size={12} aria-hidden="true" />
                   {p().stars}
+                </span>
+              ) : null}
+              {p().updated ? (
+                <span
+                  class={cx(updated, updatedTone(p().updated!))}
+                  title={`Last commit ${new Date(p().updated!).toDateString()}`}
+                >
+                  <Clock size={12} aria-hidden="true" />
+                  {formatAge(p().updated!)}
                 </span>
               ) : null}
               <For each={p().topics}>{(t) => <span class={topic}>{t}</span>}</For>
