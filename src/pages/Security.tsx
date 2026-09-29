@@ -73,8 +73,7 @@ const platformGlow = css({
   inset: '0',
   pointerEvents: 'none',
   opacity: 0.35,
-  background:
-    'radial-gradient(24rem 12rem at 88% -15%, token(colors.glow), transparent 70%)',
+  background: 'radial-gradient(24rem 12rem at 88% -15%, token(colors.glow), transparent 70%)',
 })
 
 const capabilityGrid = css({

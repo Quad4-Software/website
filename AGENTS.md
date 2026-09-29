@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Static website for quad4.io. SolidJS + Panda CSS + Ark UI, built with Vite 8
-and pnpm 11. No backend, no analytics, no remote assets.
+and pnpm 12. No backend, no analytics, no remote assets.
 
 ## Commands
 
@@ -22,7 +22,9 @@ docker build -t quad4-website .   # or podman build
 
 - `src/config/site.ts` - every site constant (name, urls, contact, rngit node)
 - `src/config/nav.ts` - nav links, footer sections, route list
-- `src/data/projects.ts` - project catalog, categories, featured list
+- `src/data/projects.ts` - project catalog, categories, featured list,
+   org projects
+- `src/data/licenses.ts` - custom license texts (QSL-1.0-0BSD)
 - `src/lib/styles.ts` - shared recipes (section, card, button, badge, codeBlock)
 - `src/lib/seo.tsx` - PageMeta (title, description, canonical, og)
 - `src/lib/theme.ts` - theme signal + toggle

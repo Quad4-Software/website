@@ -1,4 +1,4 @@
-# pnpm 11 supply-chain hardening
+# pnpm 12 supply-chain hardening
 # Packages must be at least 7 days old before they can be resolved.
 minimumReleaseAge: 10080
 minimumReleaseAgeStrict: true
@@ -21,6 +21,18 @@ trustPolicyExclude:
 verifyDepsBeforeRun: install
 # Always pin exact versions in package.json.
 saveExact: true
+
+# Forced resolutions for CVEs in dev-tooling deps that pin vulnerable
+# versions (lhci, pandacss). None of these ship in dist/.
+overrides:
+  postcss: '^8.5.23' # sourceMappingURL traversal, <=8.5.22
+  browserslist: '^4.28.7' # OOM + prototype write, <=4.28.6
+  postcss-selector-parser: '^7.1.3' # AST recursion DoS, GHSA-w9m9-85wc-3x92
+  tmp: '^0.2.6' # path traversal via dir symlink, <0.2.6
+  uuid: '^11.1.1' # buffer bounds check, <11.1.1
+  # extract-zip@<=2.0.1 (puppeteer browser download in lhci) has no patch.
+  # Not overridden: it only runs when lighthouse downloads Chrome, which we
+  # skip by setting CHROME_PATH.
 
 # Build-script allowlist. Everything else is denied.
 allowBuilds:
