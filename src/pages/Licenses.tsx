@@ -129,7 +129,7 @@ export default function Licenses() {
     <>
       <PageMeta
         title="Licenses"
-        description="The licenses Quad4 software ships under, in full. The Quad4 Source License (the anti-grifter license) converts each version to 0BSD two years after release."
+        description="The licenses Quad4 software ships under, in full. The Quad4 Source License (an anti-grifter license) converts each version to 0BSD two years after release."
         path="/licenses"
       />
 

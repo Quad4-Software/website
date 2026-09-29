@@ -186,7 +186,7 @@ export const LICENSES: readonly License[] = [
     name: 'Quad4 Source License',
     version: '1.0',
     abbreviation: 'QSL-1.0-0BSD',
-    aka: 'the Anti-Grifter License',
+    aka: 'an Anti-Grifter License',
     notice: 'Copyright 2026 Quad4',
     summary:
       'Free to use, copy, modify and share for anything except a Competing Use, which needs a commercial license from us. Each version converts to the 0BSD license two years after it first ships.',
