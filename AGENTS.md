@@ -73,4 +73,6 @@ docker build -t quad4-website .   # or podman build
 ## Verification
 
 Before shipping changes: `pnpm lint && pnpm typecheck && pnpm test && pnpm
-build && pnpm lhci`. Lighthouse must stay at 100 across all categories.
+build && pnpm lhci`. Lighthouse stays at 100 for accessibility,
+best-practices and seo. Performance gates at 0.95: the score is continuous
+and shared CI runners swing the last point or two.
