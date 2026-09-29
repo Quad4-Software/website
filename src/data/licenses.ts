@@ -3,8 +3,13 @@ export interface License {
   name: string
   version: string
   abbreviation: string
+  aka?: string
   notice: string
   summary: string
+  traits: string[]
+  permissions: string[]
+  conditions: string[]
+  limitations: string[]
   text: string
 }
 
@@ -181,9 +186,18 @@ export const LICENSES: readonly License[] = [
     name: 'Quad4 Source License',
     version: '1.0',
     abbreviation: 'QSL-1.0-0BSD',
+    aka: 'the Anti-Grifter License',
     notice: 'Copyright 2026 Quad4',
     summary:
       'Free to use, copy, modify and share for anything except a Competing Use, which needs a commercial license from us. Each version converts to the 0BSD license two years after it first ships.',
+    traits: ['Source available', 'Delayed open source'],
+    permissions: ['Commercial use', 'Modification', 'Distribution', 'Private use'],
+    conditions: [
+      'License and copyright notice',
+      'Competing use needs a commercial license',
+      'Converts to 0BSD two years after release',
+    ],
+    limitations: ['Liability', 'Warranty', 'Trademark use'],
     text: qsl,
   },
 ]
