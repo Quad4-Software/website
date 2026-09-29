@@ -232,7 +232,7 @@ export default function Home() {
           </div>
           <div class={stat}>
             <div class={statValue}>100%</div>
-            <div class={statLabel}>Open source</div>
+            <div class={statLabel}>Source available</div>
           </div>
         </div>
       </div>

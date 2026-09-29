@@ -1,5 +1,5 @@
 import { For } from 'solid-js'
-import { ExternalLink } from 'lucide-solid'
+import { ExternalLink, ShieldCheck } from 'lucide-solid'
 import PageHeader from '../components/PageHeader'
 import PageMeta from '../lib/seo'
 import ProjectCard from '../components/ProjectCard'
@@ -55,6 +55,19 @@ const grid = css({
   gridTemplateColumns: { base: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
 })
 
+const note = css({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '3',
+  border: '1px solid',
+  borderColor: 'line',
+  rounded: 'lg',
+  p: '4',
+  fontSize: 'sm',
+  color: 'muted',
+  lineHeight: 'relaxed',
+})
+
 export default function Osint() {
   return (
     <>
@@ -83,6 +96,15 @@ export default function Osint() {
 
         <div class={grid}>
           <For each={osintProjects}>{(p) => <ProjectCard project={p} />}</For>
+        </div>
+
+        <div class={note}>
+          <ShieldCheck size={16} aria-hidden="true" class={css({ flexShrink: 0, mt: '0.5' })} />
+          <p>
+            These tools only collect information that is already public. Use them for research,
+            journalism and defensive security work you are authorized to do. Follow the law and each
+            platform's terms wherever you operate.
+          </p>
         </div>
       </div>
     </>
