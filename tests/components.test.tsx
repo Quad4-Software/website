@@ -28,6 +28,13 @@ describe('ProjectCard', () => {
     expect(container.textContent).toContain('Go stack')
   })
 
+  it('shows fork and mirror badges when flagged', () => {
+    const { container } = render(() => (
+      <ProjectCard project={{ name: 'zot', desc: 'x', lang: 'Go', fork: true }} />
+    ))
+    expect(container.textContent).toContain('fork')
+  })
+
   it('falls back when the description is missing', () => {
     const { container } = render(() => (
       <ProjectCard project={{ name: 'packages', lang: 'Other' }} />

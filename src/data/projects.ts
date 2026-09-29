@@ -7,6 +7,7 @@ export interface Project {
   stars?: number
   topics?: string[]
   mirror?: boolean
+  fork?: boolean
   flagship?: boolean
   logo?: string
   org?: string
@@ -154,6 +155,7 @@ export const categories: Category[] = [
       {
         name: 'bergamot-translator',
         desc: 'The translation engine behind translatasm.',
+        fork: true,
         lang: 'C++',
       },
     ],
@@ -173,6 +175,7 @@ export const categories: Category[] = [
       {
         name: 'forge',
         desc: 'Our Forgejo fork. Runs git.quad4.io.',
+        fork: true,
         lang: 'Go',
         topics: ['forge', 'git'],
       },
@@ -205,6 +208,7 @@ export const categories: Category[] = [
       {
         name: 'VoidBin',
         desc: 'Our hardened PrivateBin fork. Encrypted pastebin behind ravenguard.',
+        fork: true,
         lang: 'PHP',
       },
       {
@@ -220,21 +224,25 @@ export const categories: Category[] = [
       {
         name: 'nebula',
         desc: 'Our fork of Nebula, the peer-to-peer overlay network.',
+        fork: true,
         lang: 'Go',
       },
       {
         name: 'verdaccio',
         desc: 'Our fork of Verdaccio, a private npm registry.',
+        fork: true,
         lang: 'TypeScript',
       },
       {
         name: 'zot',
         desc: 'Our fork of zot, an OCI container registry.',
+        fork: true,
         lang: 'Go',
       },
       {
         name: 'beszel',
         desc: 'Our fork of Beszel, a lightweight server monitor.',
+        fork: true,
         lang: 'Go',
       },
     ],
@@ -341,11 +349,13 @@ export const categories: Category[] = [
       {
         name: 'msgpack',
         desc: 'Our maintained MessagePack fork for Go.',
+        fork: true,
         lang: 'Go',
       },
       {
         name: 'tagparser',
         desc: 'Struct tag parser for Go.',
+        fork: true,
         lang: 'Go',
       },
       {
@@ -404,6 +414,7 @@ export const Projects: Project[] = [
   {
     name: '',
     desc: 'Our fork of , the  collector.',
+    fork: true,
     lang: 'Python',
     org: SITE..org,
     logo: SITE..logo,
@@ -411,6 +422,7 @@ export const Projects: Project[] = [
   {
     name: '',
     desc: 'Our fork of , a website analysis tool.',
+    fork: true,
     lang: 'TypeScript',
     org: SITE..org,
     logo: SITE..logo,
@@ -418,6 +430,7 @@ export const Projects: Project[] = [
   {
     name: '',
     desc: 'Our fork of . Downloads  media with metadata.',
+    fork: true,
     lang: 'Python',
     org: SITE..org,
     logo: SITE..logo,
