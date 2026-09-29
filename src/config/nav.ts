@@ -11,10 +11,21 @@ export const NAV_LINKS: readonly NavLink[] = [
   { href: '/projects', label: 'Projects' },
   { href: '/git', label: 'Git' },
   { href: '/security', label: 'Security' },
+  { href: '/osint', label: 'OSINT' },
+  { href: '/licenses', label: 'Licenses' },
   { href: '/contact', label: 'Contact' },
 ]
 
-export const ROUTES = ['/', '/projects', '/git', '/security', '/contact', '/branding'] as const
+export const ROUTES = [
+  '/',
+  '/projects',
+  '/git',
+  '/security',
+  '/osint',
+  '/licenses',
+  '/contact',
+  '/branding',
+] as const
 
 export interface FooterSection {
   title: string
@@ -31,6 +42,12 @@ export const FOOTER_SECTIONS: readonly FooterSection[] = [
     links: [
       { href: SITE.links.github, label: 'GitHub', external: true, icon: 'github' },
       { href: SITE.links.forge, label: 'git.quad4.io', external: true, icon: 'mark' },
+      {
+        href: SITE.osint.url,
+        label: SITE.osint.org,
+        external: true,
+        icon: SITE.osint.logo,
+      },
       {
         href: SITE.links.meshchatx,
         label: 'meshchatx.com',

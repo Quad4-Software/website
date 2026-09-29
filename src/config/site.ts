@@ -10,6 +10,13 @@ export const SITE = {
     'Quad4 is an independent software collective building mesh networking tools, offline-first web apps, and self-hosted infrastructure.',
   themeKey: 'quad4-theme',
   org: 'Quad4-Software',
+  osint: {
+    org: 'quad4-osint',
+    name: 'Quad4 OSINT',
+    url: 'https://github.com/quad4-osint',
+    logo: '/quad4-osint.webp',
+    desc: 'OSINT tools and software.',
+  },
   links: {
     github: 'https://github.com/Quad4-Software',
     forge: 'https://git.quad4.io',
@@ -30,4 +37,6 @@ export const SITE = {
 } as const
 
 export const repoUrl = (name: string) => `${SITE.links.github}/${name}`
+export const projectUrl = (name: string, org: string = SITE.org) =>
+  `https://github.com/${org}/${name}`
 export const rnsClone = (repo: string) => `git clone rns://${RNGIT_NODE}/public/${repo}`

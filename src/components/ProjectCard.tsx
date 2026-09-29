@@ -1,7 +1,7 @@
 import { For, Show } from 'solid-js'
 import { ArrowUpRight, Star } from 'lucide-solid'
 import OrbitGlyph from './OrbitGlyph'
-import { repoUrl } from '../config/site'
+import { projectUrl } from '../config/site'
 import { langColor } from '../data/langs'
 import type { Project } from '../data/projects'
 import { card } from '../lib/styles'
@@ -160,14 +160,19 @@ export default function ProjectCard(props: { project: Project }) {
     <Show
       when={p().flagship}
       fallback={
-        <a href={repoUrl(p().name)} target="_blank" rel="noopener noreferrer" class={card}>
+        <a
+          href={projectUrl(p().name, p().org)}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={card}
+        >
           {head}
           {body}
         </a>
       }
     >
       <a
-        href={repoUrl(p().name)}
+        href={projectUrl(p().name, p().org)}
         target="_blank"
         rel="noopener noreferrer"
         class={cx(card, flagshipCard)}
