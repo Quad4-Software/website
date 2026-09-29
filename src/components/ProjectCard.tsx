@@ -73,7 +73,7 @@ const topic = css({
   borderColor: 'line',
 })
 
-const mirrorTag = css({
+const metaTag = css({
   ml: '2',
   fontFamily: 'mono',
   fontSize: 'xs',
@@ -130,7 +130,8 @@ export default function ProjectCard(props: { project: Project }) {
         {icon(24)}
         <span class={name}>
           {p().name}
-          {p().mirror ? <span class={mirrorTag}>mirror</span> : null}
+          {p().mirror ? <span class={metaTag}>mirror</span> : null}
+          {p().fork ? <span class={metaTag}>fork</span> : null}
         </span>
       </span>
       <ArrowUpRight size={15} aria-hidden="true" class={css({ color: 'faint', flexShrink: 0 })} />
@@ -190,7 +191,8 @@ export default function ProjectCard(props: { project: Project }) {
             >
               <span class={flagshipName}>
                 {p().name}
-                {p().mirror ? <span class={mirrorTag}>mirror</span> : null}
+                {p().mirror ? <span class={metaTag}>mirror</span> : null}
+                {p().fork ? <span class={metaTag}>fork</span> : null}
               </span>
               <ArrowUpRight
                 size={16}
