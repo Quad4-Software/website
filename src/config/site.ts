@@ -7,7 +7,7 @@ export const SITE = {
   url: 'https://quad4.io',
   tagline: 'Software for the far edge.',
   description:
-    'Quad4 is an independent software collective building mesh networking tools, offline-first web apps, and self-hosted infrastructure.',
+    'Quad4 is an independent software collective. We build all sorts of software, from mesh networking tools and offline-first web apps to self-hosted infrastructure.',
   themeKey: 'quad4-theme',
   org: 'Quad4-Software',
   : {

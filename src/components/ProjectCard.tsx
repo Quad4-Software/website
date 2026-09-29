@@ -1,5 +1,5 @@
 import { For, Show } from 'solid-js'
-import { ArrowUpRight, Clock, Star } from 'lucide-solid'
+import { ArrowUpRight, Clock, Scale, Star } from 'lucide-solid'
 import OrbitGlyph from './OrbitGlyph'
 import { projectUrl } from '../config/site'
 import { langColor } from '../data/langs'
@@ -156,6 +156,12 @@ export default function ProjectCard(props: { project: Project }) {
           <span class={langDot} style={{ background: langColor(p().lang) }} />
           {p().lang}
         </span>
+        {p().license ? (
+          <span class={stars}>
+            <Scale size={12} aria-hidden="true" />
+            {p().license}
+          </span>
+        ) : null}
         {p().stars ? (
           <span class={stars}>
             <Star size={12} aria-hidden="true" />
@@ -225,6 +231,12 @@ export default function ProjectCard(props: { project: Project }) {
                 <span class={langDot} style={{ background: langColor(p().lang) }} />
                 {p().lang}
               </span>
+              {p().license ? (
+                <span class={stars}>
+                  <Scale size={12} aria-hidden="true" />
+                  {p().license}
+                </span>
+              ) : null}
               {p().stars ? (
                 <span class={stars}>
                   <Star size={12} aria-hidden="true" />
