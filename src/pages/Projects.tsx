@@ -156,7 +156,7 @@ export default function Projects() {
     <>
       <PageMeta
         title="Projects"
-        description={`All ${repoCount} public Quad4 repositories: Reticulum mesh networking, offline-first web apps, self-hosted infrastructure, toolchains and libraries.`}
+        description={`All ${repoCount} public Quad4 repositories: Reticulum mesh networking, offline-first web apps, self-hosted infrastructure, security tooling, toolchains and libraries.`}
         path="/projects"
       />
 

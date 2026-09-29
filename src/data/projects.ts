@@ -1,3 +1,5 @@
+import { SITE } from '../config/site'
+
 export interface Project {
   name: string
   desc?: string
@@ -7,6 +9,7 @@ export interface Project {
   mirror?: boolean
   flagship?: boolean
   logo?: string
+  org?: string
 }
 
 export interface Category {
@@ -27,7 +30,7 @@ export const categories: Category[] = [
         name: 'MeshChatX',
         desc: 'Messaging, calls and NomadNet pages over the Reticulum network.',
         lang: 'Python',
-        stars: 140,
+        stars: 147,
         topics: ['reticulum', 'lxmf', 'lxst'],
         flagship: true,
         logo: '/meshchatx.webp',
@@ -36,14 +39,14 @@ export const categories: Category[] = [
         name: 'Reticulum-Go',
         desc: 'The Reticulum network stack, written in Go.',
         lang: 'Go',
-        stars: 18,
+        stars: 28,
         topics: ['rns', 'reticulum'],
       },
       {
         name: 'Ren-Browser',
         desc: 'A web browser for the Reticulum network, built on Reticulum-Go.',
         lang: 'Go',
-        stars: 17,
+        stars: 19,
         topics: ['reticulum', 'browser'],
       },
       {
@@ -80,7 +83,7 @@ export const categories: Category[] = [
         name: 'rns-page-node',
         desc: 'Serve pages and files over the Reticulum network.',
         lang: 'Python',
-        stars: 2,
+        stars: 4,
       },
       {
         name: 'RNS-over-HTTP',
@@ -107,13 +110,13 @@ export const categories: Category[] = [
         name: 'pip-rns',
         desc: 'Install Python packages from rngit remotes with pip, pipx, uv or poetry.',
         lang: 'Python',
-        stars: 7,
+        stars: 8,
       },
       {
         name: 'Micron-Parser-Go',
         desc: 'Micron markup parser and renderer for Go and the browser.',
         lang: 'Go',
-        stars: 3,
+        stars: 4,
         topics: ['micron', 'parser'],
       },
     ],
@@ -199,6 +202,75 @@ export const categories: Category[] = [
         desc: 'Build files for Quad4 packages.',
         lang: 'Other',
       },
+      {
+        name: 'VoidBin',
+        desc: 'Our hardened PrivateBin fork. Encrypted pastebin behind ravenguard.',
+        lang: 'PHP',
+      },
+      {
+        name: 'rss-discovery',
+        desc: 'RSS aggregation and feed discovery.',
+        lang: 'Go',
+      },
+      {
+        name: 'quickchat',
+        desc: 'Lightweight chat for the browser.',
+        lang: 'TypeScript',
+      },
+      {
+        name: 'nebula',
+        desc: 'Our fork of Nebula, the peer-to-peer overlay network.',
+        lang: 'Go',
+      },
+      {
+        name: 'verdaccio',
+        desc: 'Our fork of Verdaccio, a private npm registry.',
+        lang: 'TypeScript',
+      },
+      {
+        name: 'zot',
+        desc: 'Our fork of zot, an OCI container registry.',
+        lang: 'Go',
+      },
+      {
+        name: 'beszel',
+        desc: 'Our fork of Beszel, a lightweight server monitor.',
+        lang: 'Go',
+      },
+    ],
+  },
+  {
+    id: 'security',
+    title: 'Security tooling',
+    blurb: 'Libraries and tools for sandboxing, crypto and defensive work.',
+    projects: [
+      {
+        name: 'argus',
+        desc: 'Security checks and hardening in a single Rust binary.',
+        lang: 'Rust',
+      },
+      {
+        name: 'landlockpy',
+        desc: 'Python bindings for the Linux Landlock sandbox.',
+        lang: 'Python',
+        stars: 1,
+        topics: ['landlock', 'sandbox'],
+      },
+      {
+        name: 'seccompy',
+        desc: 'Python bindings for Linux seccomp-BPF filtering.',
+        lang: 'Python',
+      },
+      {
+        name: 'keyctl2',
+        desc: 'Python bindings for the Linux kernel keyring.',
+        lang: 'Python',
+      },
+      {
+        name: 'purecrypt',
+        desc: 'Pure-Python crypto primitives, no dependencies. Not for production use.',
+        lang: 'Python',
+      },
     ],
   },
   {
@@ -256,7 +328,99 @@ export const categories: Category[] = [
         desc: 'The Reticulum-Go website.',
         lang: 'TypeScript',
       },
+      {
+        name: 'bzip2',
+        desc: 'bzip2 compression for Go, no dependencies.',
+        lang: 'Go',
+      },
+      {
+        name: 'cborx',
+        desc: 'CBOR encoder and decoder for Python. No dependencies.',
+        lang: 'Python',
+      },
+      {
+        name: 'msgpack',
+        desc: 'Our maintained MessagePack fork for Go.',
+        lang: 'Go',
+      },
+      {
+        name: 'tagparser',
+        desc: 'Struct tag parser for Go.',
+        lang: 'Go',
+      },
+      {
+        name: 'pbt',
+        desc: 'Property-based testing for Go.',
+        lang: 'Go',
+      },
+      {
+        name: 'acp-go',
+        desc: 'Agent Client Protocol library for Go.',
+        lang: 'Go',
+      },
+      {
+        name: 'q4tab',
+        desc: 'Local code completion from n-gram statistics.',
+        lang: 'Go',
+      },
+      {
+        name: 'python-library-template',
+        desc: 'Template for typed Python libraries with no dependencies.',
+        lang: 'Python',
+      },
+      {
+        name: 'website',
+        desc: 'This site. quad4.io.',
+        lang: 'TypeScript',
+      },
     ],
+  },
+]
+
+export const Projects: Project[] = [
+  {
+    name: 'yt-',
+    desc: 'YouTube  tooling for the command line.',
+    lang: 'Go',
+    org: SITE..org,
+    logo: SITE..logo,
+    topics: ['', 'youtube'],
+  },
+  {
+    name: 'pittacium',
+    desc: 'Public email record lookups.',
+    lang: 'Go',
+    org: SITE..org,
+    logo: SITE..logo,
+    topics: ['', 'email', 'openpgp'],
+  },
+  {
+    name: '-template-go',
+    desc: 'Template for building  tools in Go.',
+    lang: 'Go',
+    org: SITE..org,
+    logo: SITE..logo,
+  },
+  {
+    name: '',
+    desc: 'Our fork of , the  collector.',
+    lang: 'Python',
+    org: SITE..org,
+    logo: SITE..logo,
+  },
+  {
+    name: '',
+    desc: 'Our fork of , a website analysis tool.',
+    lang: 'TypeScript',
+    org: SITE..org,
+    logo: SITE..logo,
+  },
+  {
+    name: '',
+    desc: 'Our fork of . Downloads  media with metadata.',
+    lang: 'Python',
+    org: SITE..org,
+    logo: SITE..logo,
   },
 ]
 

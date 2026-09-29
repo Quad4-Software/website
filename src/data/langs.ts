@@ -6,6 +6,8 @@ const LANG_COLORS: Record<string, string> = {
   JavaScript: '#f1e05a',
   TypeScript: '#3178c6',
   'C++': '#f34b7d',
+  Rust: '#dea584',
+  Svelte: '#ff3e00',
   Shell: '#89e051',
   PHP: '#4F5D95',
 }
