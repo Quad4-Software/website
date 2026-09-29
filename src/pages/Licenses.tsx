@@ -23,6 +23,7 @@ const licenseCard = css({
   borderColor: 'line',
   rounded: 'xl',
   p: { base: '5', md: '7' },
+  scrollMarginTop: '5rem',
 })
 
 const cardHead = css({
@@ -118,11 +119,12 @@ const cardFoot = css({
   mt: '4',
 })
 
-const facets = (l: License) => [
-  { title: 'Permissions', items: l.permissions, icon: Check, tone: toneFresh },
-  { title: 'Conditions', items: l.conditions, icon: CircleAlert, tone: toneAging },
-  { title: 'Limitations', items: l.limitations, icon: X, tone: toneStale },
-]
+const facets = (l: License) =>
+  [
+    { title: 'Permissions', items: l.permissions, icon: Check, tone: toneFresh },
+    { title: 'Conditions', items: l.conditions, icon: CircleAlert, tone: toneAging },
+    { title: 'Limitations', items: l.limitations, icon: X, tone: toneStale },
+  ].filter((f) => f.items.length > 0)
 
 export default function Licenses() {
   return (
@@ -141,11 +143,12 @@ export default function Licenses() {
       <div class={stack}>
         <For each={LICENSES}>
           {(l) => (
-            <article class={licenseCard}>
+            <article class={licenseCard} id={l.id}>
               <div class={cardHead}>
                 <Scale size={18} aria-hidden="true" />
                 <span class={cardName}>
-                  {l.name}, Version {l.version}
+                  {l.name}
+                  {l.version ? `, Version ${l.version}` : ''}
                 </span>
                 <span class={badge({ tone: 'solid' })}>{l.abbreviation}</span>
               </div>

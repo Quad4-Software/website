@@ -1,6 +1,15 @@
 import { For } from 'solid-js'
 import { A } from '@solidjs/router'
-import { ArrowRight, ArrowUpRight, Radio, Server, WifiOff } from 'lucide-solid'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  EyeOff,
+  PackageCheck,
+  Radio,
+  Server,
+  ShieldCheck,
+  WifiOff,
+} from 'lucide-solid'
 import BlackHole from '../components/BlackHole'
 import CopyButton from '../components/CopyButton'
 import PageMeta from '../lib/seo'
@@ -191,6 +200,21 @@ const pillars = [
     title: 'Self-hosted infrastructure',
     text: 'Ops platforms, forges, firewalls and libraries you run yourself. If it phones home, we do not ship it.',
   },
+  {
+    icon: ShieldCheck,
+    title: 'Security tooling',
+    text: 'Our own repository scanner, a web application firewall, kernel sandboxing libraries and crypto primitives. Defense is a product category here.',
+  },
+  {
+    icon: EyeOff,
+    title: 'Privacy by default',
+    text: 'No trackers, no analytics, no telemetry. Encryption and offline modes are the default and your data stays on your devices.',
+  },
+  {
+    icon: PackageCheck,
+    title: 'Verifiable supply chain',
+    text: 'SHA-pinned actions, hardened runners, signed container images and frozen lockfiles with release-age rules. Every build is attestable.',
+  },
 ]
 
 export default function Home() {
@@ -238,7 +262,7 @@ export default function Home() {
       </div>
 
       <section class={section}>
-        <h2 class={sectionTitle}>Three orbits</h2>
+        <h2 class={sectionTitle}>Six orbits</h2>
         <p class={sectionBlurb}>
           Everything we ship is built to work without asking a server for permission.
         </p>

@@ -1,3 +1,4 @@
+import { Route, Router } from '@solidjs/router'
 import { cleanup, render } from '@solidjs/testing-library'
 import { afterEach, describe, expect, it } from 'vitest'
 import CopyButton from '../src/components/CopyButton'
@@ -9,11 +10,16 @@ import { SITE } from '../src/config/site'
 
 afterEach(cleanup)
 
+const renderCard = (project: Parameters<typeof ProjectCard>[0]['project']) =>
+  render(() => (
+    <Router>
+      <Route path="*" component={() => <ProjectCard project={project} />} />
+    </Router>
+  ))
+
 describe('ProjectCard', () => {
   it('links to the repo on GitHub with safe rel', () => {
-    const { container } = render(() => (
-      <ProjectCard project={{ name: 'MeshChatX', desc: 'Client', lang: 'Python' }} />
-    ))
+    const { container } = renderCard({ name: 'MeshChatX', desc: 'Client', lang: 'Python' })
     const a = container.querySelector('a')!
     expect(a.getAttribute('href')).toBe(`https://github.com/Quad4-Software/MeshChatX`)
     expect(a.getAttribute('rel')).toContain('noopener')
@@ -21,24 +27,18 @@ describe('ProjectCard', () => {
   })
 
   it('renders the project name and description', () => {
-    const { container } = render(() => (
-      <ProjectCard project={{ name: 'Reticulum-Go', desc: 'Go stack', lang: 'Go' }} />
-    ))
+    const { container } = renderCard({ name: 'Reticulum-Go', desc: 'Go stack', lang: 'Go' })
     expect(container.textContent).toContain('Reticulum-Go')
     expect(container.textContent).toContain('Go stack')
   })
 
   it('shows fork and mirror badges when flagged', () => {
-    const { container } = render(() => (
-      <ProjectCard project={{ name: 'zot', desc: 'x', lang: 'Go', fork: true }} />
-    ))
-    expect(container.textContent).toContain('fork')
+    const { container } = renderCard({ name: 'zot', desc: 'x', lang: 'Go', fork: true })
+    expect(container.querySelector('span[title="Fork"]')).not.toBeNull()
   })
 
   it('falls back when the description is missing', () => {
-    const { container } = render(() => (
-      <ProjectCard project={{ name: 'packages', lang: 'Other' }} />
-    ))
+    const { container } = renderCard({ name: 'packages', lang: 'Other' })
     expect(container.textContent).toContain('Details coming soon')
   })
 })

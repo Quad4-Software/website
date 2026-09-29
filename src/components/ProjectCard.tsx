@@ -1,8 +1,10 @@
 import { For, Show } from 'solid-js'
-import { ArrowUpRight, Clock, Scale, Star } from 'lucide-solid'
+import { useNavigate } from '@solidjs/router'
+import { ArrowUpRight, Clock, GitFork, Scale, Star } from 'lucide-solid'
 import OrbitGlyph from './OrbitGlyph'
 import { projectUrl } from '../config/site'
 import { langColor } from '../data/langs'
+import { licenseHref, licenseName } from '../data/licenses'
 import { ageTone, formatAge } from '../lib/time'
 import type { Project } from '../data/projects'
 import { card, toneAging, toneFresh, toneStale } from '../lib/styles'
@@ -75,6 +77,20 @@ const updated = css({
 const updatedTone = (iso: string) =>
   ageTone(iso) === 'fresh' ? toneFresh : ageTone(iso) === 'aging' ? toneAging : toneStale
 
+const forkIcon = css({
+  display: 'inline-flex',
+  alignItems: 'center',
+  ml: '2',
+  color: 'warn',
+})
+
+const licenseLink = css({
+  cursor: 'pointer',
+  textDecoration: 'underline dotted',
+  textUnderlineOffset: '2px',
+  _hover: { color: 'fg' },
+})
+
 const topic = css({
   px: '2',
   py: '0.5',
@@ -113,6 +129,13 @@ const smallLogo = css({
 
 export default function ProjectCard(props: { project: Project }) {
   const p = () => props.project
+  const nav = useNavigate()
+
+  const goLicense = (e: MouseEvent | KeyboardEvent, abbr: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+    nav(licenseHref(abbr))
+  }
 
   const icon = (size: number) =>
     p().logo ? (
@@ -141,7 +164,11 @@ export default function ProjectCard(props: { project: Project }) {
         <span class={name}>
           {p().name}
           {p().mirror ? <span class={metaTag}>mirror</span> : null}
-          {p().fork ? <span class={metaTag}>fork</span> : null}
+          {p().fork ? (
+            <span class={forkIcon} title="Fork">
+              <GitFork size={11} aria-hidden="true" />
+            </span>
+          ) : null}
         </span>
       </span>
       <ArrowUpRight size={15} aria-hidden="true" class={css({ color: 'faint', flexShrink: 0 })} />
@@ -157,7 +184,16 @@ export default function ProjectCard(props: { project: Project }) {
           {p().lang}
         </span>
         {p().license ? (
-          <span class={stars}>
+          <span
+            class={cx(stars, licenseLink)}
+            role="link"
+            tabindex="0"
+            title={licenseName(p().license!) ?? 'License'}
+            on:click={(e) => goLicense(e, p().license!)}
+            on:keydown={(e) => {
+              if (e.key === 'Enter') goLicense(e, p().license!)
+            }}
+          >
             <Scale size={12} aria-hidden="true" />
             {p().license}
           </span>
@@ -217,7 +253,11 @@ export default function ProjectCard(props: { project: Project }) {
               <span class={flagshipName}>
                 {p().name}
                 {p().mirror ? <span class={metaTag}>mirror</span> : null}
-                {p().fork ? <span class={metaTag}>fork</span> : null}
+                {p().fork ? (
+                  <span class={forkIcon} title="Fork">
+                    <GitFork size={12} aria-hidden="true" />
+                  </span>
+                ) : null}
               </span>
               <ArrowUpRight
                 size={16}
@@ -232,7 +272,16 @@ export default function ProjectCard(props: { project: Project }) {
                 {p().lang}
               </span>
               {p().license ? (
-                <span class={stars}>
+                <span
+                  class={cx(stars, licenseLink)}
+                  role="link"
+                  tabindex="0"
+                  title={licenseName(p().license!) ?? 'License'}
+                  on:click={(e) => goLicense(e, p().license!)}
+                  on:keydown={(e) => {
+                    if (e.key === 'Enter') goLicense(e, p().license!)
+                  }}
+                >
                   <Scale size={12} aria-hidden="true" />
                   {p().license}
                 </span>
