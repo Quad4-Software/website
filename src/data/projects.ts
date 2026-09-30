@@ -32,10 +32,10 @@ export const categories: Category[] = [
       {
         name: 'MeshChatX',
         desc: 'Messaging, calls and NomadNet pages over the Reticulum network.',
-        updated: '2026-09-29T08:56:13Z',
+        updated: '2026-09-30T13:21:03Z',
         license: '0BSD',
         lang: 'Python',
-        stars: 147,
+        stars: 148,
         topics: ['reticulum', 'lxmf', 'lxst'],
         flagship: true,
         logo: '/meshchatx.webp',
@@ -70,7 +70,7 @@ export const categories: Category[] = [
       {
         name: 'LXMFy',
         desc: 'Framework for building LXMF bots.',
-        updated: '2026-09-26T22:05:38Z',
+        updated: '2026-09-30T08:09:01Z',
         license: '0BSD',
         lang: 'Python',
         stars: 5,
@@ -210,7 +210,7 @@ export const categories: Category[] = [
       {
         name: 'Wharfinger',
         desc: 'Monitoring, status pages and deployments on your own hardware.',
-        updated: '2026-09-28T07:03:36Z',
+        updated: '2026-09-29T10:05:35Z',
         license: 'QSL',
         lang: 'TypeScript',
         topics: ['devops', 'monitoring', 'status-page'],
@@ -219,7 +219,7 @@ export const categories: Category[] = [
         name: 'forge',
         desc: 'Our Forgejo fork. Runs git.quad4.io.',
         fork: true,
-        updated: '2026-09-29T04:15:45Z',
+        updated: '2026-09-29T15:24:50Z',
         license: 'GPL-3.0',
         lang: 'Go',
         topics: ['forge', 'git'],
@@ -227,7 +227,7 @@ export const categories: Category[] = [
       {
         name: 'ravenguard',
         desc: 'Web application firewall. Blocks bots, scanners and AI scrapers.',
-        updated: '2026-09-29T03:37:54Z',
+        updated: '2026-09-30T12:45:37Z',
         license: 'QSL',
         lang: 'Go',
         logo: '/ravenguard.webp',
@@ -242,7 +242,7 @@ export const categories: Category[] = [
       {
         name: 'Badinage',
         desc: 'XMPP chat in the browser.',
-        updated: '2026-09-26T20:58:47Z',
+        updated: '2026-09-29T10:05:43Z',
         license: 'QSL',
         lang: 'TypeScript',
       },
@@ -252,11 +252,6 @@ export const categories: Category[] = [
         updated: '2026-09-28T13:17:19Z',
         license: '0BSD',
         lang: 'Shell',
-      },
-      {
-        name: 'packages',
-        desc: 'Build files for Quad4 packages.',
-        lang: 'Other',
       },
       {
         name: 'VoidBin',
@@ -275,7 +270,7 @@ export const categories: Category[] = [
       {
         name: 'quickchat',
         desc: 'Lightweight chat for the browser.',
-        updated: '2026-09-23T07:04:35Z',
+        updated: '2026-09-29T19:46:09Z',
         license: '0BSD',
         lang: 'TypeScript',
       },
@@ -321,7 +316,7 @@ export const categories: Category[] = [
       {
         name: 'argus',
         desc: 'Security checks and hardening in a single Rust binary.',
-        updated: '2026-09-29T01:56:10Z',
+        updated: '2026-09-30T20:39:48Z',
         license: 'MIT-0',
         lang: 'Rust',
       },
@@ -366,7 +361,7 @@ export const categories: Category[] = [
       {
         name: 'nullray',
         desc: 'Lightweight AI agent for the terminal.',
-        updated: '2026-09-29T08:29:32Z',
+        updated: '2026-09-29T18:49:19Z',
         license: 'QSL',
         lang: 'Odin',
         topics: ['agent', 'tui', 'llm'],
@@ -374,9 +369,10 @@ export const categories: Category[] = [
       {
         name: 'ai',
         desc: 'MCP servers and skills for AI agents.',
-        updated: '2026-09-27T18:04:58Z',
+        updated: '2026-09-29T15:32:48Z',
         license: '0BSD',
         lang: 'Go',
+        stars: 1,
         topics: ['mcp', 'agent-tools'],
       },
       {
@@ -419,8 +415,9 @@ export const categories: Category[] = [
       {
         name: 'meshchatx-website',
         desc: 'The meshchatx.com website.',
-        updated: '2026-09-28T07:56:45Z',
+        updated: '2026-09-29T22:00:45Z',
         lang: 'PHP',
+        stars: 1,
       },
       {
         name: 'reticulum-go-website',
@@ -439,7 +436,7 @@ export const categories: Category[] = [
       {
         name: 'cborx',
         desc: 'CBOR encoder and decoder for Python. No dependencies.',
-        updated: '2026-09-26T22:30:44Z',
+        updated: '2026-09-29T10:46:57Z',
         license: '0BSD',
         lang: 'Python',
       },
@@ -490,7 +487,7 @@ export const categories: Category[] = [
       {
         name: 'website',
         desc: 'This site. quad4.io.',
-        updated: '2026-09-29T09:15:31Z',
+        updated: '2026-09-29T14:55:43Z',
         lang: 'TypeScript',
       },
     ],
@@ -499,31 +496,20 @@ export const categories: Category[] = [
 
 export const Projects: Project[] = [
   {
-    name: 'yt-',
-    desc: 'YouTube  tooling for the command line.',
-    updated: '2026-09-28T23:03:39Z',
-    license: '0BSD',
-    lang: 'Go',
-    org: SITE..org,
-    logo: SITE..logo,
-    topics: ['', 'youtube'],
-  },
-  {
-    name: 'pittacium',
-    desc: 'Public email record lookups.',
-    updated: '2026-09-28T22:43:58Z',
-    license: '0BSD',
-    lang: 'Go',
-    org: SITE..org,
-    logo: SITE..logo,
-    topics: ['', 'email', 'openpgp'],
-  },
-  {
     name: '-template-go',
     desc: 'Template for building  tools in Go.',
-    updated: '2026-09-28T14:35:29Z',
-    license: '0BSD',
+    updated: '2026-09-29T14:10:33Z',
+    license: 'QSL',
     lang: 'Go',
+    org: SITE..org,
+    logo: SITE..logo,
+  },
+  {
+    name: '-template-rs',
+    desc: 'Template for building  tools in Rust.',
+    updated: '2026-09-29T14:08:27Z',
+    license: 'QSL',
+    lang: 'Rust',
     org: SITE..org,
     logo: SITE..logo,
   },
@@ -531,7 +517,7 @@ export const Projects: Project[] = [
     name: '',
     desc: 'Our fork of , the  collector.',
     fork: true,
-    updated: '2026-09-28T16:46:34Z',
+    updated: '2026-09-29T14:08:45Z',
     license: 'MIT',
     lang: 'Python',
     org: SITE..org,
@@ -541,7 +527,7 @@ export const Projects: Project[] = [
     name: '',
     desc: 'Our fork of , a website analysis tool.',
     fork: true,
-    updated: '2026-09-28T16:06:31Z',
+    updated: '2026-09-29T14:08:47Z',
     license: 'MIT',
     lang: 'TypeScript',
     org: SITE..org,
