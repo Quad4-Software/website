@@ -1,5 +1,3 @@
-import { SITE } from '../config/site'
-
 export interface Project {
   name: string
   desc?: string
@@ -491,57 +489,6 @@ export const categories: Category[] = [
         lang: 'TypeScript',
       },
     ],
-  },
-]
-
-export const Projects: Project[] = [
-  {
-    name: '-template-go',
-    desc: 'Template for building  tools in Go.',
-    updated: '2026-09-29T14:10:33Z',
-    license: 'QSL',
-    lang: 'Go',
-    org: SITE..org,
-    logo: SITE..logo,
-  },
-  {
-    name: '-template-rs',
-    desc: 'Template for building  tools in Rust.',
-    updated: '2026-09-29T14:08:27Z',
-    license: 'QSL',
-    lang: 'Rust',
-    org: SITE..org,
-    logo: SITE..logo,
-  },
-  {
-    name: '',
-    desc: 'Our fork of , the  collector.',
-    fork: true,
-    updated: '2026-09-29T14:08:45Z',
-    license: 'MIT',
-    lang: 'Python',
-    org: SITE..org,
-    logo: SITE..logo,
-  },
-  {
-    name: '',
-    desc: 'Our fork of , a website analysis tool.',
-    fork: true,
-    updated: '2026-09-29T14:08:47Z',
-    license: 'MIT',
-    lang: 'TypeScript',
-    org: SITE..org,
-    logo: SITE..logo,
-  },
-  {
-    name: '',
-    desc: 'Our fork of . Downloads  media with metadata.',
-    fork: true,
-    updated: '2026-09-06T18:20:52Z',
-    license: 'MIT',
-    lang: 'Python',
-    org: SITE..org,
-    logo: SITE..logo,
   },
 ]
 

@@ -12,7 +12,6 @@ import Projects from './pages/Projects'
 import Git from './pages/Git'
 import Contact from './pages/Contact'
 import Security from './pages/Security'
-import  from './pages/'
 import Licenses from './pages/Licenses'
 import Branding from './pages/Branding'
 import NotFound from './pages/NotFound'
@@ -26,7 +25,6 @@ render(
           <Route path="/projects" component={Projects} />
           <Route path="/git" component={Git} />
           <Route path="/security" component={Security} />
-          <Route path="/" component={} />
           <Route path="/licenses" component={Licenses} />
           <Route path="/contact" component={Contact} />
           <Route path="/branding" component={Branding} />

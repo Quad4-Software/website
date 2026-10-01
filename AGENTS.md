@@ -22,8 +22,7 @@ docker build -t quad4-website .   # or podman build
 
 - `src/config/site.ts` - every site constant (name, urls, contact, rngit node)
 - `src/config/nav.ts` - nav links, footer sections, route list
-- `src/data/projects.ts` - project catalog, categories, featured list,
-   org projects
+- `src/data/projects.ts` - project catalog, categories, featured list
 - `src/data/licenses.ts` - custom license texts (QSL-1.0-0BSD)
 - `src/lib/styles.ts` - shared recipes (section, card, button, badge, codeBlock)
 - `src/lib/seo.tsx` - PageMeta (title, description, canonical, og)

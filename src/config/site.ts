@@ -10,13 +10,6 @@ export const SITE = {
     'Quad4 is an independent software collective. We build all sorts of software, from mesh networking tools and offline-first web apps to self-hosted infrastructure.',
   themeKey: 'quad4-theme',
   org: 'Quad4-Software',
-  : {
-    org: '',
-    name: 'Quad4 ',
-    url: 'https://github.com/',
-    logo: '/.webp',
-    desc: ' tools and software.',
-  },
   links: {
     github: 'https://github.com/Quad4-Software',
     forge: 'https://git.quad4.io',
