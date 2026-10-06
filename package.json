@@ -39,9 +39,9 @@
     "fast-check": "4.10.2",
     "globals": "17.12.0",
     "happy-dom": "20.14.5",
-    "prettier": "3.9.8",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.70.1",
+    "prettier": "3.9.9",
+    "typescript": "7.0.2",
+    "typescript-eslint": "8.71.0",
     "vite": "8.3.0",
     "vite-plugin-solid": "2.11.14",
     "vitest": "5.0.1"
