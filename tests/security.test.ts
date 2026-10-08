@@ -5,6 +5,7 @@ import fc from 'fast-check'
 import { describe, expect, it } from 'vitest'
 import { SITE, repoUrl } from '../src/config/site'
 import { FOOTER_SECTIONS, NAV_LINKS } from '../src/config/nav'
+import { CSP } from '../src/lib/csp'
 import { pageTitle } from '../src/lib/seo'
 
 const ROOT = process.cwd()
@@ -115,6 +116,15 @@ describe('config consistency', () => {
       expect(headers, `missing CSP hash ${hash} in _headers`).toContain(`'${hash}'`)
       expect(nginx, `missing CSP hash ${hash} in nginx.conf`).toContain(`'${hash}'`)
     }
+  })
+
+  it('meta CSP, _headers and nginx.conf carry the same policy', () => {
+    const headers = readFileSync(join(ROOT, 'public/_headers'), 'utf8')
+    const nginx = readFileSync(join(ROOT, 'docker/nginx.conf'), 'utf8')
+    const layout = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
+    expect(layout).toContain('content={CSP}')
+    expect(headers).toContain(`Content-Security-Policy: ${CSP}`)
+    expect(nginx).toContain(`"${CSP}"`)
   })
 })
 

@@ -5,6 +5,7 @@ import Nav from '../components/Nav.astro'
 import Starfield from '../components/Starfield.astro'
 import { SITE } from '../config/site'
 import { pageTitle } from '../lib/seo'
+import { CSP } from '../lib/csp'
 import { link } from '../lib/url'
 
 interface Props {
@@ -25,6 +26,7 @@ const skip =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content={CSP} />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="dark light" />
