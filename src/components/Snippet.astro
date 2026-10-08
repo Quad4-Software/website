@@ -1,0 +1,19 @@
+---
+import CopyButton from './CopyButton.astro'
+import { codeBlock, cx } from '../lib/styles'
+
+interface Props {
+  label: string
+  value: string
+}
+
+const { label, value } = Astro.props
+---
+
+<div>
+  <span class="mb-1.5 block font-mono text-xs uppercase tracking-[0.16em] text-faint">{label}</span>
+  <div class="mb-3 flex items-center gap-3">
+    <code class={cx(codeBlock, 'block min-w-0 flex-1')}>{value}</code>
+    <CopyButton value={value} label={`Copy ${label}`} />
+  </div>
+</div>

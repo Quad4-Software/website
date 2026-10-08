@@ -1,0 +1,78 @@
+---
+import AssetCard from '../components/AssetCard.astro'
+import CopyButton from '../components/CopyButton.astro'
+import PageHeader from '../components/PageHeader.astro'
+import Base from '../layouts/Base.astro'
+import { BRAND_COLORS, BRAND_FONTS, BRAND_GROUPS, BRAND_RULES } from '../data/brand'
+import { card, section, sectionBlurb, sectionTitle } from '../lib/styles'
+---
+
+<Base
+  title="Brand"
+  description="Quad4 brand assets: the mark, lockups, colors and type. Take what you need."
+  path="/branding"
+>
+  <PageHeader
+    title="Brand"
+    blurb="The mark, the lockup, the palette and the type. Download what you need."
+  />
+
+  {BRAND_GROUPS.map((g) => (
+    <section class={section}>
+      <h2 class={sectionTitle}>{g.title}</h2>
+      <p class={sectionBlurb}>{g.note}</p>
+      <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+        {g.assets.map((a) => (
+          <AssetCard asset={a} />
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class={section}>
+    <h2 class={sectionTitle}>Colors</h2>
+    <p class={sectionBlurb}>Void, paper and mist. That is the whole palette.</p>
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+      {BRAND_COLORS.map((c) => (
+        <div class="overflow-hidden rounded-lg border border-line">
+          <div class="h-20" style={`background: ${c.hex}`} />
+          <div class="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5">
+            <div>
+              <div class="font-mono text-xs font-bold">{c.name}</div>
+              <div class="font-mono text-xs text-faint">{c.hex}</div>
+            </div>
+            <CopyButton value={c.hex} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class={section}>
+    <h2 class={sectionTitle}>Type</h2>
+    <p class={sectionBlurb}>Two families, both vendored locally.</p>
+    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+      {BRAND_FONTS.map((f) => (
+        <div class={card}>
+          <div
+            class="mb-3 text-4xl font-bold"
+            style={f.mono ? "font-family: 'Space Mono', monospace" : undefined}
+          >
+            Aa
+          </div>
+          <div class="font-mono text-sm font-bold">{f.name}</div>
+          <div class="text-sm text-muted">{f.use}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class={section}>
+    <h2 class={sectionTitle}>Usage</h2>
+    <ul class="mt-4 grid list-disc gap-1.5 pl-5 text-sm leading-relaxed text-muted">
+      {BRAND_RULES.map((r) => (
+        <li>{r}</li>
+      ))}
+    </ul>
+  </section>
+</Base>

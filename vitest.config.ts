@@ -1,10 +1,8 @@
-import { defineConfig } from 'vitest/config'
-import solid from 'vite-plugin-solid'
+/// <reference types="vitest/config" />
+import { getViteConfig } from 'astro/config'
 
-export default defineConfig({
-  plugins: [solid()],
+export default getViteConfig({
   test: {
-    environment: 'happy-dom',
-    include: ['tests/**/*.test.{ts,tsx}'],
+    include: ['tests/**/*.test.ts'],
   },
 })

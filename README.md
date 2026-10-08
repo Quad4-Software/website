@@ -1,6 +1,6 @@
 # quad4.io
 
-Source for [quad4.io](https://quad4.io). SolidJS, Vite, Panda CSS.
+Source for [quad4.io](https://quad4.io). Astro and Tailwind CSS.
 
 ```sh
 pnpm install

@@ -1,0 +1,11 @@
+---
+import { Moon, Sun } from '@lucide/astro'
+
+const btn =
+  'inline-flex size-8 cursor-pointer items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-faint hover:text-fg'
+---
+
+<button type="button" class={btn} data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+  <Sun size={15} class="hidden dark:inline" aria-hidden="true" />
+  <Moon size={15} class="dark:hidden" aria-hidden="true" />
+</button>

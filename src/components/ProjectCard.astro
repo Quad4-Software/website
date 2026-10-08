@@ -1,0 +1,172 @@
+---
+import { ArrowUpRight, Clock, GitFork, Scale, Star } from '@lucide/astro'
+import OrbitGlyph from './OrbitGlyph.astro'
+import { projectUrl } from '../config/site'
+import { langColor } from '../data/langs'
+import { licenseHref, licenseName } from '../data/licenses'
+import { ageTone, formatAge } from '../lib/time'
+import type { Project } from '../data/projects'
+import { card, cx, toneAging, toneFresh, toneStale } from '../lib/styles'
+
+interface Props {
+  project: Project
+}
+
+const { project: p } = Astro.props
+
+const toneClass = (iso: string) =>
+  ageTone(iso) === 'fresh' ? toneFresh : ageTone(iso) === 'aging' ? toneAging : toneStale
+
+const meta = 'mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint'
+const langCls = 'inline-flex items-center gap-1.5'
+const starsCls = 'inline-flex items-center gap-1'
+const updatedCls = 'inline-flex items-center gap-1'
+const licenseCls = cx(
+  starsCls,
+  'min-h-6 cursor-pointer underline decoration-dotted underline-offset-2 hover:text-fg',
+)
+const forkCls = 'ml-2 inline-flex items-center text-warn'
+const topicCls = 'rounded-full border border-line px-2 py-0.5'
+const metaTagCls =
+  'ml-2 inline-block rounded-full border border-line px-2 py-0.5 align-middle font-mono text-xs font-normal text-faint'
+const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ').toLowerCase()
+---
+
+{p.flagship ? (
+  <a
+    href={projectUrl(p.name, p.org)}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={cx(card, 'col-span-full')}
+    data-search={searchText}
+  >
+    <div class="flex items-center gap-5">
+      {p.logo ? (
+        <img src={p.logo} alt="" width={48} height={48} class="size-12 shrink-0 rounded-lg" />
+      ) : (
+        <OrbitGlyph seed={p.name} size={48} />
+      )}
+      <div class="min-w-0 flex-1">
+        <div class="flex items-start justify-between gap-3">
+          <span class="text-lg font-semibold tracking-[-0.01em]">
+            {p.name}
+            {p.mirror ? <span class={metaTagCls}>mirror</span> : null}
+            {p.fork ? (
+              <span class={forkCls} title="Fork">
+                <GitFork size={12} aria-hidden="true" />
+              </span>
+            ) : null}
+          </span>
+          <ArrowUpRight size={16} class="mt-1 shrink-0 text-faint" aria-hidden="true" />
+        </div>
+        <p class="mt-2 text-sm leading-relaxed text-muted">{p.desc}</p>
+        <div class={meta}>
+          <span class={langCls}>
+            <span
+              class="size-2.5 shrink-0 rounded-full"
+              style={`background: ${langColor(p.lang)}`}
+            />
+            {p.lang}
+          </span>
+          {p.license ? (
+            <span
+              class={licenseCls}
+              role="link"
+              tabindex="0"
+              data-goto={licenseHref(p.license)}
+              title={licenseName(p.license) ?? 'License'}
+            >
+              <Scale size={12} aria-hidden="true" />
+              {p.license}
+            </span>
+          ) : null}
+          {p.stars ? (
+            <span class={starsCls}>
+              <Star size={12} aria-hidden="true" />
+              {p.stars}
+            </span>
+          ) : null}
+          {p.updated ? (
+            <span
+              class={cx(updatedCls, toneClass(p.updated))}
+              title={`Last commit ${new Date(p.updated).toDateString()}`}
+            >
+              <Clock size={12} aria-hidden="true" />
+              {formatAge(p.updated)}
+            </span>
+          ) : null}
+          {(p.topics ?? []).map((t) => (
+            <span class={topicCls}>{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </a>
+) : (
+  <a
+    href={projectUrl(p.name, p.org)}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={card}
+    data-search={searchText}
+  >
+    <div class="flex items-center justify-between gap-3">
+      <span class="inline-flex min-w-0 items-center gap-2.5">
+        {p.logo ? (
+          <img src={p.logo} alt="" width={24} height={24} class="size-7 shrink-0 object-contain" />
+        ) : (
+          <OrbitGlyph seed={p.name} size={24} />
+        )}
+        <span class="text-base font-semibold tracking-[-0.01em]">
+          {p.name}
+          {p.mirror ? <span class={metaTagCls}>mirror</span> : null}
+          {p.fork ? (
+            <span class={forkCls} title="Fork">
+              <GitFork size={11} aria-hidden="true" />
+            </span>
+          ) : null}
+        </span>
+      </span>
+      <ArrowUpRight size={15} class="shrink-0 text-faint" aria-hidden="true" />
+    </div>
+    <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+      {p.desc ?? 'Details coming soon.'}
+    </p>
+    <div class={meta}>
+      <span class={langCls}>
+        <span class="size-2.5 shrink-0 rounded-full" style={`background: ${langColor(p.lang)}`} />
+        {p.lang}
+      </span>
+      {p.license ? (
+        <span
+          class={licenseCls}
+          role="link"
+          tabindex="0"
+          data-goto={licenseHref(p.license)}
+          title={licenseName(p.license) ?? 'License'}
+        >
+          <Scale size={12} aria-hidden="true" />
+          {p.license}
+        </span>
+      ) : null}
+      {p.stars ? (
+        <span class={starsCls}>
+          <Star size={12} aria-hidden="true" />
+          {p.stars}
+        </span>
+      ) : null}
+      {p.updated ? (
+        <span
+          class={cx(updatedCls, toneClass(p.updated))}
+          title={`Last commit ${new Date(p.updated).toDateString()}`}
+        >
+          <Clock size={12} aria-hidden="true" />
+          {formatAge(p.updated)}
+        </span>
+      ) : null}
+      {(p.topics ?? []).slice(0, 3).map((t) => (
+        <span class={topicCls}>{t}</span>
+      ))}
+    </div>
+  </a>
+)}

@@ -1,0 +1,103 @@
+---
+import '../styles/global.css'
+import Footer from '../components/Footer.astro'
+import Nav from '../components/Nav.astro'
+import Starfield from '../components/Starfield.astro'
+import { SITE } from '../config/site'
+import { pageTitle } from '../lib/seo'
+
+interface Props {
+  title: string
+  description: string
+  path: string
+}
+
+const { title, description, path } = Astro.props
+const fullTitle = pageTitle(title, path)
+const canonical = `${SITE.url}${path}`
+const skip =
+  'absolute left-4 -top-20 z-[100] rounded-md bg-accent px-3 py-2 font-mono text-sm text-on-accent focus:top-4'
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://quad4.io/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="https://quad4.io/og.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://quad4.io/#org",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://quad4.io/og.png",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": ["https://github.com/Quad4-Software", "https://git.quad4.io"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://quad4.io/#site",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "publisher": { "@id": "https://quad4.io/#org" }
+          }
+        ]
+      }
+    </script>
+    <script is:inline>
+      ;(function () {
+        let t = null
+        try {
+          t = localStorage.getItem('quad4-theme')
+        } catch {}
+        if (t !== 'light' && t !== 'dark') {
+          t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.dataset.theme = t
+      })()
+    </script>
+  </head>
+  <body>
+    <div class="relative z-[1] flex min-h-dvh flex-col">
+      <a href="#main" class={skip}>
+        Skip to content
+      </a>
+      <Starfield />
+      <Nav />
+      <main id="main" class="flex-1">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script>
+      import '../scripts/site'
+    </script>
+  </body>
+</html>

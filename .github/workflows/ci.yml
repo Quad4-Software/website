@@ -64,3 +64,39 @@ jobs:
           path: dist
           retention-days: 7
           if-no-files-found: error
+wasm:
+  name: Build FastEdge component
+  runs-on: ubuntu-latest
+  permissions:
+    contents: read
+  steps:
+    - name: Harden runner
+      uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+      with:
+        egress-policy: audit
+
+    - name: Checkout
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      with:
+        persist-credentials: false
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+
+    - name: Setup Node
+      uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+      with:
+        node-version: '24'
+        cache: pnpm
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Build site
+      run: pnpm build
+
+    - name: Build edge component
+      run: |
+        rustup target add wasm32-wasip2
+        cargo build --release --locked --target wasm32-wasip2 --manifest-path edge/Cargo.toml
+        cargo test --manifest-path edge/Cargo.toml

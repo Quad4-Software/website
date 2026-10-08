@@ -1,17 +1,17 @@
 import globals from 'globals'
-import solid from 'eslint-plugin-solid'
+import astro from 'eslint-plugin-astro'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
-    ignores: ['dist/**', 'styled-system/**', 'node_modules/**', '.lighthouseci/**'],
+    ignores: ['dist/**', '.astro/**', 'node_modules/**', '.lighthouseci/**'],
   },
   ...tseslint.configs.recommended,
+  ...astro.configs['flat/recommended'],
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,mts,cts,mjs}'],
     languageOptions: {
-      globals: { ...globals.browser },
+      globals: { ...globals.browser, ...globals.node },
     },
   },
-  solid.configs['flat/typescript'],
 )

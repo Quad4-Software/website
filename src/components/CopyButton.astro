@@ -1,0 +1,25 @@
+---
+import { Check, Copy } from '@lucide/astro'
+import { cx } from '../lib/styles'
+
+interface Props {
+  value: string
+  label?: string
+}
+
+const { value, label = 'Copy to clipboard' } = Astro.props
+
+const btn = cx(
+  'inline-flex cursor-pointer items-center gap-1.5 rounded-md border border-line px-3 py-1.5',
+  'font-mono text-xs text-muted transition-colors hover:border-faint hover:text-fg',
+)
+---
+
+<button type="button" class={btn} data-copy={value} aria-label={label}>
+  <span data-copy-idle class="inline-flex items-center gap-1.5">
+    <Copy size={13} aria-hidden="true" /> Copy
+  </span>
+  <span data-copy-done class="hidden items-center gap-1.5">
+    <Check size={13} aria-hidden="true" /> Copied
+  </span>
+</button>

@@ -1,6 +1,7 @@
 node_modules
 dist
-styled-system
+.astro
 .lighthouseci
 *.local
 .DS_Store
+edge/target

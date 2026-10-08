@@ -27,18 +27,20 @@ To feature it on the home page, add the name to `featuredNames`.
 
 ## Add a page
 
-1. `src/pages/X.tsx` with `PageMeta` (title, description, path) and
-   `PageHeader` (title, blurb).
-2. Import eagerly in `src/main.tsx` and add `<Route path="/x" component={X} />`.
-3. Add `{ href: '/x', label: 'X' }` to `NAV_LINKS` and '/x' to `ROUTES`.
-4. Add `<url>` to `public/sitemap.xml`.
-5. Add `http://localhost/x` to the lhci url list in `lighthouserc.json`.
+1. `src/pages/X.astro` using the `Base` layout (title, description, path)
+   and `PageHeader` (title, blurb).
+2. Add `{ href: '/x', label: 'X' }` to `NAV_LINKS` and '/x' to `ROUTES`.
+3. Add `<url>` to `public/sitemap.xml`.
+4. Add `http://localhost/x` to the lhci url list in `lighthouserc.json`.
+
+Routing is file-based: the .astro filename is the route. `src/pages/404.astro`
+becomes `dist/404.html`, which nginx serves via `error_page`.
 
 ## Change a constant
 
-Edit `src/config/site.ts` only. `theme-init` inline script in `index.html`
-reads `SITE.themeKey` by hand, keep the literal in sync (the security test
-checks it).
+Edit `src/config/site.ts` only. The `theme-init` inline script in
+`src/layouts/Base.astro` reads `SITE.themeKey` by hand, keep the literal in
+sync (the security test checks it).
 
 ## Verify
 

@@ -6,7 +6,7 @@ description: Prose rules for quad4.io. Use when writing or editing any user-faci
 # Copy style
 
 Enforced by `tests/copy.test.ts` against `tests/slop.data.ts`. The lint scans
-every file in `src/` plus `index.html`.
+every file in `src/`, including .astro templates and the base layout.
 
 ## Banned
 

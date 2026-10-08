@@ -5,45 +5,42 @@
   "type": "module",
   "packageManager": "pnpm@12.5.1",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12"
   },
   "scripts": {
-    "dev": "panda codegen && vite",
-    "build": "panda codegen && vite build",
-    "preview": "vite preview",
-    "test": "panda codegen && vitest run",
-    "typecheck": "panda codegen && node node_modules/typescript/bin/tsc --noEmit -p tsconfig.json",
-    "typecheck:native": "panda codegen && node node_modules/@typescript/native/bin/tsc --noEmit -p tsconfig.json",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "typecheck": "astro check",
+    "typecheck:native": "node node_modules/@typescript/native/bin/tsc --noEmit -p tsconfig.json",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "build:edge": "pnpm build && cargo build --release --locked --target wasm32-wasip2 --manifest-path edge/Cargo.toml",
+    "test:edge": "cargo test --manifest-path edge/Cargo.toml",
+    "serve:edge": "wasmtime serve -S cli --addr 127.0.0.1:8080 edge/target/wasm32-wasip2/release/quad4_edge.wasm"
   },
   "dependencies": {
-    "@ark-ui/solid": "5.39.2",
-    "@fontsource-variable/space-grotesk": "5.3.0",
-    "@fontsource/space-mono": "5.3.0",
-    "@solidjs/meta": "0.29.4",
-    "@solidjs/router": "1.0.0",
-    "lucide-solid": "1.47.0",
-    "simple-icons": "16.32.0",
-    "solid-js": "1.9.15"
+    "@lucide/astro": "1.49.0",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.3.5",
+    "simple-icons": "16.33.0",
+    "tailwindcss": "4.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "0.9.10",
     "@lhci/cli": "0.15.1",
-    "@pandacss/dev": "1.12.1",
-    "@solidjs/testing-library": "0.8.10",
     "@typescript/native": "npm:typescript@7.0.2",
     "eslint": "10.11.0",
-    "eslint-plugin-solid": "0.18.0",
+    "eslint-plugin-astro": "3.2.1",
     "fast-check": "4.10.2",
     "globals": "17.12.0",
-    "happy-dom": "20.14.5",
-    "prettier": "3.9.8",
+    "prettier": "3.9.9",
+    "prettier-plugin-astro": "1.1.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.70.1",
-    "vite": "8.3.0",
-    "vite-plugin-solid": "2.11.14",
-    "vitest": "5.0.1"
+    "typescript-eslint": "8.71.0",
+    "vitest": "5.0.3"
   }
 }

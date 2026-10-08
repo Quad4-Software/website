@@ -13,9 +13,12 @@ updates:
           - prettier
           - vitest
           - fast-check
-          - happy-dom
+          - astro
+          - '@astrojs/*'
           - '@lhci/*'
-          - '@solidjs/testing-library'
+          - '@lucide/*'
+          - tailwindcss
+          - '@tailwindcss/*'
 
   - package-ecosystem: github-actions
     directory: /

@@ -13,7 +13,7 @@ trustPolicy: no-downgrade
 # Known false positives: legacy backport releases published without
 # provenance after newer lines had it. Excluded as narrowly as possible.
 trustPolicyExclude:
-  - chokidar@4.0.3 # pinned exactly by @pandacss/node
+  - chokidar@4.0.3 # pinned exactly by @astrojs/check
   - semver@5.7.2 # legacy backport inside lighthouse deps
   - semver@6.3.1 # legacy backport inside babel deps
   - undici-types@6.21.0 # via chrome-launcher > @types/node
@@ -23,7 +23,7 @@ verifyDepsBeforeRun: install
 saveExact: true
 
 # Forced resolutions for CVEs in dev-tooling deps that pin vulnerable
-# versions (lhci, pandacss). None of these ship in dist/.
+# versions (lhci and friends). None of these ship in dist/.
 overrides:
   postcss: '^8.5.23' # sourceMappingURL traversal, <=8.5.22
   browserslist: '^4.28.7' # OOM + prototype write, <=4.28.6

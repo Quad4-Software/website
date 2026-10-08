@@ -1,122 +1,56 @@
-import { css, cva } from '../../styled-system/css'
+// Shared Tailwind class strings. cx joins conditional class lists.
+export const cx = (...xs: (string | false | null | undefined)[]): string =>
+  xs.filter(Boolean).join(' ')
 
-export const section = css({
-  maxW: '72rem',
-  mx: 'auto',
-  px: { base: '5', md: '8' },
-  py: { base: '8', md: '12' },
-})
+export const section = 'mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12'
 
-export const sectionTitle = css({
-  fontSize: { base: '2xl', md: '3xl' },
-  fontWeight: 600,
-  letterSpacing: '-0.02em',
-  mb: '3',
-})
+export const sectionTitle = 'mb-3 text-2xl font-semibold tracking-[-0.02em] md:text-3xl'
 
-export const sectionBlurb = css({
-  color: 'muted',
-  maxW: '38rem',
-  fontSize: { base: 'sm', md: 'md' },
-  lineHeight: 'relaxed',
-})
+export const sectionBlurb = 'max-w-xl text-sm leading-relaxed text-muted md:text-base'
 
-export const card = css({
-  display: 'block',
-  bg: 'surfaceAlpha',
-  border: '1px solid',
-  borderColor: 'line',
-  rounded: 'xl',
-  p: '5',
-  transition: 'border-color 0.2s ease, transform 0.2s ease, background 0.2s ease',
-  _hover: {
-    borderColor: 'faint',
-    transform: 'translateY(-2px)',
-  },
-})
+export const card = cx(
+  'block rounded-xl border border-line bg-surface-alpha p-5',
+  'transition-[border-color,transform,background] duration-200',
+  'hover:border-faint hover:-translate-y-0.5',
+)
 
-export const button = cva({
-  base: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '2',
-    fontFamily: 'mono',
-    fontSize: 'sm',
-    fontWeight: 500,
-    px: '5',
-    py: '2.5',
-    rounded: 'full',
-    border: '1px solid',
-    borderColor: 'line',
-    cursor: 'pointer',
-    transition: 'opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease',
-    textDecoration: 'none',
-  },
-  variants: {
-    intent: {
-      solid: {
-        bg: 'accent',
-        color: 'onAccent',
-        borderColor: 'accent',
-        _hover: { opacity: 0.85 },
-      },
-      ghost: {
-        bg: 'transparent',
-        color: 'fg',
-        _hover: { borderColor: 'faint' },
-      },
-    },
-  },
-  defaultVariants: { intent: 'ghost' },
-})
+const buttonBase = cx(
+  'inline-flex cursor-pointer items-center gap-2 rounded-full border px-5 py-2.5',
+  'font-mono text-sm font-medium no-underline',
+  'transition-[opacity,border-color,background] duration-150',
+)
 
-export const textLink = css({
-  color: 'fg',
-  textDecoration: 'underline',
-  textDecorationColor: 'faint',
-  textUnderlineOffset: '3px',
-  transition: 'color 0.15s ease, text-decoration-color 0.15s ease',
-  _hover: { color: 'accent', textDecorationColor: 'accent' },
-})
+export const button = (intent: 'solid' | 'ghost' = 'ghost'): string =>
+  intent === 'solid'
+    ? cx(buttonBase, 'border-accent bg-accent text-on-accent hover:opacity-85')
+    : cx(buttonBase, 'border-line text-fg hover:border-faint')
 
-export const codeBlock = css({
-  fontFamily: 'mono',
-  fontSize: { base: 'xs', md: 'sm' },
-  bg: 'raised',
-  border: '1px solid',
-  borderColor: 'line',
-  rounded: 'lg',
-  px: '4',
-  py: '3',
-  overflowX: 'auto',
-  whiteSpace: 'nowrap',
-  color: 'fg',
-})
+export const textLink = cx(
+  'text-fg underline decoration-faint underline-offset-[3px]',
+  'transition-colors hover:text-accent hover:decoration-accent',
+)
 
-export const toneFresh = css({ color: { _light: '#15803d', _dark: '#4ade80' } })
-export const toneAging = css({ color: 'warn' })
-export const toneStale = css({ color: { _light: '#b91c1c', _dark: '#f87171' } })
+export const codeBlock = cx(
+  'overflow-x-auto rounded-lg border border-line bg-raised px-4 py-3',
+  'font-mono text-xs whitespace-nowrap text-fg md:text-sm',
+)
 
-export const badge = cva({
-  base: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    fontFamily: 'mono',
-    fontSize: 'xs',
-    letterSpacing: '0.08em',
-    textTransform: 'uppercase',
-    px: '2.5',
-    py: '1',
-    rounded: 'full',
-    border: '1px solid',
-  },
-  variants: {
-    tone: {
-      solid: { bg: 'accent', color: 'onAccent', borderColor: 'accent' },
-      outline: { color: 'muted', borderColor: 'line' },
-      dim: { color: 'faint', borderColor: 'line' },
-      warn: { color: 'warn', borderColor: 'warn' },
-    },
-  },
-  defaultVariants: { tone: 'outline' },
-})
+export const toneFresh = 'text-fresh'
+export const toneAging = 'text-aging'
+export const toneStale = 'text-stale'
+
+export type BadgeTone = 'solid' | 'outline' | 'dim' | 'warn'
+
+const badgeBase = cx(
+  'inline-flex items-center rounded-full border px-2.5 py-1',
+  'font-mono text-xs uppercase tracking-[0.08em]',
+)
+
+const badgeTones: Record<BadgeTone, string> = {
+  solid: 'border-accent bg-accent text-on-accent',
+  outline: 'border-line text-muted',
+  dim: 'border-line text-faint',
+  warn: 'border-warn text-warn',
+}
+
+export const badge = (tone: BadgeTone = 'outline'): string => cx(badgeBase, badgeTones[tone])

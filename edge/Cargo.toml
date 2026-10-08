@@ -1,0 +1,17 @@
+[package]
+name = "quad4-edge"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wstd = "0.6.8"
+anyhow = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true

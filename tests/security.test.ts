@@ -13,9 +13,9 @@ function collect(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     const p = join(dir, entry)
     if (statSync(p).isDirectory()) {
-      if (entry === 'styled-system' || entry === 'node_modules') continue
+      if (entry === 'node_modules') continue
       collect(p, out)
-    } else if (/\.(ts|tsx)$/.test(entry)) {
+    } else if (/\.(ts|tsx|astro)$/.test(entry)) {
       out.push(p)
     }
   }
@@ -31,6 +31,8 @@ describe('dangerous sinks', () => {
     /document\.write/,
     /\beval\s*\(/,
     /new Function\s*\(/,
+    /\bset:html\b/,
+    /\bdefine:vars\b/,
     /(?:href|src|url|action|window\.open)\s*[(=,]\s*['"`]?\s*javascript:/i,
     /\bdatetime\b.{0,20}eval/i,
   ]
@@ -96,16 +98,16 @@ describe('url builders (property oracles)', () => {
 
 describe('config consistency', () => {
   it('inline theme script uses SITE.themeKey', () => {
-    const html = readFileSync(join(ROOT, 'index.html'), 'utf8')
+    const html = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
     expect(html).toContain(`localStorage.getItem('${SITE.themeKey}')`)
   })
 
-  it('every inline script in index.html is allowed by the CSP', () => {
-    const html = readFileSync(join(ROOT, 'index.html'), 'utf8')
+  it('every inline script in the base layout is allowed by the CSP', () => {
+    const html = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
     const headers = readFileSync(join(ROOT, 'public/_headers'), 'utf8')
     const nginx = readFileSync(join(ROOT, 'docker/nginx.conf'), 'utf8')
     const inline = [...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)].filter(
-      (m) => !m[1].includes('src=') && m[2].trim(),
+      (m) => m[1].includes('is:inline') && m[2].trim(),
     )
     expect(inline.length).toBeGreaterThan(0)
     for (const m of inline) {
@@ -117,9 +119,9 @@ describe('config consistency', () => {
 })
 
 describe('structured data', () => {
-  it('index.html JSON-LD parses and has Organization + WebSite', () => {
-    const html = readFileSync(join(ROOT, 'index.html'), 'utf8')
-    const m = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+  it('base layout JSON-LD parses and has Organization + WebSite', () => {
+    const html = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
+    const m = html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)
     expect(m).not.toBeNull()
     const data = JSON.parse(m![1])
     const types = data['@graph'].map((n: { '@type': string }) => n['@type'])
@@ -128,8 +130,8 @@ describe('structured data', () => {
   })
 
   it('JSON-LD block cannot break out of the script tag', () => {
-    const html = readFileSync(join(ROOT, 'index.html'), 'utf8')
-    const m = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)
+    const html = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
+    const m = html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)
     expect(m![1]).not.toContain('</script')
   })
 })

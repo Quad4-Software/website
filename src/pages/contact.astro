@@ -1,0 +1,62 @@
+---
+import { Mail, MessageSquare, Satellite } from '@lucide/astro'
+import PageHeader from '../components/PageHeader.astro'
+import Snippet from '../components/Snippet.astro'
+import Base from '../layouts/Base.astro'
+import { SITE } from '../config/site'
+import { button, textLink } from '../lib/styles'
+---
+
+<Base
+  title="Contact"
+  description="Reach Quad4 by email or over the Reticulum network via LXMF."
+  path="/contact"
+>
+  <PageHeader
+    title="Contact"
+    blurb="Email works most of the time. LXMF works even when the internet does not."
+  />
+
+  <div class="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-5 overflow-x-clip px-5 pb-10 md:px-8 md:pb-14">
+    <Satellite
+      size={260}
+      aria-hidden="true"
+      class="pointer-events-none absolute -top-12 right-0 -z-10 rotate-[-12deg] text-faint opacity-[0.12] md:-right-4"
+    />
+    <div class="grid grid-cols-[minmax(0,1fr)] overflow-hidden rounded-xl border border-line bg-surface-alpha md:grid-cols-2">
+      <div class="p-5">
+        <div class="mb-3 flex flex-wrap items-center gap-3">
+          <Mail size={18} aria-hidden="true" />
+          <span class="font-mono text-lg font-bold tracking-[0.02em]">Email</span>
+        </div>
+        <p class="mb-4 text-sm leading-relaxed text-muted">The normal way. We read everything.</p>
+        <a href={`mailto:${SITE.contact.email}`} class={button()}>
+          {SITE.contact.email}
+        </a>
+      </div>
+
+      <div class="border-t border-line p-5 md:border-t-0 md:border-l">
+        <div class="mb-3 flex flex-wrap items-center gap-3">
+          <MessageSquare size={18} aria-hidden="true" />
+          <span class="font-mono text-lg font-bold tracking-[0.02em]">LXMF</span>
+        </div>
+        <p class="mb-4 text-sm leading-relaxed text-muted">
+          Message us over the Reticulum network with any LXMF client, like{' '}
+          <a href={SITE.links.meshchatx} target="_blank" rel="noopener noreferrer" class={textLink}>
+            MeshChatX
+          </a>
+          ,{' '}
+          <a href={SITE.links.nomadnet} target="_blank" rel="noopener noreferrer" class={textLink}>
+            NomadNet
+          </a>{' '}
+          or{' '}
+          <a href={SITE.links.sideband} target="_blank" rel="noopener noreferrer" class={textLink}>
+            Sideband
+          </a>
+          .
+        </p>
+        <Snippet label="LXMF address" value={SITE.contact.lxmf} />
+      </div>
+    </div>
+  </div>
+</Base>

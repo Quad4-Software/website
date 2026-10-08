@@ -1,0 +1,18 @@
+---
+import BlackHole from '../components/BlackHole.astro'
+import Base from '../layouts/Base.astro'
+import { button } from '../lib/styles'
+---
+
+<Base title="404" description="Page not found." path="/404">
+  <section class="mx-auto max-w-6xl px-5 py-12 text-center md:px-8 md:py-16">
+    <BlackHole class="mx-auto block w-full max-w-[22rem] text-fg" />
+    <h1 class="font-mono text-6xl font-bold leading-none tracking-[-0.04em] md:text-8xl">404</h1>
+    <p class="mt-3 text-base text-muted">This page crossed the event horizon. Nothing came back.</p>
+    <div class="mt-8">
+      <a href="/" class={button('solid')}>
+        Back to base
+      </a>
+    </div>
+  </section>
+</Base>

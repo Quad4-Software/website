@@ -1,0 +1,22 @@
+---
+import { badge, cx, sectionBlurb } from '../lib/styles'
+
+interface Props {
+  title: string
+  badge?: string
+  blurb?: string
+}
+
+const { title, badge: badgeText, blurb } = Astro.props
+---
+
+<section class="mx-auto max-w-6xl px-5 pt-8 pb-4 md:px-8 md:pt-12 md:pb-6">
+  <h1 class="text-3xl font-semibold tracking-[-0.03em] md:text-5xl">
+    {title}
+    {badgeText ? (
+      <span class={cx(badge(), 'ml-3 inline-block align-middle')}>{badgeText}</span>
+    ) : null}
+  </h1>
+  {blurb ? <p class={cx(sectionBlurb, 'mt-3')}>{blurb}</p> : null}
+  <slot />
+</section>

@@ -1,0 +1,75 @@
+---
+import { Check, CircleAlert, Scale, X } from '@lucide/astro'
+import CopyButton from '../components/CopyButton.astro'
+import PageHeader from '../components/PageHeader.astro'
+import Base from '../layouts/Base.astro'
+import { LICENSES, type License } from '../data/licenses'
+import { badge, cx, toneAging, toneFresh, toneStale } from '../lib/styles'
+
+const facets = (l: License) =>
+  [
+    { title: 'Permissions', items: l.permissions, icon: Check, tone: toneFresh },
+    { title: 'Conditions', items: l.conditions, icon: CircleAlert, tone: toneAging },
+    { title: 'Limitations', items: l.limitations, icon: X, tone: toneStale },
+  ].filter((f) => f.items.length > 0)
+---
+
+<Base
+  title="Licenses"
+  description="The licenses Quad4 software ships under, in full. The Quad4 Source License (an anti-grifter license) converts each version to 0BSD two years after release."
+  path="/licenses"
+>
+  <PageHeader
+    title="Licenses"
+    blurb="The licenses our software ships under, reproduced in full. Each repo's LICENSE file states which terms apply to that project."
+  />
+
+  <div class="mx-auto grid max-w-6xl gap-5 px-5 pb-10 md:px-8 md:pb-14">
+    {LICENSES.map((l) => (
+      <article
+        id={l.id}
+        class="scroll-mt-20 rounded-xl border border-line bg-surface-alpha p-5 md:p-7"
+      >
+        <div class="mb-1 flex flex-wrap items-center gap-3">
+          <Scale size={18} aria-hidden="true" />
+          <span class="font-mono text-lg font-bold tracking-[0.02em]">
+            {l.name}
+            {l.version ? `, Version ${l.version}` : ''}
+          </span>
+          <span class={badge('solid')}>{l.abbreviation}</span>
+        </div>
+        {l.aka ? <div class="mb-3 font-mono text-xs text-muted">aka {l.aka}</div> : null}
+        <p class="mb-4 max-w-[44rem] text-sm leading-relaxed text-muted">{l.summary}</p>
+        <div class="mb-5 flex flex-wrap gap-2">
+          {l.traits.map((t) => (
+            <span class={badge()}>{t}</span>
+          ))}
+        </div>
+        <div class="mb-5 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {facets(l).map((f) => (
+            <div class="rounded-lg border border-line p-4">
+              <div
+                class={cx(
+                  'mb-3 flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.06em]',
+                  f.tone,
+                )}
+              >
+                <f.icon size={13} aria-hidden="true" />
+                {f.title}
+              </div>
+              <ul class="m-0 grid list-none gap-1.5 p-0 text-sm text-muted">
+                {f.items.map((i) => (
+                  <li>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <pre class="wrap-anywhere rounded-lg border border-line bg-raised p-4 font-mono text-xs leading-relaxed whitespace-pre-wrap text-muted">{l.text}</pre>
+        <div class="mt-4 flex justify-end">
+          <CopyButton value={l.text} label={`Copy ${l.abbreviation} text`} />
+        </div>
+      </article>
+    ))}
+  </div>
+</Base>

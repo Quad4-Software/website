@@ -1,0 +1,79 @@
+---
+import { Search } from '@lucide/astro'
+import PageHeader from '../components/PageHeader.astro'
+import ProjectCard from '../components/ProjectCard.astro'
+import Base from '../layouts/Base.astro'
+import { categories, repoCount } from '../data/projects'
+import { badge, cx, sectionBlurb, sectionTitle } from '../lib/styles'
+---
+
+<Base
+  title="Projects"
+  description={`All ${repoCount} public Quad4 repositories: Reticulum mesh networking, offline-first web apps, self-hosted infrastructure, security tooling, toolchains and libraries.`}
+  path="/projects"
+>
+  <PageHeader
+    title="Projects"
+    blurb="The full public index, grouped by orbit. Canonical development happens over rngit. GitHub mirrors carry issues, CI and releases."
+  >
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <label class="flex min-w-56 max-w-88 flex-1 items-center gap-2.5 rounded-full border border-line bg-surface-alpha px-3.5 py-2 text-faint focus-within:border-faint">
+        <Search size={15} aria-hidden="true" />
+        <input
+          data-project-search
+          type="search"
+          placeholder="Search projects"
+          aria-label="Search projects"
+          class="flex-1 border-none bg-transparent font-mono text-sm text-fg outline-none placeholder:text-faint"
+        />
+        <kbd
+          class="shrink-0 rounded-md border border-line px-1.5 py-0.5 font-mono text-2xs text-faint"
+          aria-hidden="true"
+        >
+          /
+        </kbd>
+      </label>
+      <span class="font-mono text-xs text-faint" data-match-count aria-live="polite">
+        {repoCount} / {repoCount}
+      </span>
+      <div class="flex flex-wrap gap-2">
+        {categories.map((c) => (
+          <a
+            href={`#${c.id}`}
+            class={cx(badge(), 'cursor-pointer text-muted hover:border-faint hover:text-fg')}
+          >
+            {c.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </PageHeader>
+
+  {categories.map((c) => (
+    <section
+      id={c.id}
+      data-category
+      class="mx-auto max-w-6xl scroll-mt-20 px-5 py-6 md:px-8 md:py-8"
+    >
+      <div class="mb-2 flex items-center gap-3">
+        <h2 class={cx(sectionTitle, 'mb-0')}>{c.title}</h2>
+        <span class="rounded-full border border-line px-2.5 py-0.5 font-mono text-xs text-faint">
+          {c.projects.length}
+        </span>
+      </div>
+      <p class={sectionBlurb}>{c.blurb}</p>
+      <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {c.projects.map((p) => (
+          <ProjectCard project={p} />
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <p
+    data-search-empty
+    class="mx-auto hidden max-w-6xl px-5 py-12 text-center text-sm text-muted md:px-8"
+  >
+    No projects match "<span data-search-empty-query></span>".
+  </p>
+</Base>

@@ -5,14 +5,14 @@ import { BANNED_PHRASES, BANNED_STRUCTURES, BANNED_WORDS } from './slop.data'
 
 const ROOT = process.cwd()
 const SCAN_DIRS = ['src']
-const SCAN_FILES = ['index.html']
-const EXT = /\.(ts|tsx|css|html)$/
+const SCAN_FILES: string[] = []
+const EXT = /\.(ts|tsx|astro|css|html)$/
 
 function collect(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     const p = join(dir, entry)
     if (statSync(p).isDirectory()) {
-      if (entry === 'styled-system' || entry === 'node_modules') continue
+      if (entry === 'node_modules') continue
       collect(p, out)
     } else if (EXT.test(entry)) {
       out.push(p)

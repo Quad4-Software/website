@@ -1,0 +1,47 @@
+---
+import { Download } from '@lucide/astro'
+import type { BrandAsset } from '../data/brand'
+import { button, card, cx } from '../lib/styles'
+
+interface Props {
+  asset: BrandAsset
+}
+
+const { asset } = Astro.props
+
+const tileBg = {
+  dark: 'bg-void-900',
+  light: 'bg-paper-50',
+  none: 'bg-raised',
+} as const
+---
+
+<div class={card}>
+  <div
+    class={cx(
+      'mb-3 flex h-36 items-center justify-center overflow-hidden rounded-lg border border-line',
+      tileBg[asset.tile ?? 'none'],
+    )}
+  >
+    <img
+      src={asset.file}
+      alt={asset.name}
+      loading="lazy"
+      class="max-h-[78%] max-w-[78%] object-contain"
+    />
+  </div>
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <div class="font-mono text-sm font-bold">{asset.name}</div>
+      <div class="font-mono text-xs text-faint">{asset.meta}</div>
+    </div>
+    <a
+      href={asset.file}
+      download={asset.file.split('/').pop()}
+      aria-label={`Download ${asset.name}`}
+      class={cx(button(), 'px-3 py-2')}
+    >
+      <Download size={14} aria-hidden="true" />
+    </a>
+  </div>
+</div>

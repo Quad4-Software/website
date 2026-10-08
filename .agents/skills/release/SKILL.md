@@ -8,7 +8,7 @@ description: How the quad4.io container image is built, published and signed. Us
 ## Image
 
 Multi-stage `Dockerfile`: `node:24-alpine` builds `dist/`,
-`nginxinc/nginx-unprivileged` (digest-pinned) serves it as uid 101 on port 8080. `docker/nginx.conf` handles SPA fallback, caching tiers, security
+`nginxinc/nginx-unprivileged` (digest-pinned) serves it as uid 101 on port 8080. `docker/nginx.conf` handles the 404 page, caching tiers, security
 headers and denies dotfiles plus `_`-prefixed host metadata.
 
 Run locally:
@@ -48,7 +48,7 @@ cosign verify ghcr.io/quad4-software/website@<digest> \
 - Keep both base images pinned by digest (`name:tag@sha256:`). To re-pin,
   query the registry manifest and record the index digest.
 - Keep OCI labels in sync with `src/config/site.ts` values.
-- The nginx CSP hashes must match the inline scripts in `index.html`.
+- The nginx CSP hashes must match the `is:inline` scripts in `src/layouts/Base.astro`.
   `pnpm test` checks `public/_headers`; update `docker/nginx.conf` to match.
 - OWASP Docker top 10: non-root user, minimal pinned base, no secrets or
   tools in the final stage, read-only-capable fs, healthcheck, resource

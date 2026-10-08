@@ -1,0 +1,81 @@
+---
+import { Menu, X } from '@lucide/astro'
+import Mark from './Mark.astro'
+import ThemeToggle from './ThemeToggle.astro'
+import { NAV_LINKS } from '../config/nav'
+import { SITE } from '../config/site'
+import { cx } from '../lib/styles'
+
+const current = Astro.url.pathname
+const isActive = (href: string) =>
+  href !== '' && (current === href || current.startsWith(`${href}/`))
+
+const link = (href: string) =>
+  cx(
+    'font-mono text-sm no-underline transition-colors hover:text-fg',
+    isActive(href) ? 'text-fg' : 'text-muted',
+  )
+const iconBtn =
+  'inline-flex size-8 cursor-pointer items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-faint hover:text-fg'
+const panelLink = (href: string) =>
+  cx(
+    'block border-b border-line py-3 font-mono text-sm no-underline last:border-b-0 hover:text-fg',
+    isActive(href) ? 'text-fg' : 'text-muted',
+  )
+---
+
+<header class="sticky top-0 z-50 bg-canvas-alpha backdrop-blur-[14px]">
+  <nav
+    class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-5 md:px-8"
+    aria-label="Main"
+  >
+    <a
+      href="/"
+      class="inline-flex items-center gap-2.5 text-fg no-underline"
+      aria-label={`${SITE.name} home`}
+    >
+      <Mark size={22} decorative />
+      <span class="font-mono text-sm font-bold tracking-[0.22em]">{SITE.name.toUpperCase()}</span>
+    </a>
+
+    <div class="hidden items-center gap-6 md:flex">
+      {NAV_LINKS.map((l) => (
+        <a href={l.href} class={link(l.href)}>
+          {l.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-2.5">
+      <ThemeToggle />
+      <button
+        type="button"
+        class={cx(iconBtn, 'md:hidden')}
+        data-menu-toggle
+        aria-expanded="false"
+        aria-label="Open menu"
+      >
+        <span data-icon-open class="inline-flex">
+          <Menu size={16} aria-hidden="true" />
+        </span>
+        <span data-icon-close class="hidden">
+          <X size={16} aria-hidden="true" />
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <div
+    data-menu-panel
+    class="absolute inset-x-0 top-full hidden border-b border-line bg-canvas-alpha px-5 py-3 backdrop-blur-[14px] md:hidden"
+  >
+    {NAV_LINKS.map((l) => (
+      <a href={l.href} class={panelLink(l.href)}>
+        {l.label}
+      </a>
+    ))}
+    <a href={SITE.links.github} target="_blank" rel="noopener noreferrer" class={panelLink('')}>
+      GitHub
+    </a>
+  </div>
+</header>

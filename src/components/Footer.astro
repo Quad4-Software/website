@@ -1,0 +1,55 @@
+---
+import GithubIcon from './GithubIcon.astro'
+import Mark from './Mark.astro'
+import { FOOTER_SECTIONS } from '../config/nav'
+import { SITE } from '../config/site'
+
+const footLink = 'flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg'
+---
+
+<footer class="mt-8">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-5 py-10 md:grid-cols-[2fr_1fr_1fr] md:px-8">
+    <div>
+      <div class="mb-3 flex items-center gap-2.5">
+        <Mark size={20} decorative />
+        <span class="font-mono text-sm font-bold tracking-[0.22em]">{SITE.name.toUpperCase()}</span>
+      </div>
+      <p class="max-w-96 text-sm leading-relaxed text-muted">
+        Independent software collective. Mesh networking, offline-first web and self-hosted
+        infrastructure.
+      </p>
+    </div>
+
+    {FOOTER_SECTIONS.map((s) => (
+      <nav aria-label={s.title}>
+        <h2 class="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-faint">{s.title}</h2>
+        {s.links.map((l) =>
+          l.external ? (
+            <a href={l.href} target="_blank" rel="noopener noreferrer" class={footLink}>
+              {l.icon === 'github' ? (
+                <GithubIcon size={16} class="size-4 rounded-sm" decorative />
+              ) : l.icon === 'mark' ? (
+                <Mark size={16} class="size-4 rounded-sm" decorative />
+              ) : l.icon ? (
+                <img src={l.icon} alt="" width="16" height="16" class="size-4 rounded-sm" />
+              ) : null}
+              {l.label}
+            </a>
+          ) : (
+            <a href={l.href} class={footLink}>
+              {l.label}
+            </a>
+          ),
+        )}
+      </nav>
+    ))}
+  </div>
+
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 font-mono text-xs text-faint md:px-8">
+    <span>
+      &copy; {new Date().getFullYear()} {SITE.name}
+    </span>
+    <span>No trackers. No telemetry.</span>
+    <span>Built with Astro and Tailwind</span>
+  </div>
+</footer>
