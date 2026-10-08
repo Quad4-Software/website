@@ -20,9 +20,9 @@ jobs:
     name: Build, push and sign
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
-      id-token: write
+      contents: read # checkout, attestations read the repo
+      packages: write # push the image to ghcr.io
+      id-token: write # cosign keyless signing and buildkit attestations
     steps:
       - name: Harden runner
         uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
