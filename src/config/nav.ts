@@ -1,3 +1,4 @@
+import { asset } from '../lib/cdn'
 import { SITE } from './site'
 
 export interface NavLink {
@@ -44,7 +45,7 @@ export const FOOTER_SECTIONS: readonly FooterSection[] = [
         href: SITE.links.meshchatx,
         label: 'meshchatx.com',
         external: true,
-        icon: '/meshchatx.webp',
+        icon: asset('/meshchatx.webp'),
       },
     ],
   },

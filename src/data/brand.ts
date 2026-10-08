@@ -1,3 +1,4 @@
+import { asset } from '../lib/cdn'
 export interface BrandAsset {
   name: string
   file: string
@@ -16,24 +17,34 @@ export const BRAND_GROUPS: readonly BrandGroup[] = [
     title: 'The mark',
     note: 'The Quad4 mark. Light glyph for dark surfaces, dark glyph for light surfaces.',
     assets: [
-      { name: 'Mark, light glyph', file: '/quad4-mark.svg', meta: 'svg', tile: 'dark' },
-      { name: 'Mark, dark glyph', file: '/quad4-mark-black.svg', meta: 'svg', tile: 'light' },
-      { name: 'Mark, light 512', file: '/brand/quad4-mark-512.png', meta: 'png 512', tile: 'dark' },
+      { name: 'Mark, light glyph', file: asset('/quad4-mark.svg'), meta: 'svg', tile: 'dark' },
+      {
+        name: 'Mark, dark glyph',
+        file: asset('/quad4-mark-black.svg'),
+        meta: 'svg',
+        tile: 'light',
+      },
+      {
+        name: 'Mark, light 512',
+        file: asset('/brand/quad4-mark-512.png'),
+        meta: 'png 512',
+        tile: 'dark',
+      },
       {
         name: 'Mark, dark 512',
-        file: '/brand/quad4-mark-black-512.png',
+        file: asset('/brand/quad4-mark-black-512.png'),
         meta: 'png 512',
         tile: 'light',
       },
       {
         name: 'Mark, light 1024',
-        file: '/brand/quad4-mark-1024.png',
+        file: asset('/brand/quad4-mark-1024.png'),
         meta: 'png 1024',
         tile: 'dark',
       },
       {
         name: 'Mark, dark 1024',
-        file: '/brand/quad4-mark-black-1024.png',
+        file: asset('/brand/quad4-mark-black-1024.png'),
         meta: 'png 1024',
         tile: 'light',
       },
@@ -43,29 +54,34 @@ export const BRAND_GROUPS: readonly BrandGroup[] = [
     title: 'Lockup',
     note: 'Mark plus wordmark. Wordmark is set in Space Mono, uppercase, wide tracking.',
     assets: [
-      { name: 'Lockup, light', file: '/brand/quad4-lockup.svg', meta: 'svg', tile: 'dark' },
-      { name: 'Lockup, dark', file: '/brand/quad4-lockup-black.svg', meta: 'svg', tile: 'light' },
+      { name: 'Lockup, light', file: asset('/brand/quad4-lockup.svg'), meta: 'svg', tile: 'dark' },
+      {
+        name: 'Lockup, dark',
+        file: asset('/brand/quad4-lockup-black.svg'),
+        meta: 'svg',
+        tile: 'light',
+      },
       {
         name: 'Lockup on void',
-        file: '/brand/quad4-lockup-on-dark.svg',
+        file: asset('/brand/quad4-lockup-on-dark.svg'),
         meta: 'svg, #0a0a0b',
         tile: 'dark',
       },
       {
         name: 'Lockup on paper',
-        file: '/brand/quad4-lockup-on-light.svg',
+        file: asset('/brand/quad4-lockup-on-light.svg'),
         meta: 'svg, #fafafa',
         tile: 'light',
       },
       {
         name: 'Lockup on void',
-        file: '/brand/quad4-lockup-on-dark.png',
+        file: asset('/brand/quad4-lockup-on-dark.png'),
         meta: 'png 1280',
         tile: 'dark',
       },
       {
         name: 'Lockup on paper',
-        file: '/brand/quad4-lockup-on-light.png',
+        file: asset('/brand/quad4-lockup-on-light.png'),
         meta: 'png 1280',
         tile: 'light',
       },
@@ -77,25 +93,25 @@ export const BRAND_GROUPS: readonly BrandGroup[] = [
     assets: [
       {
         name: 'Mark on void',
-        file: '/quad4-mark-on-black.svg',
+        file: asset('/quad4-mark-on-black.svg'),
         meta: 'svg, #0a0a0b',
         tile: 'dark',
       },
       {
         name: 'Mark on paper',
-        file: '/quad4-mark-on-white.svg',
+        file: asset('/quad4-mark-on-white.svg'),
         meta: 'svg, #fafafa',
         tile: 'light',
       },
       {
         name: 'Mark on void',
-        file: '/brand/quad4-mark-on-dark.png',
+        file: asset('/brand/quad4-mark-on-dark.png'),
         meta: 'png 1024',
         tile: 'dark',
       },
       {
         name: 'Mark on paper',
-        file: '/brand/quad4-mark-on-light.png',
+        file: asset('/brand/quad4-mark-on-light.png'),
         meta: 'png 1024',
         tile: 'light',
       },
@@ -105,9 +121,9 @@ export const BRAND_GROUPS: readonly BrandGroup[] = [
     title: 'Icons and social',
     note: 'Favicon, touch icon and the social card used for link previews.',
     assets: [
-      { name: 'Favicon', file: '/favicon.svg', meta: 'svg', tile: 'dark' },
-      { name: 'Touch icon', file: '/apple-touch-icon.png', meta: 'png 180', tile: 'dark' },
-      { name: 'Social card', file: '/og.webp', meta: 'webp 1200x630', tile: 'dark' },
+      { name: 'Favicon', file: asset('/favicon.svg'), meta: 'svg', tile: 'dark' },
+      { name: 'Touch icon', file: asset('/apple-touch-icon.png'), meta: 'png 180', tile: 'dark' },
+      { name: 'Social card', file: asset('/og.webp'), meta: 'webp 1200x630', tile: 'dark' },
     ],
   },
 ]

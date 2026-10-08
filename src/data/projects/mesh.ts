@@ -1,3 +1,4 @@
+import { asset } from '../../lib/cdn'
 import type { Category } from './types'
 
 export const mesh: Category = {
@@ -15,7 +16,7 @@ export const mesh: Category = {
       stars: 148,
       topics: ['reticulum', 'lxmf', 'lxst'],
       flagship: true,
-      logo: '/meshchatx.webp',
+      logo: asset('/meshchatx.webp'),
     },
     {
       name: 'Reticulum-Go',

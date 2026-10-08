@@ -1,3 +1,4 @@
+import { asset } from '../../lib/cdn'
 import type { Category } from './types'
 
 export const infrastructure: Category = {
@@ -29,7 +30,7 @@ export const infrastructure: Category = {
       updated: '2026-09-30T12:45:37Z',
       license: 'QSL',
       lang: 'Go',
-      logo: '/ravenguard.webp',
+      logo: asset('/ravenguard.webp'),
     },
     {
       name: 'Athenaeum',

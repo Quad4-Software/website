@@ -11,7 +11,7 @@ import {
 import PageHeader from '../components/PageHeader.astro'
 import Base from '../layouts/Base.astro'
 import { SITE } from '../config/site'
-import { link } from '../lib/url'
+import { asset } from '../lib/cdn'
 import { badge, button, card, cx } from '../lib/styles'
 
 const cardHead = 'mb-3 flex flex-wrap items-center gap-3'
@@ -103,7 +103,7 @@ const capabilities = [
       <span class={cx(badge('warn'), 'absolute top-3 right-3')}>Alpha</span>
       <div class={cardHead}>
         <img
-          src={link('/ravenguard.webp')}
+          src={asset('/ravenguard.webp')}
           alt=""
           width={28}
           height={28}
