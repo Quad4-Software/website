@@ -16,6 +16,7 @@ import Base from '../layouts/Base.astro'
 import { SITE, rnsClone } from '../config/site'
 import { featured, langCount, repoCount } from '../data/projects'
 import { button, card, cx, section, sectionBlurb, sectionTitle } from '../lib/styles'
+import { link } from '../lib/url'
 
 const pillars = [
   {
@@ -62,10 +63,10 @@ const pillars = [
         {SITE.description} Everything we ship keeps working when the internet does not.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="/projects" class={button('solid')}>
+        <a href={link('/projects')} class={button('solid')}>
           Explore projects <ArrowRight size={15} aria-hidden="true" />
         </a>
-        <a href="/git" class={button()}>
+        <a href={link('/git')} class={button()}>
           {' '}
           Source and mirrors{' '}
         </a>
@@ -118,7 +119,7 @@ const pillars = [
         <h2 class={cx(sectionTitle, 'mb-0')}>Featured projects</h2>
       </div>
       <a
-        href="/projects"
+        href={link('/projects')}
         class="inline-flex items-center gap-1.5 font-mono text-sm text-muted no-underline hover:text-fg"
       >
         View all {repoCount} <ArrowRight size={14} aria-hidden="true" />
@@ -140,7 +141,7 @@ const pillars = [
           back online soon, and GitHub mirrors carry issues, CI and releases.
         </p>
         <div class="mt-6">
-          <a href="/git" class={button()}>
+          <a href={link('/git')} class={button()}>
             Source and mirrors <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         </div>

@@ -2,6 +2,7 @@
 import { Download } from '@lucide/astro'
 import type { BrandAsset } from '../data/brand'
 import { button, card, cx } from '../lib/styles'
+import { link } from '../lib/url'
 
 interface Props {
   asset: BrandAsset
@@ -24,7 +25,7 @@ const tileBg = {
     )}
   >
     <img
-      src={asset.file}
+      src={link(asset.file)}
       alt={asset.name}
       loading="lazy"
       class="max-h-[78%] max-w-[78%] object-contain"
@@ -36,7 +37,7 @@ const tileBg = {
       <div class="font-mono text-xs text-faint">{asset.meta}</div>
     </div>
     <a
-      href={asset.file}
+      href={link(asset.file)}
       download={asset.file.split('/').pop()}
       aria-label={`Download ${asset.name}`}
       class={cx(button(), 'px-3 py-2')}

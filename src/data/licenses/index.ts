@@ -9,6 +9,7 @@ import { mit0 } from './mit-0'
 import { mpl2 } from './mpl-2.0'
 import { reticulum } from './reticulum'
 import type { License } from './types'
+import { link } from '../../lib/url'
 
 export type { License }
 
@@ -29,6 +30,6 @@ const licenseByAbbr = (abbr: string): License | undefined =>
   LICENSES.find((l) => l.abbreviation === abbr || l.abbreviation === `${abbr}-1.0-0BSD`)
 
 export const licenseHref = (abbr: string): string =>
-  licenseByAbbr(abbr) ? `/licenses#${licenseByAbbr(abbr)!.id}` : '/licenses'
+  licenseByAbbr(abbr) ? link(`/licenses#${licenseByAbbr(abbr)!.id}`) : link('/licenses')
 
 export const licenseName = (abbr: string): string | undefined => licenseByAbbr(abbr)?.name

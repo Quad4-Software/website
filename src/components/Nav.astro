@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle.astro'
 import { NAV_LINKS } from '../config/nav'
 import { SITE } from '../config/site'
 import { cx } from '../lib/styles'
+import { link as base } from '../lib/url'
 
 const current = Astro.url.pathname
 const isActive = (href: string) =>
@@ -30,7 +31,7 @@ const panelLink = (href: string) =>
     aria-label="Main"
   >
     <a
-      href="/"
+      href={base('/')}
       class="inline-flex items-center gap-2.5 text-fg no-underline"
       aria-label={`${SITE.name} home`}
     >
@@ -40,7 +41,7 @@ const panelLink = (href: string) =>
 
     <div class="hidden items-center gap-6 md:flex">
       {NAV_LINKS.map((l) => (
-        <a href={l.href} class={link(l.href)}>
+        <a href={base(l.href)} class={link(l.href)}>
           {l.label}
         </a>
       ))}
@@ -70,7 +71,7 @@ const panelLink = (href: string) =>
     class="absolute inset-x-0 top-full hidden border-b border-line bg-canvas-alpha px-5 py-3 backdrop-blur-[14px] md:hidden"
   >
     {NAV_LINKS.map((l) => (
-      <a href={l.href} class={panelLink(l.href)}>
+      <a href={base(l.href)} class={panelLink(l.href)}>
         {l.label}
       </a>
     ))}

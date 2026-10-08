@@ -4,6 +4,7 @@ import OrbitGlyph from './OrbitGlyph.astro'
 import { projectUrl } from '../config/site'
 import { langColor } from '../data/langs'
 import { licenseHref, licenseName } from '../data/licenses'
+import { link } from '../lib/url'
 import { ageTone, formatAge } from '../lib/time'
 import type { Project } from '../data/projects'
 import { card, cx, toneAging, toneFresh, toneStale } from '../lib/styles'
@@ -42,7 +43,7 @@ const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ')
   >
     <div class="flex items-center gap-5">
       {p.logo ? (
-        <img src={p.logo} alt="" width={48} height={48} class="size-12 shrink-0 rounded-lg" />
+        <img src={link(p.logo)} alt="" width={48} height={48} class="size-12 shrink-0 rounded-lg" />
       ) : (
         <OrbitGlyph seed={p.name} size={48} />
       )}
@@ -113,7 +114,13 @@ const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ')
     <div class="flex items-center justify-between gap-3">
       <span class="inline-flex min-w-0 items-center gap-2.5">
         {p.logo ? (
-          <img src={p.logo} alt="" width={24} height={24} class="size-7 shrink-0 object-contain" />
+          <img
+            src={link(p.logo)}
+            alt=""
+            width={24}
+            height={24}
+            class="size-7 shrink-0 object-contain"
+          />
         ) : (
           <OrbitGlyph seed={p.name} size={24} />
         )}

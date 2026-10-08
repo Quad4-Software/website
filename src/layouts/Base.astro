@@ -5,6 +5,7 @@ import Nav from '../components/Nav.astro'
 import Starfield from '../components/Starfield.astro'
 import { SITE } from '../config/site'
 import { pageTitle } from '../lib/seo'
+import { link } from '../lib/url'
 
 interface Props {
   title: string
@@ -29,8 +30,8 @@ const skip =
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={link('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={link('/apple-touch-icon.png')} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />

@@ -3,6 +3,7 @@ import GithubIcon from './GithubIcon.astro'
 import Mark from './Mark.astro'
 import { FOOTER_SECTIONS } from '../config/nav'
 import { SITE } from '../config/site'
+import { link } from '../lib/url'
 
 const footLink = 'flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg'
 ---
@@ -31,12 +32,12 @@ const footLink = 'flex items-center gap-2 py-1 text-sm text-muted no-underline h
               ) : l.icon === 'mark' ? (
                 <Mark size={16} class="size-4 rounded-sm" decorative />
               ) : l.icon ? (
-                <img src={l.icon} alt="" width="16" height="16" class="size-4 rounded-sm" />
+                <img src={link(l.icon)} alt="" width="16" height="16" class="size-4 rounded-sm" />
               ) : null}
               {l.label}
             </a>
           ) : (
-            <a href={l.href} class={footLink}>
+            <a href={link(l.href)} class={footLink}>
               {l.label}
             </a>
           ),
