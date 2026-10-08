@@ -3,7 +3,6 @@ dist
 .lighthouseci
 .git
 .github
-.agents
 tests
 Dockerfile
 docker-compose.yml

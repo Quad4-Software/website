@@ -24,7 +24,7 @@ function collect(dir: string, out: string[] = []): string[] {
 const files = [
   ...SCAN_DIRS.flatMap((d) => collect(join(ROOT, d))),
   ...SCAN_FILES.map((f) => join(ROOT, f)),
-].filter((f) => !f.endsWith(join('src', 'data', 'licenses.ts')))
+].filter((f) => !f.includes(join('src', 'data', 'licenses')))
 
 describe('copy style lint', () => {
   for (const file of files) {
