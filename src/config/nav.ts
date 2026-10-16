@@ -11,7 +11,6 @@ export interface NavLink {
 export const NAV_LINKS: readonly NavLink[] = [
   { href: '/projects', label: 'Projects' },
   { href: '/git', label: 'Git' },
-  { href: '/security', label: 'Security' },
   { href: '/licenses', label: 'Licenses' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -20,7 +19,6 @@ export const ROUTES = [
   '/',
   '/projects',
   '/git',
-  '/security',
   '/licenses',
   '/contact',
   '/branding',
