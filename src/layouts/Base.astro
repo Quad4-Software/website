@@ -5,7 +5,7 @@ import Nav from '../components/Nav.astro'
 import Starfield from '../components/Starfield.astro'
 import { SITE } from '../config/site'
 import { pageTitle } from '../lib/seo'
-import { CSP } from '../lib/csp'
+import { CSP_META } from '../lib/csp'
 import { link } from '../lib/url'
 
 interface Props {
@@ -26,34 +26,25 @@ const skip =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content={CSP} />
+    <meta http-equiv="Content-Security-Policy" content={CSP_META} />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
     <link rel="icon" href={link('/favicon.svg')} type="image/svg+xml" />
-    <link
-      rel="apple-touch-icon"
-      href="https://cdn.statically.io/gh/Quad4-Software/website@master/public/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" href={link('/apple-touch-icon.png')} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta
-      property="og:image"
-      content="https://cdn.statically.io/gh/Quad4-Software/website@master/public/og.png"
-    />
+    <meta property="og:image" content={`${SITE.url}/og.png`} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image"
-      content="https://cdn.statically.io/gh/Quad4-Software/website@master/public/og.webp"
-    />
+    <meta property="og:image" content={`${SITE.url}/og.webp`} />
     <meta property="og:image:type" content="image/webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" is:inline>

@@ -1,7 +1,6 @@
 # Deploys the site to GitHub Pages on every push to master. Requires repo
 # Settings -> Pages -> Build and deployment -> GitHub Actions. The site is
-# served at https://quad4-software.github.io/website/ as a mirror of the
-# container deployment.
+# served on the quad4.io custom domain, so it builds at the root path.
 name: GitHub Pages
 
 on:
@@ -43,10 +42,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build with the Pages subpath as base
-        env:
-          REPO_NAME: ${{ github.event.repository.name }}
-        run: pnpm exec astro build --base "/${REPO_NAME}"
+      - name: Build site
+        run: pnpm build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0

@@ -1,6 +1,5 @@
-// Repo-hosted assets are served from the statically.io mirror of this
-// repository, pinned to the deployed commit for immutable caching.
-const sha = import.meta.env.GIT_SHA
+// Repo-hosted assets live in public/ and are served same-origin. The
+// site base prefix keeps them resolving on subpath deployments.
+import { link } from './url'
 
-export const asset = (path: string) =>
-  `https://cdn.statically.io/gh/Quad4-Software/website@${sha}/public${path}`
+export const asset = (path: string) => link(path)

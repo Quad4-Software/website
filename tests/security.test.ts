@@ -5,7 +5,7 @@ import fc from 'fast-check'
 import { describe, expect, it } from 'vitest'
 import { SITE, repoUrl } from '../src/config/site'
 import { FOOTER_SECTIONS, NAV_LINKS } from '../src/config/nav'
-import { CSP } from '../src/lib/csp'
+import { CSP, CSP_META } from '../src/lib/csp'
 import { pageTitle } from '../src/lib/seo'
 
 const ROOT = process.cwd()
@@ -122,7 +122,10 @@ describe('config consistency', () => {
     const headers = readFileSync(join(ROOT, 'public/_headers'), 'utf8')
     const nginx = readFileSync(join(ROOT, 'docker/nginx.conf'), 'utf8')
     const layout = readFileSync(join(ROOT, 'src/layouts/Base.astro'), 'utf8')
-    expect(layout).toContain('content={CSP}')
+    // frame-ancestors is not enforceable via meta, so the meta tag carries
+    // CSP_META: the same policy minus that one directive.
+    expect(CSP_META).toBe(CSP.replace("; frame-ancestors 'none'", ''))
+    expect(layout).toContain('content={CSP_META}')
     expect(headers).toContain(`Content-Security-Policy: ${CSP}`)
     expect(nginx).toContain(`"${CSP}"`)
   })
