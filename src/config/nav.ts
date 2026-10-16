@@ -15,14 +15,7 @@ export const NAV_LINKS: readonly NavLink[] = [
   { href: '/contact', label: 'Contact' },
 ]
 
-export const ROUTES = [
-  '/',
-  '/projects',
-  '/git',
-  '/licenses',
-  '/contact',
-  '/branding',
-] as const
+export const ROUTES = ['/', '/projects', '/git', '/licenses', '/contact', '/branding'] as const
 
 export interface FooterSection {
   title: string

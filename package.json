@@ -17,10 +17,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lhci": "lhci autorun",
-    "build:edge": "pnpm build && cargo build --release --locked --target wasm32-wasip2 --manifest-path edge/Cargo.toml",
-    "test:edge": "cargo test --manifest-path edge/Cargo.toml",
-    "serve:edge": "wasmtime serve -S cli --addr 127.0.0.1:8080 edge/target/wasm32-wasip2/release/quad4_edge.wasm"
+    "lhci": "lhci autorun"
   },
   "dependencies": {
     "@lucide/astro": "1.54.0",

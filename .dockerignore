@@ -8,4 +8,3 @@ Dockerfile
 docker-compose.yml
 *.md
 .editorconfig
-edge/target

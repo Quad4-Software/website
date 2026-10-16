@@ -4,4 +4,3 @@ dist
 .lighthouseci
 *.local
 .DS_Store
-edge/target
