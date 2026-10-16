@@ -27,7 +27,7 @@ export const infrastructure: Category = {
     {
       name: 'ravenguard',
       desc: 'Web application firewall. Blocks bots, scanners and AI scrapers.',
-      updated: '2026-09-30T12:45:37Z',
+      updated: '2026-10-15T11:42:27Z',
       license: 'QSL',
       lang: 'Go',
       logo: asset('/ravenguard.webp'),
@@ -42,14 +42,14 @@ export const infrastructure: Category = {
     {
       name: 'Badinage',
       desc: 'XMPP chat in the browser.',
-      updated: '2026-09-29T10:05:43Z',
+      updated: '2026-10-10T20:46:29Z',
       license: 'QSL',
       lang: 'TypeScript',
     },
     {
       name: 'arch',
       desc: 'Arch Linux package repository for Quad4 software.',
-      updated: '2026-09-28T13:17:19Z',
+      updated: '2026-10-13T12:36:59Z',
       license: '0BSD',
       lang: 'Shell',
     },
@@ -69,8 +69,9 @@ export const infrastructure: Category = {
     },
     {
       name: 'quickchat',
+      downloads: 1,
       desc: 'Lightweight chat for the browser.',
-      updated: '2026-09-29T19:46:09Z',
+      updated: '2026-10-14T18:58:41Z',
       license: '0BSD',
       lang: 'TypeScript',
     },

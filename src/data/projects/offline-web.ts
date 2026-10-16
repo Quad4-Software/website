@@ -16,6 +16,7 @@ export const offline_web: Category = {
     },
     {
       name: 'transcriptasm',
+      downloads: 116,
       desc: 'Offline audio transcription in the browser.',
       updated: '2026-09-18T14:08:03Z',
       license: '0BSD',
@@ -24,6 +25,7 @@ export const offline_web: Category = {
     },
     {
       name: 'speakasm',
+      downloads: 116,
       desc: 'Offline text-to-speech in the browser.',
       updated: '2026-09-18T12:36:43Z',
       license: '0BSD',
@@ -35,6 +37,8 @@ export const offline_web: Category = {
       desc: 'Offline text translation in the browser.',
       updated: '2026-09-18T04:17:05Z',
       license: '0BSD',
+      stars: 2,
+      downloads: 183,
       lang: 'JavaScript',
       topics: ['offline', 'translation', 'browser'],
     },
@@ -42,7 +46,7 @@ export const offline_web: Category = {
       name: 'bergamot-translator',
       desc: 'The translation engine behind translatasm.',
       fork: true,
-      updated: '2026-09-25T22:48:35Z',
+      updated: '2026-10-15T18:27:18Z',
       license: 'MPL-2.0',
       lang: 'C++',
     },
