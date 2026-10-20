@@ -20,7 +20,7 @@ RUN pnpm install --offline --frozen-lockfile \
   && rm -rf node_modules /pnpm-store
 
 # Runtime stage: unprivileged nginx serving static files on 8080.
-FROM docker.io/nginxinc/nginx-unprivileged:1.31.5-alpine3.24-slim@sha256:736aa11ab9f9c320825722e411661c64559881e15e77f37137eef168ebe9515c
+FROM docker.io/nginxinc/nginx-unprivileged:1.31.6-alpine3.24-slim@sha256:ac4d9c7e457c6510b95ac72dd84b27f7cc68ecb9a83fbd44f05a6460cf08aba4
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build --chown=101:101 /app/dist /usr/share/nginx/html
