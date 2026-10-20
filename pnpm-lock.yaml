@@ -183,8 +183,8 @@ importers:
         specifier: 7.3.8
         version: 7.3.8(@types/node@26.6.4)(jiti@2.7.0)(yaml@2.9.1)
       simple-icons:
-        specifier: 16.34.0
-        version: 16.34.0
+        specifier: 16.35.0
+        version: 16.35.0
       tailwindcss:
         specifier: 4.3.3
         version: 4.3.3
@@ -3078,8 +3078,8 @@ packages:
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
-  simple-icons@16.34.0:
-    resolution: {integrity: sha512-UTxKn0PVspk84B2hHF3Dqiqht1yDjJmDc/t4cO7PyCQxCMk6OjEu95pnpGjhLaGeQ4qBrGASbefTIe/+czrX7g==}
+  simple-icons@16.35.0:
+    resolution: {integrity: sha512-TCfl/2+GTrx0nCo4pEWGvxhOb8c6NsqOU1OpwjtF4lwJAthB8IYVD0fuIMjLMg6JFuG1YBO0t1iETQqJLqkoJA==}
     engines: {node: '>=0.12.18'}
 
   sisteransi@1.0.5:
@@ -6700,7 +6700,7 @@ snapshots:
 
   signal-exit@3.0.7: {}
 
-  simple-icons@16.34.0: {}
+  simple-icons@16.35.0: {}
 
   sisteransi@1.0.5: {}
 
