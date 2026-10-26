@@ -16,7 +16,7 @@ export const offline_web: Category = {
     },
     {
       name: 'transcriptasm',
-      downloads: 116,
+      downloads: 122,
       desc: 'Offline audio transcription in the browser.',
       updated: '2026-09-18T14:08:03Z',
       license: '0BSD',
@@ -25,7 +25,7 @@ export const offline_web: Category = {
     },
     {
       name: 'speakasm',
-      downloads: 116,
+      downloads: 124,
       desc: 'Offline text-to-speech in the browser.',
       updated: '2026-09-18T12:36:43Z',
       license: '0BSD',
@@ -38,7 +38,7 @@ export const offline_web: Category = {
       updated: '2026-09-18T04:17:05Z',
       license: '0BSD',
       stars: 2,
-      downloads: 183,
+      downloads: 194,
       lang: 'JavaScript',
       topics: ['offline', 'translation', 'browser'],
     },

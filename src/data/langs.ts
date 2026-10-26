@@ -10,6 +10,7 @@ const LANG_COLORS: Record<string, string> = {
   Svelte: '#ff3e00',
   Shell: '#89e051',
   PHP: '#4F5D95',
+  Astro: '#ff5a03',
 }
 
 export const langColor = (lang: string) => LANG_COLORS[lang] ?? 'var(--colors-faint)'

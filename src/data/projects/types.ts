@@ -12,7 +12,6 @@ export interface Project {
   updated?: string
   license?: string
   downloads?: number
-  eol?: string
 }
 
 export interface Category {

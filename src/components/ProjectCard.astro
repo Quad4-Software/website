@@ -31,8 +31,6 @@ const forkCls = 'ml-2 inline-flex items-center text-warn'
 const topicCls = 'rounded-full border border-line px-2 py-0.5'
 const metaTagCls =
   'ml-2 inline-block rounded-full border border-line px-2 py-0.5 align-middle font-mono text-xs font-normal text-faint'
-const eolTagCls =
-  'ml-2 inline-block rounded-full border border-warn px-2 py-0.5 align-middle font-mono text-xs font-normal text-warn'
 const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ').toLowerCase()
 ---
 
@@ -55,7 +53,6 @@ const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ')
           <span class="text-lg font-semibold tracking-[-0.01em]">
             {p.name}
             {p.mirror ? <span class={metaTagCls}>mirror</span> : null}
-            {p.eol ? <span class={eolTagCls}>eol {p.eol}</span> : null}
             {p.fork ? (
               <span class={forkCls} title="Fork">
                 <GitFork size={12} aria-hidden="true" />
@@ -137,7 +134,6 @@ const searchText = [p.name, p.desc ?? '', p.lang, ...(p.topics ?? [])].join(' ')
         <span class="text-base font-semibold tracking-[-0.01em]">
           {p.name}
           {p.mirror ? <span class={metaTagCls}>mirror</span> : null}
-          {p.eol ? <span class={eolTagCls}>eol {p.eol}</span> : null}
           {p.fork ? (
             <span class={forkCls} title="Fork">
               <GitFork size={11} aria-hidden="true" />
