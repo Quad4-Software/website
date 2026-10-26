@@ -38,12 +38,5 @@ export const security: Category = {
       license: '0BSD',
       lang: 'Python',
     },
-    {
-      name: 'purecrypt',
-      desc: 'Pure-Python crypto primitives, no dependencies. Not for production use.',
-      updated: '2026-09-27T12:09:58Z',
-      license: '0BSD',
-      lang: 'Python',
-    },
   ],
 }

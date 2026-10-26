@@ -3,8 +3,7 @@ import type { Category } from './types'
 export const toolchains: Category = {
   id: 'toolchains',
   title: 'Toolchains and libraries',
-  blurb:
-    'Compilers, parsers and utilities, including Go forks with no telemetry and support for older systems.',
+  blurb: 'Compilers, parsers and utilities, including Go forks for older and alternative systems.',
   projects: [
     {
       name: 'nullray',
@@ -24,13 +23,6 @@ export const toolchains: Category = {
       stars: 1,
       downloads: 14,
       topics: ['mcp', 'agent-tools'],
-    },
-    {
-      name: 'go-no-telemetry',
-      desc: 'Go toolchain fork with telemetry removed and easier source bootstrapping.',
-      updated: '2026-10-14T01:10:02Z',
-      license: 'BSD-3-Clause',
-      lang: 'Go',
     },
     {
       name: 'go-legacy-winxp',
@@ -111,20 +103,6 @@ export const toolchains: Category = {
       name: 'pbt',
       desc: 'Property-based testing for Go.',
       updated: '2026-10-19T09:51:39Z',
-      license: '0BSD',
-      lang: 'Go',
-    },
-    {
-      name: 'acp-go',
-      desc: 'Agent Client Protocol library for Go.',
-      updated: '2026-09-23T23:53:28Z',
-      license: '0BSD',
-      lang: 'Go',
-    },
-    {
-      name: 'q4tab',
-      desc: 'Local code completion from n-gram statistics.',
-      updated: '2026-09-25T21:12:55Z',
       license: '0BSD',
       lang: 'Go',
     },

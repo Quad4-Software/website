@@ -60,12 +60,6 @@ export const mesh: Category = {
       downloads: 4,
     },
     {
-      name: 'LXMFy-Go',
-      desc: 'The LXMFy bot framework, written in Go.',
-      updated: '2026-07-12T21:31:39Z',
-      lang: 'Go',
-    },
-    {
       name: 'reticulum-go-protocols',
       downloads: 519,
       desc: 'Reticulum message formats and protocols in Go.',

@@ -14,7 +14,6 @@ export const featuredNames = [
   'Reticulum-Go',
   'Ren-Browser',
   'translatasm',
-  'Wharfinger',
   'nullray',
   'pip-rns',
 ]
