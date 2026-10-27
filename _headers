@@ -14,3 +14,8 @@
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/.well-known/webfinger
+  Content-Type: application/jrd+json
+  Cache-Control: public, max-age=0, must-revalidate
+  Access-Control-Allow-Origin: *
