@@ -20,7 +20,7 @@
     "lhci": "lhci autorun"
   },
   "dependencies": {
-    "@lucide/astro": "1.59.0",
+    "@lucide/astro": "1.60.0",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.4.1",
     "simple-icons": "16.35.0",
@@ -36,7 +36,7 @@
     "globals": "17.13.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.1",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "typescript-eslint": "8.72.0",
     "vitest": "5.0.5"
   }
