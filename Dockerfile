@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Static site: unprivileged nginx serving static files on 8080.
-FROM docker.io/nginxinc/nginx-unprivileged:1.31.5-alpine3.24-slim@sha256:736aa11ab9f9c320825722e411661c64559881e15e77f37137eef168ebe9515c
+FROM docker.io/nginxinc/nginx-unprivileged:1.31.7-alpine3.24-slim@sha256:a8cb0f33d51fa107c96fd2bd3a71aaf564ec131e9d2bdf8700944f0ed8b170d7
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --chown=101:101 . /usr/share/nginx/html
