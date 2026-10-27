@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+      <title>
+        Quad4 - Software for the far edge.
+      </title>
+      <meta name="description" content="Quad4 is an independent software collective. We build all sorts of software, from mesh networking tools and offline-first web apps to self-hosted infrastructure.">
+      <meta name="color-scheme" content="dark light">
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b">
+      <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa">
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <link rel="canonical" href="https://quad4.io/">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Quad4">
+      <meta property="og:title" content="Quad4 - Software for the far edge.">
+      <meta property="og:description" content="Quad4 is an independent software collective. We build all sorts of software, from mesh networking tools and offline-first web apps to self-hosted infrastructure.">
+      <meta property="og:url" content="https://quad4.io/">
+      <meta property="og:image" content="https://quad4.io/og.png">
+      <meta property="og:image:type" content="image/png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image" content="https://quad4.io/og.webp">
+      <meta property="og:image:type" content="image/webp">
+      <meta name="twitter:card" content="summary_large_image">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://quad4.io/#org",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://quad4.io/og.png",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": ["https://github.com/Quad4-Software", "https://git.quad4.io"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://quad4.io/#site",
+            "name": "Quad4",
+            "url": "https://quad4.io/",
+            "publisher": { "@id": "https://quad4.io/#org" }
+          }
+        ]
+      }
+    </script>
+      <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+      <div class="relative z-[1] flex min-h-dvh flex-col">
+        <a href="#main" class="absolute left-4 -top-20 z-[100] rounded-md bg-accent px-3 py-2 font-mono text-sm text-on-accent focus:top-4">Skip to content</a>
+        <header class="sticky top-0 z-50 bg-canvas-alpha backdrop-blur-[14px]">
+          <nav class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-5 md:px-8" aria-label="Main">
+            <a href="/" class="inline-flex items-center gap-2.5 text-fg no-underline" aria-label="Quad4 home">
+            <svg viewBox="-1.16 -1.16 2.32 2.32" width="22" height="22" fill="currentColor" role="presentation" aria-hidden="true"><g fill-rule="nonzero"><path d="M 0.10097 -0.97999 L 0.09859 -0.69728 L 0.39556 -0.52385 L 0.09859 -0.35517 L 0.09859 -0.11522 L 0.83983 -0.54286 Z"></path><path d="M -0.09859 -0.97762 L -0.83745 -0.54523 L -0.10097 -0.11760 L -0.09622 -0.35517 L -0.39081 -0.52385 L -0.09622 -0.69728 Z"></path><path d="M -0.86121 -0.49059 L -0.86121 0.36943 L -0.62363 0.23163 L -0.62126 -0.10810 L -0.32666 0.06533 L -0.11285 -0.05821 Z"></path><path d="M 0.86121 -0.49059 L 0.11998 -0.05821 L 0.33142 0.06533 L 0.62363 -0.10572 L 0.62601 0.23163 L 0.86121 0.36705 Z"></path><path d="M 0.07008 0.19362 L 0.07008 0.98237 L 0.79231 0.54761 L 0.56424 0.41219 L 0.26252 0.59750 L 0.26014 0.30291 Z"></path><path d="M -0.07008 0.19600 L -0.25777 0.30291 L -0.26014 0.59750 L -0.56186 0.41219 L -0.78993 0.54761 L -0.07008 0.97999 Z"></path></g></svg>
+            <span class="font-mono text-sm font-bold tracking-[0.22em]">QUAD4</span></a>
+            <div class="nav-links items-center gap-4">
+              <a href="/projects" class="font-mono text-sm no-underline transition-colors hover:text-fg text-muted">Projects</a><a href="/git" class="font-mono text-sm no-underline transition-colors hover:text-fg text-muted">Git</a><a href="/licenses" class="font-mono text-sm no-underline transition-colors hover:text-fg text-muted">Licenses</a><a href="/contact" class="font-mono text-sm no-underline transition-colors hover:text-fg text-muted">Contact</a>
+            </div>
+          </nav>
+        </header>
+        <main id="main" class="flex-1">
+          <section class="mx-auto max-w-6xl px-5 pt-6 pb-8 text-center md:px-8 md:pt-10 md:pb-12">
+            <svg viewBox="0 0 640 460" class="mx-auto block w-full max-w-[34rem] text-fg" aria-hidden="true" fill="none" role="presentation" style="transform-origin: 50% 50%"><defs><linearGradient id="q4-disk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0"></stop><stop offset="0.28" stop-color="currentColor" stop-opacity="0.7"></stop><stop offset="0.7" stop-color="currentColor" stop-opacity="0.22"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></linearGradient><linearGradient id="q4-rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="currentColor" stop-opacity="0.95"></stop><stop offset="0.45" stop-color="currentColor" stop-opacity="0.5"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0.12"></stop></linearGradient><filter id="q4-faint" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"></feGaussianBlur></filter><clipPath id="q4-occlude" clipPathUnits="userSpaceOnUse"><path clip-rule="evenodd" d="M -600 -600 H 600 V 600 H -600 Z M 84 0 A 84 84 0 1 0 -84 0 A 84 84 0 1 0 84 0 Z"></path><rect x="-600" y="0" width="1200" height="600"></rect></clipPath></defs><g transform="rotate(-10 320 230)" stroke="currentColor"><path d="M 20 230 A 300 82 0 0 1 620 230" stroke="url(#q4-disk)" stroke-width="16" opacity="0.3"></path><path d="M 20 230 A 300 82 0 0 1 620 230" stroke="url(#q4-rim)" stroke-width="1.6"></path><path d="M 68 230 A 252 66 0 0 1 572 230" stroke-width="1.2" opacity="0.38" stroke-dasharray="2 7"></path><path d="M 170 230 A 150 40 0 0 1 470 230" stroke="url(#q4-rim)" stroke-width="2.4" opacity="0.7"></path><path d="M 208 230 A 112 29 0 0 1 432 230" stroke-width="1.2" opacity="0.5"></path></g><path d="M 195 222 A 130 80 0 0 1 445 222" stroke="currentColor" stroke-width="2.2" opacity="0.55"></path><path d="M 195 238 A 130 80 0 0 0 445 238" stroke="currentColor" stroke-width="1.5" opacity="0.24"></path><circle cx="320" cy="230" r="84" class="fill-canvas"></circle><circle cx="320" cy="230" r="89" stroke="currentColor" stroke-width="5" opacity="0.22" filter="url(#q4-faint)"></circle><circle cx="320" cy="230" r="89" stroke="currentColor" stroke-width="1.6" opacity="0.9"></circle><circle cx="320" cy="230" r="86" stroke="currentColor" stroke-width="0.7" opacity="0.5"></circle><g transform="rotate(-10 320 230)" stroke="currentColor"><path d="M 620 230 A 300 82 0 0 1 20 230" stroke="url(#q4-rim)" stroke-width="1.6" opacity="0.85"></path><path d="M 572 230 A 252 66 0 0 1 68 230" stroke-width="1.1" opacity="0.4" stroke-dasharray="2 7"></path><path d="M 470 230 A 150 40 0 0 1 170 230" stroke="url(#q4-rim)" stroke-width="2.2" opacity="0.7"></path><circle cx="499" cy="231" r="2" fill="currentColor" stroke="none" opacity="0.8"></circle><circle cx="118" cy="246" r="1.6" fill="currentColor" stroke="none" opacity="0.55"></circle><circle cx="222" cy="297" r="1.4" fill="currentColor" stroke="none" opacity="0.45"></circle></g></svg>
+            <div>
+              <h1 class="text-4xl leading-[1.05] font-semibold tracking-[-0.035em] md:text-6xl">
+                Software for the far edge.
+              </h1>
+              <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                Quad4 is an independent software collective. We build all sorts of software, from mesh networking tools and offline-first web apps to self-hosted infrastructure. Everything we ship keeps working when the internet does not.
+              </p>
+              <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="/projects" class="inline-flex cursor-pointer items-center gap-2 rounded-full border px-5 py-2.5 font-mono text-sm font-medium no-underline transition-[opacity,border-color,background] duration-150 border-accent bg-accent text-on-accent hover:opacity-85">Explore projects 
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a><a href="/git" class="inline-flex cursor-pointer items-center gap-2 rounded-full border px-5 py-2.5 font-mono text-sm font-medium no-underline transition-[opacity,border-color,background] duration-150 border-line text-fg hover:border-faint"> Source and mirrors </a>
+              </div>
+            </div>
+          </section>
+          <div class="border-y border-line">
+            <div class="mx-auto grid max-w-6xl grid-cols-2 px-5 md:grid-cols-4 md:px-8">
+              <div class="border-l border-line px-4 py-8 text-center first:border-l-0">
+                <div class="font-mono text-2xl font-bold md:text-3xl">
+                  40
+                </div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-faint">
+                  Repositories
+                </div>
+              </div>
+              <div class="border-l border-line px-4 py-8 text-center first:border-l-0">
+                <div class="font-mono text-2xl font-bold md:text-3xl">
+                  9
+                </div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-faint">
+                  Languages
+                </div>
+              </div>
+              <div class="border-l border-line px-4 py-8 text-center first:border-l-0">
+                <div class="font-mono text-2xl font-bold md:text-3xl">
+                  0
+                </div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-faint">
+                  Trackers
+                </div>
+              </div>
+              <div class="border-l border-line px-4 py-8 text-center first:border-l-0">
+                <div class="font-mono text-2xl font-bold md:text-3xl">
+                  100%
+                </div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-faint">
+                  Source available
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
+            <h2 class="mb-3 text-2xl font-semibold tracking-[-0.02em] md:text-3xl">
+              Six orbits
+            </h2>
+            <p class="max-w-xl text-sm leading-relaxed text-muted md:text-base">
+              Everything we ship is built to work without asking a server for permission.
+            </p>
+            <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-radio" aria-hidden="true"><path d="M16.247 7.761a6 6 0 0 1 0 8.478"></path><path d="M19.075 4.933a10 10 0 0 1 0 14.134"></path><path d="M4.925 19.067a10 10 0 0 1 0-14.134"></path><path d="M7.753 16.239a6 6 0 0 1 0-8.478"></path><circle cx="12" cy="12" r="2"></circle></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Mesh networking
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  Apps and services for the Reticulum network. Messaging, browsing and file sync that keep working off the regular internet.
+                </p>
+              </div>
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi-off" aria-hidden="true"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Offline-first web
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  Apps for translation that run entirely in your browser. No servers, no leaks.
+                </p>
+              </div>
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Self-hosted infrastructure
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  Identity, finance and ops tools you run yourself. If it phones home, we do not ship it.
+                </p>
+              </div>
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Security tooling
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  Our own repository scanner and kernel sandboxing libraries. Defense is a product category here.
+                </p>
+              </div>
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Privacy by default
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  No trackers, no analytics, no telemetry. Encryption and offline modes are the default and your data stays on your devices.
+                </p>
+              </div>
+              <div class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+                <span class="mb-4 inline-flex size-9 items-center justify-center rounded-lg border border-line text-fg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-check" aria-hidden="true"><path d="M12 22V12"></path><path d="m16 17 2 2 4-4"></path><path d="M21 11.127V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.32-.753"></path><path d="M3.29 7 12 12l8.71-5"></path><path d="m7.5 4.27 8.997 5.148"></path></svg>
+                </span>
+                <h3 class="mb-2 text-lg font-semibold">
+                  Verifiable supply chain
+                </h3>
+                <p class="text-sm leading-relaxed text-muted">
+                  SHA-pinned actions, hardened runners, signed container images and frozen lockfiles with release-age rules. Every build is attestable.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
+            <div class="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+              <div>
+                <h2 class="mb-3 text-2xl font-semibold tracking-[-0.02em] md:text-3xl mb-0">
+                  Featured projects
+                </h2>
+              </div>
+              <a href="/projects" class="inline-flex items-center gap-1.5 font-mono text-sm text-muted no-underline hover:text-fg">View all 40 
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+            </div>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <a href="https://github.com/Quad4-Software/MeshChatX" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5 col-span-full">
+              <div class="flex items-center gap-5">
+                <img src="/meshchatx.webp" alt="" width="48" height="48" class="size-12 shrink-0 rounded-lg">
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-start justify-between gap-3">
+                    <span class="text-lg font-semibold tracking-[-0.01em]">MeshChatX</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right mt-1 shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                  </div>
+                  <p class="mt-2 text-sm leading-relaxed text-muted">
+                    Messaging, calls and NomadNet pages over the Reticulum network.
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                    <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #3572A5"></span>Python</span><span class="inline-flex items-center gap-1" title="BSD Zero Clause License">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                    0BSD</span><span class="inline-flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                    163</span><span class="inline-flex items-center gap-1" title="28573 release downloads">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                    28.6k</span><span class="inline-flex items-center gap-1 text-fresh" title="Last commit Sun Oct 25 2026">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                    1d ago</span><span class="rounded-full border border-line px-2 py-0.5">reticulum</span><span class="rounded-full border border-line px-2 py-0.5">lxmf</span><span class="rounded-full border border-line px-2 py-0.5">lxst</span>
+                  </div>
+                </div>
+              </div>
+              </a><a href="https://github.com/Quad4-Software/Reticulum-Go" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex min-w-0 items-center gap-2.5">
+                <svg viewBox="0 0 40 40" width="24" height="24" class="block shrink-0 text-fg" aria-hidden="true"><circle cx="20" cy="20" r="2" fill="currentColor"></circle><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="23.708203932499366" cy="31.412678195541844" r="1.6" fill="currentColor"></circle></svg>
+                <span class="text-base font-semibold tracking-[-0.01em]">Reticulum-Go</span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              </div>
+              <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+                The Reticulum network stack, written in Go.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #00ADD8"></span>Go</span><span class="inline-flex items-center gap-1" title="Reticulum License">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                Reticulum</span><span class="inline-flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                40</span><span class="inline-flex items-center gap-1" title="1301 release downloads">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                1.3k</span><span class="inline-flex items-center gap-1 text-fresh" title="Last commit Sun Oct 25 2026">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                1d ago</span><span class="rounded-full border border-line px-2 py-0.5">rns</span><span class="rounded-full border border-line px-2 py-0.5">reticulum</span>
+              </div>
+              </a><a href="https://github.com/Quad4-Software/Ren-Browser" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex min-w-0 items-center gap-2.5">
+                <svg viewBox="0 0 40 40" width="24" height="24" class="block shrink-0 text-fg" aria-hidden="true"><circle cx="20" cy="20" r="2" fill="currentColor"></circle><circle cx="20" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="20.731699242873574" cy="13.038346732422088" r="1.6" fill="currentColor"></circle><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="21.87721358048277" cy="8.147739912858347" r="1.6" fill="currentColor"></circle></svg>
+                <span class="text-base font-semibold tracking-[-0.01em]">Ren-Browser</span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              </div>
+              <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+                A web browser for the Reticulum network, built on Reticulum-Go.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #00ADD8"></span>Go</span><span class="inline-flex items-center gap-1" title="MIT License">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                MIT</span><span class="inline-flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                27</span><span class="inline-flex items-center gap-1" title="2119 release downloads">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                2.1k</span><span class="inline-flex items-center gap-1 text-fresh" title="Last commit Sun Oct 25 2026">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                1d ago</span><span class="rounded-full border border-line px-2 py-0.5">reticulum</span><span class="rounded-full border border-line px-2 py-0.5">browser</span>
+              </div>
+              </a><a href="https://github.com/Quad4-Software/translatasm" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex min-w-0 items-center gap-2.5">
+                <svg viewBox="0 0 40 40" width="24" height="24" class="block shrink-0 text-fg" aria-hidden="true"><circle cx="20" cy="20" r="2" fill="currentColor"></circle><circle cx="20" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="14.96462139762944" cy="24.86260859321298" r="1.6" fill="currentColor"></circle><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="16.09318214651412" cy="31.3462229071918" r="1.6" fill="currentColor"></circle><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="13.085477067711395" cy="35.53027277992422" r="1.6" fill="currentColor"></circle></svg>
+                <span class="text-base font-semibold tracking-[-0.01em]">translatasm</span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              </div>
+              <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+                Offline text translation in the browser.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #f1e05a"></span>JavaScript</span><span class="inline-flex items-center gap-1" title="BSD Zero Clause License">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                0BSD</span><span class="inline-flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                2</span><span class="inline-flex items-center gap-1" title="194 release downloads">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                194</span><span class="inline-flex items-center gap-1 text-aging" title="Last commit Thu Sep 17 2026">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                1mo ago</span><span class="rounded-full border border-line px-2 py-0.5">offline</span><span class="rounded-full border border-line px-2 py-0.5">translation</span><span class="rounded-full border border-line px-2 py-0.5">browser</span>
+              </div>
+              </a><a href="https://github.com/Quad4-Software/nullray" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex min-w-0 items-center gap-2.5">
+                <svg viewBox="0 0 40 40" width="24" height="24" class="block shrink-0 text-fg" aria-hidden="true"><circle cx="20" cy="20" r="2" fill="currentColor"></circle><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="8.953941758570716" cy="15.311226458128715" r="1.6" fill="currentColor"></circle><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="33.7532889043741" cy="29.992349288972047" r="1.6" fill="currentColor"></circle></svg>
+                <span class="text-base font-semibold tracking-[-0.01em]">nullray</span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              </div>
+              <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+                Lightweight AI agent for the terminal.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #60AFFE"></span>Odin</span><span class="inline-flex items-center gap-1" title="Quad4 Source License">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                QSL</span><span class="inline-flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                2</span><span class="inline-flex items-center gap-1 text-fresh" title="Last commit Mon Oct 26 2026">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                today</span><span class="rounded-full border border-line px-2 py-0.5">agent</span><span class="rounded-full border border-line px-2 py-0.5">tui</span><span class="rounded-full border border-line px-2 py-0.5">llm</span>
+              </div>
+              </a><a href="https://github.com/Quad4-Software/pip-rns" target="_blank" rel="noopener noreferrer" class="block rounded-xl border border-line bg-surface-alpha p-5 transition-[border-color,transform,background] duration-200 hover:border-faint hover:-translate-y-0.5">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex min-w-0 items-center gap-2.5">
+                <svg viewBox="0 0 40 40" width="24" height="24" class="block shrink-0 text-fg" aria-hidden="true"><circle cx="20" cy="20" r="2" fill="currentColor"></circle><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"></circle><circle cx="8.587321804458158" cy="16.29179606750063" r="1.6" fill="currentColor"></circle></svg>
+                <span class="text-base font-semibold tracking-[-0.01em]">pip-rns</span></span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right shrink-0 text-faint" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+              </div>
+              <p class="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-muted">
+                Install Python packages from rngit remotes with pip, pipx, uv or poetry.
+              </p>
+              <div class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs text-faint">
+                <span class="inline-flex items-center gap-1.5"><span class="size-2.5 shrink-0 rounded-full" style="background: #3572A5"></span>Python</span><span class="inline-flex items-center gap-1" title="BSD 2-Clause License">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true"><path d="M12 3v18"></path><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path><path d="M7 21h10"></path></svg>
+                BSD-2-Clause</span><span class="inline-flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                9</span><span class="inline-flex items-center gap-1" title="71 release downloads">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                71</span><span class="inline-flex items-center gap-1 text-fresh" title="Last commit Mon Oct 26 2026">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                today</span>
+              </div>
+              </a>
+            </div>
+          </section>
+          <section class="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
+            <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
+              <div>
+                <h2 class="mb-3 text-2xl font-semibold tracking-[-0.02em] md:text-3xl">
+                  From the void, a forge
+                </h2>
+                <p class="max-w-xl text-sm leading-relaxed text-muted md:text-base">
+                  Canonical trees live on the network via rngit. Our own forge at git.quad4.io is coming back online soon, and GitHub mirrors carry issues, CI and releases.
+                </p>
+                <div class="mt-6">
+                  <a href="/git" class="inline-flex cursor-pointer items-center gap-2 rounded-full border px-5 py-2.5 font-mono text-sm font-medium no-underline transition-[opacity,border-color,background] duration-150 border-line text-fg hover:border-faint">Source and mirrors 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                  </a>
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-xl border border-line bg-surface">
+                <div class="flex items-center gap-1.5 border-b border-line px-4 py-2.5">
+                  <span class="size-2.5 rounded-full bg-line"></span><span class="size-2.5 rounded-full bg-line"></span><span class="size-2.5 rounded-full bg-line"></span><span class="ml-auto font-mono text-xs text-faint">sh</span>
+                </div>
+                <div class="overflow-x-auto p-4 font-mono text-xs whitespace-nowrap sm:text-sm">
+                  <span class="text-faint select-none">$ </span>git clone rns://06a54b505bb67b25ef3f8097e8001edc/public/MeshChatX
+                </div>
+                <div class="flex items-center justify-between gap-3 px-4 pb-4">
+                  <span class="font-mono text-xs text-faint">mirrored on rngit, forge and GitHub</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer class="mt-8">
+          <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-5 py-10 md:grid-cols-[2fr_1fr_1fr] md:px-8">
+            <div>
+              <div class="mb-3 flex items-center gap-2.5">
+                <svg viewBox="-1.16 -1.16 2.32 2.32" width="20" height="20" fill="currentColor" role="presentation" aria-hidden="true"><g fill-rule="nonzero"><path d="M 0.10097 -0.97999 L 0.09859 -0.69728 L 0.39556 -0.52385 L 0.09859 -0.35517 L 0.09859 -0.11522 L 0.83983 -0.54286 Z"></path><path d="M -0.09859 -0.97762 L -0.83745 -0.54523 L -0.10097 -0.11760 L -0.09622 -0.35517 L -0.39081 -0.52385 L -0.09622 -0.69728 Z"></path><path d="M -0.86121 -0.49059 L -0.86121 0.36943 L -0.62363 0.23163 L -0.62126 -0.10810 L -0.32666 0.06533 L -0.11285 -0.05821 Z"></path><path d="M 0.86121 -0.49059 L 0.11998 -0.05821 L 0.33142 0.06533 L 0.62363 -0.10572 L 0.62601 0.23163 L 0.86121 0.36705 Z"></path><path d="M 0.07008 0.19362 L 0.07008 0.98237 L 0.79231 0.54761 L 0.56424 0.41219 L 0.26252 0.59750 L 0.26014 0.30291 Z"></path><path d="M -0.07008 0.19600 L -0.25777 0.30291 L -0.26014 0.59750 L -0.56186 0.41219 L -0.78993 0.54761 L -0.07008 0.97999 Z"></path></g></svg>
+                <span class="font-mono text-sm font-bold tracking-[0.22em]">QUAD4</span>
+              </div>
+              <p class="max-w-96 text-sm leading-relaxed text-muted">
+                Independent software collective. Mesh networking, offline-first web and self-hosted infrastructure.
+              </p>
+            </div>
+            <nav aria-label="Site">
+              <h2 class="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-faint">
+                Site
+              </h2>
+              <a href="/" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Home</a><a href="/projects" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Projects</a><a href="/git" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Git</a><a href="/licenses" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Licenses</a><a href="/contact" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Contact</a><a href="/branding" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">Branding</a>
+            </nav>
+            <nav aria-label="Source">
+              <h2 class="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-faint">
+                Source
+              </h2>
+              <a href="https://github.com/Quad4-Software" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">
+              <svg viewBox="0 0 24 24" width="16" height="16" class="size-4 rounded-sm" fill="currentColor" role="presentation" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+              GitHub</a><a href="https://git.quad4.io" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg">
+              <svg viewBox="-1.16 -1.16 2.32 2.32" width="16" height="16" class="size-4 rounded-sm" fill="currentColor" role="presentation" aria-hidden="true"><g fill-rule="nonzero"><path d="M 0.10097 -0.97999 L 0.09859 -0.69728 L 0.39556 -0.52385 L 0.09859 -0.35517 L 0.09859 -0.11522 L 0.83983 -0.54286 Z"></path><path d="M -0.09859 -0.97762 L -0.83745 -0.54523 L -0.10097 -0.11760 L -0.09622 -0.35517 L -0.39081 -0.52385 L -0.09622 -0.69728 Z"></path><path d="M -0.86121 -0.49059 L -0.86121 0.36943 L -0.62363 0.23163 L -0.62126 -0.10810 L -0.32666 0.06533 L -0.11285 -0.05821 Z"></path><path d="M 0.86121 -0.49059 L 0.11998 -0.05821 L 0.33142 0.06533 L 0.62363 -0.10572 L 0.62601 0.23163 L 0.86121 0.36705 Z"></path><path d="M 0.07008 0.19362 L 0.07008 0.98237 L 0.79231 0.54761 L 0.56424 0.41219 L 0.26252 0.59750 L 0.26014 0.30291 Z"></path><path d="M -0.07008 0.19600 L -0.25777 0.30291 L -0.26014 0.59750 L -0.56186 0.41219 L -0.78993 0.54761 L -0.07008 0.97999 Z"></path></g></svg>
+              git.quad4.io</a><a href="https://meshchatx.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 py-1 text-sm text-muted no-underline hover:text-fg"><img src="/meshchatx.webp" alt="" width="16" height="16" class="size-4 rounded-sm">meshchatx.com</a>
+            </nav>
+          </div>
+          <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-5 font-mono text-xs text-faint md:px-8">
+            <span>&copy; 2026 Quad4</span><span>No trackers. No telemetry.</span><span>No JavaScript.</span>
+          </div>
+        </footer>
+      </div>
+    </body>
+  </html>

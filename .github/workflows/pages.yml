@@ -1,6 +1,6 @@
 # Deploys the site to GitHub Pages on every push to master. Requires repo
 # Settings -> Pages -> Build and deployment -> GitHub Actions. The site is
-# served on the quad4.io custom domain, so it builds at the root path.
+# plain HTML and CSS at the repo root, so there is no build step.
 name: GitHub Pages
 
 on:
@@ -14,11 +14,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read # checkout
+      pages: write # create the pages deployment
+      id-token: write # authenticate to the pages api
     steps:
       - name: Harden runner
         uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
@@ -30,37 +35,16 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
-
-      - name: Setup Node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
-        with:
-          node-version: '24'
-          cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build site
-        run: pnpm build
+      - name: Stage site
+        run: |
+          mkdir _site
+          git ls-files -z | tar --null -cf - --files-from - | tar -xf - -C _site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
-          path: dist
+          path: _site
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write # create the pages deployment
-      id-token: write # authenticate to the pages api
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
