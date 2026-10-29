@@ -8,7 +8,7 @@ and no build step. The repo root is the site root.
 - `index.html`, `404.html` - top level pages
 - `projects/`, `git/`, `contact/`, `licenses/`, `branding/` - one `index.html` per section
 - `style.css` - the whole stylesheet
-- `fonts/` - vendored woff2, Space Grotesk and Space Mono
+- `fonts/` - vendored woff2, Inter and Space Mono
 - `brand/`, `*.svg`, `*.png`, `*.webp` - mark, lockups and social assets
 - `_headers`, `robots.txt`, `sitemap.xml`, `CNAME` - host metadata
 
